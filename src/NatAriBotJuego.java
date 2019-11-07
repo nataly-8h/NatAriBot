@@ -18,10 +18,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.addMouseListener(this);
 		}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
