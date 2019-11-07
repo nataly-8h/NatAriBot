@@ -5,8 +5,8 @@ public class wof extends JFrame{
 		super("WOOOF OVERDRIVE");
 		this.setSize(720, 700);
 		
-		JTextField e = new JTextField();
-		add(e);
+//		JTextField e = new JTextField();
+//		add(e);
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
