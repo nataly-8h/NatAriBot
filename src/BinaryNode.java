@@ -1,5 +1,3 @@
-package node;
-
 public class BinaryNode {
 	private int value;
 	private int height;

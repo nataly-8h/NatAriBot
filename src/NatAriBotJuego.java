@@ -5,7 +5,17 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Hashtable;
+import java.util.StringTokenizer;
+
 import javax.swing.JPanel;
+
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 	
@@ -13,8 +23,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				inicial,
 				meta,
 				toolbox;
-	
-	
+	private Hashtable<Integer, String> niveles;
+	private AVLTree avl;
 	
 	public NatAriBotJuego() {
 		super();
@@ -24,6 +34,24 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addKeyListener(this);
 		this.setFocusable(true);
 		this.addMouseListener(this);
+		this.avl = new AVLTree();
+		this.niveles = new Hashtable<Integer, String>();
+		try {
+			int count = 1;
+			String linea;
+			BufferedReader br = new BufferedReader(new FileReader("nivel.txt"));
+			br.readLine();
+			while((linea = br.readLine()) != null) {
+				niveles.put(count, linea);
+				avl.insert(count);
+				count++;
+			}
+			br.close();
+		} catch(FileNotFoundException ex) {
+			System.out.println("No se localizó el archivo " + ex);
+		}catch(IOException ex) {
+			System.out.println("Ocurrió un error de I/O "+ ex);
+		}
 	}
 	
 	public void paint(Graphics g) {
