@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -8,15 +9,30 @@ import javax.swing.JPanel;
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 	
-		public NatAriBotJuego() {
-			super();
-			this.setPreferredSize(new Dimension(700,700));
-			this.setOpaque(true);
-			this.setBackground(Color.BLACK);
-			this.addKeyListener(this);
-			this.setFocusable(true);
-			this.addMouseListener(this);
-		}
+	public NatAriBotJuego() {
+		super();
+		this.setPreferredSize(new Dimension(1200,700));
+		this.setOpaque(true);
+		this.setBackground(Color.BLACK);
+		this.addKeyListener(this);
+		this.setFocusable(true);
+		this.addMouseListener(this);
+	}
+	
+	public void paint(Graphics g) {
+		super.paint(g);
+		g.setColor(Color.green);
+		g.fillRect(17, 17, 700, 400);
+		
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(17, 434, 700, 249);
+		
+		g.setColor(Color.BLUE);
+		g.fillRect(734, 17, 449, 400);
+		
+		g.setColor(Color.ORANGE);
+		g.fillRect(734, 434, 449, 249);
+	}
 
 
 	@Override
