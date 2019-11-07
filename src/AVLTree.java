@@ -1,8 +1,8 @@
-package AVLTree;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import node.*;
+
+//import node.*;
 
 public class AVLTree {
 	BinaryNode root;
