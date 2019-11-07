@@ -9,6 +9,13 @@ import javax.swing.JPanel;
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 	
+	private int[] programas,
+				inicial,
+				meta,
+				toolbox;
+	
+	
+	
 	public NatAriBotJuego() {
 		super();
 		this.setPreferredSize(new Dimension(1200,700));
