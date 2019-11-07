@@ -1,4 +1,3 @@
-
 public class BinaryNode {
 	private int value;
 	private int height;
@@ -8,11 +7,11 @@ public class BinaryNode {
 	public int getHeight() {
 		return height;
 	}//end of method
-	
+
 	public void setHeight(int height) {
 		this.height = height;
 	}//end of method
-	
+
 	public int getValue() {
 		return value;
 	}//end of method

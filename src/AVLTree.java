@@ -1,8 +1,5 @@
-
 import java.util.LinkedList;
 import java.util.Queue;
-
-//import node.*;
 
 public class AVLTree {
 	BinaryNode root;
@@ -10,19 +7,19 @@ public class AVLTree {
 		return root;
 	}
 
-	
+
 	// Constructor
 	AVLTree() {
 		root = null;
 	}
 
-	
+
 	// Insert values in AVL Tree
 	void insert(int value) {
 		root = insert(root, value);
 	}// end of method
 
-	
+
 	// Helper Method
 	BinaryNode insert(BinaryNode currentNode, int value) {
 		// THIS ELSE_IF BLOCK IS BST CONDITION
@@ -66,7 +63,7 @@ public class AVLTree {
 
 	}// end of method
 
-	
+
 	// Helper Method
 	private BinaryNode leftRotate(BinaryNode currentNode) {
 		BinaryNode newRoot = currentNode.getRight();
@@ -77,7 +74,7 @@ public class AVLTree {
 		return newRoot;
 	}// end of method
 
-	
+
 	// Helper Method
 	private BinaryNode rightRotate(BinaryNode currentNode) {
 		BinaryNode newRoot = currentNode.getLeft();
@@ -88,7 +85,7 @@ public class AVLTree {
 		return newRoot;
 	}// end of method
 
-	
+
 	// Helper Method
 	private int checkBalance(BinaryNode rootLeft, BinaryNode rootRight) {
 		if((rootLeft == null) && (rootRight == null)) { //if current node is a leaf node then no need to check balance of its children
@@ -106,7 +103,7 @@ public class AVLTree {
 		}
 	}// end of method
 
-	
+
 	// Calculate height of Node
 	private int calculateHeight(BinaryNode currentNode) {
 		if (currentNode == null) {
@@ -117,7 +114,7 @@ public class AVLTree {
 
 	}// end of method
 
-	
+
 	// creates a new blank new node
 	public BinaryNode createNewNode(int value) {
 		BinaryNode node = new BinaryNode();
@@ -126,7 +123,7 @@ public class AVLTree {
 		return node;
 	}// end of method
 
-	
+
 	// Level order traversal of BST
 	void levelOrderTraversal() {
 		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
@@ -146,14 +143,14 @@ public class AVLTree {
 		}
 	}// end of method
 
-	
+
 	// Deleting a node from BST
 	public void deleteNodeOfBST(int value) {
 		System.out.println("Deleting " + value + " from AVL Tree ...");
 		root = deleteNodeOfBST(root, value);
 	}
 
-	
+
 	// Helper Method for delete
 	public BinaryNode deleteNodeOfBST(BinaryNode currentNode, int value) {
 		// THIS ELSE_IF BLOCK IS BST CONDITION
@@ -210,7 +207,7 @@ public class AVLTree {
 
 	}// end of method
 
-	
+
 	// Get minimum element in binary search tree
 	public static BinaryNode minimumElement(BinaryNode root) {
 		if (root.getLeft() == null)
@@ -219,23 +216,23 @@ public class AVLTree {
 			return minimumElement(root.getLeft());
 		}
 	}// end of method
-	
-	
+
+
 	void printTreeGraphically() {
 		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
 		Queue<Integer> level = new LinkedList<Integer>();
-		
+
 		int CurrentLevel = 1;
 		boolean previousLevelWasAllNull = false;
 		queue.add(root);
 		level.add(1);
-		
+
 		System.out.println("\nPrinting Level order traversal of Tree...");
 		if(root == null) {
 			System.out.println("Tree does not exists !");
 			return;
 		}
-		
+
 		while (!queue.isEmpty()) {
 			if(CurrentLevel == level.peek()) { //if we are in the same level
 				if(queue.peek()==null) {
