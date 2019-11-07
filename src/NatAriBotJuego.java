@@ -42,6 +42,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			BufferedReader br = new BufferedReader(new FileReader("nivel.txt"));
 			br.readLine();
 			while((linea = br.readLine()) != null) {
+				System.out.println(linea);
 				niveles.put(count, linea);
 				avl.insert(count);
 				count++;
