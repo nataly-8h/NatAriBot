@@ -11,7 +11,10 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Arrays;
 import java.util.Hashtable;
+import java.util.ListIterator;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 import javax.swing.JPanel;
@@ -19,10 +22,19 @@ import javax.swing.JPanel;
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 
-	private int[] programas,
-				inicial,
-				meta,
-				toolbox;
+	private int[] programas;
+	
+	private Tool[] toolbox;
+	
+	private Stack<Caja>[] cajas,
+							meta;
+	
+	private int espacios;
+	
+	private String nivel;
+	
+	
+	
 	private Hashtable<Integer, String> niveles;
 	private AVLTree avl;
 
@@ -36,13 +48,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addMouseListener(this);
 		this.avl = new AVLTree();
 		this.niveles = new Hashtable<Integer, String>();
+		this.toolbox = new Tool[7];
 		try {
 			int count = 1;
 			String linea;
 			BufferedReader br = new BufferedReader(new FileReader("nivel.txt"));
-			br.readLine();
 			while((linea = br.readLine()) != null) {
-				System.out.println(linea);
 				niveles.put(count, linea);
 				avl.insert(count);
 				count++;
@@ -52,6 +63,80 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			System.out.println("No se localiz� el archivo " + ex);
 		}catch(IOException ex) {
 			System.out.println("Ocurri� un error de I/O "+ ex);
+		}
+		nivel = niveles.get(avl.root.getValue());
+		StringTokenizer st = new StringTokenizer(nivel);
+		int contador = 0;
+		this.programas = new int[4];
+		while(st.hasMoreTokens()) {
+			if(contador<4) {
+				this.programas[contador] = Integer.parseInt(st.nextToken());
+			}else if(contador==4) {
+				this.espacios = Integer.parseInt(st.nextToken());
+				this.cajas = (Stack<Caja>[]) new Stack[this.espacios];
+				this.meta = (Stack<Caja>[]) new Stack[this.espacios];
+				for(int i = 0;i<this.espacios;i++) {
+					this.cajas[i] = new Stack<Caja>();
+					this.meta[i] = new Stack<Caja>();
+				}
+				
+				for(int i=0;i<this.espacios;i++) {
+					String cajas = st.nextToken();
+					for(int j=0;j<cajas.length();j++) {
+						if(cajas.charAt(j)=='0') {
+							continue;
+						} else {
+							this.cajas[i].add(new Caja(cajas.charAt(j)));
+						}
+					}
+				}
+				for(int i=0;i<this.espacios;i++) {
+					String goal = st.nextToken();
+					for(int j=0;j<goal.length();j++) {
+						if(goal.charAt(j)=='0') {
+							continue;
+						} else {
+							this.meta[i].add(new Caja(goal.charAt(j)));
+						}
+					}
+				}
+			} else {
+					for(int i =0; i<7;i++) {
+					String elemento = st.nextToken();
+					if(elemento!="0") {
+						switch(i) {
+						case 0: 
+							this.toolbox[i] = new Tool("derecha");
+							break;
+						case 1: 
+							this.toolbox[i] = new Tool("abajo");
+							break;
+						case 2: 
+							this.toolbox[i] = new Tool("izquierda");
+							break;
+						case 3: 
+							this.toolbox[i] = new Tool("programa1");
+							break;
+						case 4: 
+							this.toolbox[i] = new Tool("programa2");
+							break;
+						case 5: 
+							this.toolbox[i] = new Tool("programa3");
+							break;
+						case 6: 
+							this.toolbox[i] = new Tool("programa4");
+							break;
+						default:
+							System.out.println("ERROR SUGOIII");
+							System.exit(0);
+						}
+					}
+				}
+			}
+			
+			
+			contador++;
+			
 		}
 	}
 
