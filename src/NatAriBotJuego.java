@@ -86,7 +86,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						if(cajas.charAt(j)=='0') {
 							continue;
 						} else {
-							this.cajas[i].add(new Caja(cajas.charAt(j)));
+							this.cajas[i].add(new Caja(Character.getNumericValue(cajas.charAt(j))));
 						}
 					}
 				}
@@ -96,7 +96,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						if(goal.charAt(j)=='0') {
 							continue;
 						} else {
-							this.meta[i].add(new Caja(goal.charAt(j)));
+							this.meta[i].add(new Caja(Character.getNumericValue(goal.charAt(j))));
 						}
 					}
 				}
