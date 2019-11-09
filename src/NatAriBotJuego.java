@@ -138,6 +138,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			contador++;
 			
 		}
+		//Initialize Thread
+		
+		Thread hilo = new Thread(this);
+		hilo.start();
 	}
 
 	public void paint(Graphics g) {
