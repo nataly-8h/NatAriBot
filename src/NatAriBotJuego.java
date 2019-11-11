@@ -142,17 +142,71 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void paint(Graphics g) {
 		super.paint(g);
+		//PANEL DE JUEGO
 		g.setColor(Color.green);
 		g.fillRect(17, 17, 700, 400);
-
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(17, 434, 700, 249);
+		
+		//garra
+		g.setColor(Color.black);
+		g.fillRect(75, 27, 40, 15);
+		g.fillRect(59, 47, 76, 17);
+		//base de cajitas
+		g.setColor(Color.blue);
+		g.fillRect(59, 383, 76, 17);
+		g.fillRect(149, 383, 76, 17);
+		g.fillRect(239, 383, 76, 17);
+		g.fillRect(329, 383, 76, 17);
+		g.fillRect(419, 383, 76, 17);
+		g.fillRect(509, 383, 76, 17);
+		g.fillRect(599, 383, 76, 17);
+		//cajitas
+		g.setColor(Color.black);
+		g.fillRect(74, 333, 46, 46);
+		g.fillRect(74, 283, 46, 46);
+		g.fillRect(74, 233, 46, 46);
+		g.fillRect(74, 183, 46, 46);
+		g.fillRect(74, 133, 46, 46);
+		g.fillRect(74, 83, 46, 46);
 
 		g.setColor(Color.BLUE);
 		g.fillRect(734, 17, 449, 400);
-
+		
+		//PROGRAMA
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(17, 434, 700, 249);
+		
+		//programas
+		g.setColor(Color.red);
+		g.fillRect(34, 451, 666, 47);
+		g.fillRect(34, 507, 666, 47);
+		g.fillRect(34, 563, 666, 47);
+		g.fillRect(34, 619, 666, 47);
+		
+		g.setColor(Color.DARK_GRAY);
+		g.fillRect(645, 454, 52, 42);
+		
+//		g.fillRect(610, 454, 42, 42);
+//		g.fillRect(565, 454, 42, 42);
+//		g.fillRect(520, 454, 42, 42);
+//		g.fillRect(475, 454, 42, 42);
+//		g.fillRect(430, 454, 42, 42);
+//		g.fillRect(385, 454, 42, 42);
+//		g.fillRect(340, 454, 42, 42);
+		
+		//TOOLBOX
 		g.setColor(Color.ORANGE);
 		g.fillRect(734, 434, 449, 249);
+		
+		//herramientas
+		
+		g.setColor(Color.yellow);
+		g.fillRect(34, 17, 17, 400);
+		g.fillRect(683, 17, 17, 400);
+		
+		
+		
+		
+		
 	}
 
 
