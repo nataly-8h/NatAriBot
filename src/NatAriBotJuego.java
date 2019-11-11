@@ -5,7 +5,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,12 +21,16 @@ import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 
 	private Queue<Tool>[] programas;
+	
+	private BufferedImage img;
 	
 	private Tool[] toolbox;
 	
@@ -160,6 +166,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			contador++;
 			
 		}
+		//HOMBRES DEL PILAR
+//		try {
+//			this.img = ImageIO.read(getClass().getResourceAsStream("/pilarMen.png"));
+//		}catch(IOException e) {
+//			System.out.println("NEL");;
+//		}
+		
 		//Initialize Thread
 		
 		Thread hilo = new Thread(this);
@@ -208,16 +221,53 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(34, 563, 666, 47);
 		g.fillRect(34, 619, 666, 47);
 		
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(645, 454, 52, 42);
+		//Espacios: 68 de separación
+		g.setColor(Color.BLACK);
+		g.fillRect(632, 454, 65, 42);
+		g.fillRect(564, 454, 65, 42);
+		g.fillRect(496, 454, 65, 42);
+		g.fillRect(428, 454, 65, 42);
+		g.fillRect(360, 454, 65, 42);
+		g.fillRect(292, 454, 65, 42);
+		g.fillRect(224, 454, 65, 42);
+		g.fillRect(156, 454, 65, 42);
 		
-//		g.fillRect(610, 454, 42, 42);
-//		g.fillRect(565, 454, 42, 42);
-//		g.fillRect(520, 454, 42, 42);
-//		g.fillRect(475, 454, 42, 42);
-//		g.fillRect(430, 454, 42, 42);
-//		g.fillRect(385, 454, 42, 42);
-//		g.fillRect(340, 454, 42, 42);
+		g.fillRect(632, 510, 65, 42);
+		g.fillRect(564, 510, 65, 42);
+		g.fillRect(496, 510, 65, 42);
+		g.fillRect(428, 510, 65, 42);
+		g.fillRect(360, 510, 65, 42);
+		g.fillRect(292, 510, 65, 42);
+		g.fillRect(224, 510, 65, 42);
+		g.fillRect(156, 510, 65, 42);
+		
+		g.fillRect(632, 566, 65, 42);
+		g.fillRect(564, 566, 65, 42);
+		g.fillRect(496, 566, 65, 42);
+		g.fillRect(428, 566, 65, 42);
+		g.fillRect(360, 566, 65, 42);
+		g.fillRect(292, 566, 65, 42);
+		g.fillRect(224, 566, 65, 42);
+		g.fillRect(156, 566, 65, 42);
+		
+		g.fillRect(632, 622, 65, 42);
+		g.fillRect(564, 622, 65, 42);
+		g.fillRect(496, 622, 65, 42);
+		g.fillRect(428, 622, 65, 42);
+		g.fillRect(360, 622, 65, 42);
+		g.fillRect(292, 622, 65, 42);
+		g.fillRect(224, 622, 65, 42);
+		g.fillRect(156, 622, 65, 42);
+
+		g.setColor(Color.white);
+		g.drawString(" P R O G R A M A   1 ", 38, 478);
+		g.drawString(" P R O G R A M A   2 ", 38, 534);
+		g.drawString(" P R O G R A M A   3 ", 38, 588);
+		g.drawString(" P R O G R A M A   4 ", 38, 644);
+		
+		
+		
+		
 		
 		//TOOLBOX
 		g.setColor(Color.ORANGE);
