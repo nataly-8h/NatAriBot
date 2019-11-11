@@ -13,7 +13,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Hashtable;
+import java.util.LinkedList;
 import java.util.ListIterator;
+import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
 
@@ -22,14 +24,18 @@ import javax.swing.JPanel;
 
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
 
-	private int[] programas;
+	private Queue<Tool>[] programas;
 	
 	private Tool[] toolbox;
 	
 	private Stack<Caja>[] cajas,
 							meta;
 	
-	private int espacios;
+	private int espacios,
+				sizeMax1,
+				sizeMax2,
+				sizeMax3,
+				sizeMax4;
 	
 	private String nivel;
 	
@@ -67,10 +73,26 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		nivel = niveles.get(avl.root.getValue());
 		StringTokenizer st = new StringTokenizer(nivel);
 		int contador = 0;
-		this.programas = new int[4];
+		this.programas = (Queue<Tool>[]) new Queue[4];
+		for(int i =0;i<4;i++) {
+			this.programas[i] = new LinkedList<Tool>();
+		}
 		while(st.hasMoreTokens()) {
 			if(contador<4) {
-				this.programas[contador] = Integer.parseInt(st.nextToken());
+				switch(contador) {
+					case 0:
+						sizeMax1 = Integer.parseInt(st.nextToken());
+						break;
+					case 1:
+						sizeMax2 = Integer.parseInt(st.nextToken());
+						break;
+					case 2:
+						sizeMax3 = Integer.parseInt(st.nextToken());
+						break;
+					case 3:
+						sizeMax4 = Integer.parseInt(st.nextToken());
+						break;
+				}
 			}else if(contador==4) {
 				this.espacios = Integer.parseInt(st.nextToken());
 				this.cajas = (Stack<Caja>[]) new Stack[this.espacios];
