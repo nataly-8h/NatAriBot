@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -22,6 +23,7 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
@@ -30,7 +32,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Queue<Tool>[] programas;
 	
-	private BufferedImage img;
+	private Image img;
 	
 	private Tool[] toolbox;
 	
@@ -167,11 +169,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			
 		}
 		//HOMBRES DEL PILAR
-//		try {
-//			this.img = ImageIO.read(getClass().getResourceAsStream("/pilarMen.png"));
-//		}catch(IOException e) {
-//			System.out.println("NEL");;
-//		}
+		//this.img= new ImageIcon("pilarMen.jpg").getImage();
 		
 		//Initialize Thread
 		
@@ -260,6 +258,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		g.fillRect(1103, 451, 65, 42);
 		
+		
+		//g.drawImage(this.img, 0,0,200,200,this);
 		
 		
 		
