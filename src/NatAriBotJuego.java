@@ -185,19 +185,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.green);
 		g.fillRect(17, 17, 700, 400);
 		
+		//bordes
+		g.setColor(Color.yellow);
+		g.fillRect(34, 17, 17, 400);
+		g.fillRect(683, 17, 17, 400);
+		
 		//garra
 		g.setColor(Color.black);
 		g.fillRect(75, 27, 40, 15);
 		g.fillRect(59, 47, 76, 17);
 		//base de cajitas
 		g.setColor(Color.blue);
-		g.fillRect(59, 383, 76, 17);
-		g.fillRect(149, 383, 76, 17);
-		g.fillRect(239, 383, 76, 17);
-		g.fillRect(329, 383, 76, 17);
-		g.fillRect(419, 383, 76, 17);
-		g.fillRect(509, 383, 76, 17);
-		g.fillRect(599, 383, 76, 17);
+		for(int i = 0; i<7; i++) {
+			g.fillRect(59 + 90*i, 383, 76, 17);
+		}
+		
+		
 		//cajitas
 		g.setColor(Color.black);
 		g.fillRect(74, 333, 46, 46);
@@ -206,9 +209,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(74, 183, 46, 46);
 		g.fillRect(74, 133, 46, 46);
 		g.fillRect(74, 83, 46, 46);
-
-		g.setColor(Color.BLUE);
-		g.fillRect(734, 17, 449, 400);
 		
 		//PROGRAMA
 		g.setColor(Color.DARK_GRAY);
@@ -223,61 +223,42 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//Espacios: 68 de separación
 		g.setColor(Color.BLACK);
-		g.fillRect(632, 454, 65, 42);
-		g.fillRect(564, 454, 65, 42);
-		g.fillRect(496, 454, 65, 42);
-		g.fillRect(428, 454, 65, 42);
-		g.fillRect(360, 454, 65, 42);
-		g.fillRect(292, 454, 65, 42);
-		g.fillRect(224, 454, 65, 42);
-		g.fillRect(156, 454, 65, 42);
+		for(int i  = 0; i<this.sizeMax1; i++) {
+			g.fillRect(632 - 68*i, 454, 65, 42);
+			System.out.println(642-68*i);
+		}
 		
-		g.fillRect(632, 510, 65, 42);
-		g.fillRect(564, 510, 65, 42);
-		g.fillRect(496, 510, 65, 42);
-		g.fillRect(428, 510, 65, 42);
-		g.fillRect(360, 510, 65, 42);
-		g.fillRect(292, 510, 65, 42);
-		g.fillRect(224, 510, 65, 42);
-		g.fillRect(156, 510, 65, 42);
+		for(int i  = 0; i<this.sizeMax2; i++) {
+			g.fillRect(632 - 68*i, 510, 65, 42);
+		}
 		
-		g.fillRect(632, 566, 65, 42);
-		g.fillRect(564, 566, 65, 42);
-		g.fillRect(496, 566, 65, 42);
-		g.fillRect(428, 566, 65, 42);
-		g.fillRect(360, 566, 65, 42);
-		g.fillRect(292, 566, 65, 42);
-		g.fillRect(224, 566, 65, 42);
-		g.fillRect(156, 566, 65, 42);
+		for(int i  = 0; i<this.sizeMax3; i++) {
+			g.fillRect(632 - 68*i, 566, 65, 42);
+		}
 		
-		g.fillRect(632, 622, 65, 42);
-		g.fillRect(564, 622, 65, 42);
-		g.fillRect(496, 622, 65, 42);
-		g.fillRect(428, 622, 65, 42);
-		g.fillRect(360, 622, 65, 42);
-		g.fillRect(292, 622, 65, 42);
-		g.fillRect(224, 622, 65, 42);
-		g.fillRect(156, 622, 65, 42);
-
+		for(int i  = 0; i<this.sizeMax4; i++) {
+			g.fillRect(632 - 68*i, 622, 65, 42);
+		}
+		
 		g.setColor(Color.white);
 		g.drawString(" P R O G R A M A   1 ", 38, 478);
 		g.drawString(" P R O G R A M A   2 ", 38, 534);
 		g.drawString(" P R O G R A M A   3 ", 38, 588);
 		g.drawString(" P R O G R A M A   4 ", 38, 644);
 		
-		
-		
-		
+		//GOAL
+		g.setColor(Color.BLUE);
+		g.fillRect(734, 17, 449, 400);
 		
 		//TOOLBOX
 		g.setColor(Color.ORANGE);
 		g.fillRect(734, 434, 449, 249);
 		
 		//herramientas
+		g.setColor(Color.white);
+		g.fillRect(751, 451, 65, 42);
 		
-		g.setColor(Color.yellow);
-		g.fillRect(34, 17, 17, 400);
-		g.fillRect(683, 17, 17, 400);
+		g.fillRect(1103, 451, 65, 42);
 		
 		
 		
