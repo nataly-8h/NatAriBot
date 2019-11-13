@@ -54,7 +54,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public NatAriBotJuego() {
 		super();
-		this.setPreferredSize(new Dimension(1200,700));
+		this.setPreferredSize(new Dimension(1200,735));
 		this.setOpaque(true);
 		this.setBackground(Color.BLACK);
 		this.addKeyListener(this);
@@ -261,10 +261,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.white);
 		g.fillRect(751, 451, 65, 42);
 		
-		g.fillRect(1103, 451, 65, 42);
+		for(int i = 0; i<4; i++) {
+			g.fillRect(751 + 117*i, 451, 65, 42);
+		}
+		
+		for(int i = 0; i<4; i++) {
+			g.fillRect(751 + 117*i, 537, 65, 42);
+		}
+		
+		for(int i = 0; i<4; i++) {
+			if(i==3) {
+				g.setColor(Color.RED);
+			}
+			g.fillRect(751 + 117*i, 623, 65, 42);
+		}
 		
 		
-		//g.drawImage(this.img, 0,0,200,200,this);
+		//CIRCULO DE PLAY
+		g.setColor(Color.GREEN);
+		g.fillOval(545, 683, 110, 110);
 		
 		
 		
