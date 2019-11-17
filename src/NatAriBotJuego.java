@@ -228,7 +228,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		for(int i  = 0; i<this.sizeMax1; i++) {
 			g.fillRect(156 + 68*i, 454, 65, 42);
-			System.out.println(642-68*i);
 		}
 		
 		for(int i  = 0; i<this.sizeMax2; i++) {
