@@ -180,27 +180,27 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void paint(Graphics g) {
 		super.paint(g);
 		//PANEL DE JUEGO
-		g.setColor(Color.green);
+		g.setColor(Color.GREEN);
 		g.fillRect(17, 17, 700, 400);
 		
 		//bordes
-		g.setColor(Color.yellow);
+		g.setColor(Color.YELLOW);
 		g.fillRect(34, 17, 17, 400);
 		g.fillRect(683, 17, 17, 400);
 		
 		//garra
-		g.setColor(Color.black);
+		g.setColor(Color.BLACK);
 		g.fillRect(75, 27, 40, 15);
 		g.fillRect(59, 47, 76, 17);
 		//base de cajitas
-		g.setColor(Color.blue);
+		g.setColor(Color.BLUE);
 		for(int i = 0; i<7; i++) {
 			g.fillRect(59 + 90*i, 383, 76, 17);
 		}
 		
 		
 		//cajitas
-		g.setColor(Color.black);
+		g.setColor(Color.BLACK);
 		g.fillRect(74, 333, 46, 46);
 		g.fillRect(74, 283, 46, 46);
 		g.fillRect(74, 233, 46, 46);
@@ -213,14 +213,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(17, 434, 700, 249);
 		
 		//programas
-		g.setColor(Color.red);
+		g.setColor(Color.RED);
 		g.fillRect(34, 451, 666, 47);
 		g.fillRect(34, 507, 666, 47);
 		g.fillRect(34, 563, 666, 47);
 		g.fillRect(34, 619, 666, 47);
 		
 		
-		g.setColor(Color.yellow);
+		g.setColor(Color.YELLOW);
 		g.fillRect(156, 454, 65, 42);
 		
 		//Espacios: 68 de separación
@@ -242,7 +242,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			g.fillRect(156 + 68*i, 622, 65, 42);
 		}
 		
-		g.setColor(Color.white);
+		g.setColor(Color.WHITE);
 		g.drawString(" P R O G R A M A   1 ", 38, 478);
 		g.drawString(" P R O G R A M A   2 ", 38, 534);
 		g.drawString(" P R O G R A M A   3 ", 38, 588);
@@ -257,7 +257,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(734, 434, 449, 249);
 		
 		//herramientas
-		g.setColor(Color.white);
+		g.setColor(Color.WHITE);
 		g.fillRect(751, 451, 65, 42);
 		
 		for(int i = 0; i<4; i++) {
