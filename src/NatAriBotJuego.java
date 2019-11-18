@@ -43,7 +43,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				sizeMax1,
 				sizeMax2,
 				sizeMax3,
-				sizeMax4;
+				sizeMax4,
+				maxCajas;
 	
 	private String nivel;
 	
@@ -66,6 +67,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.niveles = new Hashtable<Integer, String>();
 		this.toolbox = new Tool[12];
 		this.play = false;
+		this.maxCajas = 6;
 		try {
 			int count = 1;
 			String linea;
@@ -247,12 +249,29 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//cajitas
 		g.setColor(Color.BLACK);
-		g.fillRect(74, 333, 46, 46);
+		for(int i=0;i<this.espacios;i++) {
+			for(int j=0;j<this.cajas[i].size();j++) {
+				if(this.espacios==2) {
+					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+				} else if(this.espacios==3) {
+					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+				}else if(this.espacios==4) {
+					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+				}else if(this.espacios==5) {
+					g.fillRect(164+i*90, 333 - j*50, 46, 46);
+				}else if(this.espacios==6) {
+					g.fillRect(74+i*90, 333 - j*50, 46, 46);
+				}else if(this.espacios==7) {
+					g.fillRect(74+i*90, 333 - j*50, 46, 46);
+				}
+			}
+		}
+		/*g.fillRect(74, 333, 46, 46);
 		g.fillRect(74, 283, 46, 46);
 		g.fillRect(74, 233, 46, 46);
 		g.fillRect(74, 183, 46, 46);
 		g.fillRect(74, 133, 46, 46);
-		g.fillRect(74, 83, 46, 46);
+		g.fillRect(74, 83, 46, 46);*/
 		
 		//PROGRAMA
 		g.setColor(Color.DARK_GRAY);
