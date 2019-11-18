@@ -47,6 +47,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	
 	private String nivel;
 	
+	private boolean play;
+	
 	
 	
 	private Hashtable<Integer, String> niveles;
@@ -62,7 +64,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addMouseListener(this);
 		this.avl = new AVLTree();
 		this.niveles = new Hashtable<Integer, String>();
-		this.toolbox = new Tool[7];
+		this.toolbox = new Tool[12];
+		this.play = false;
 		try {
 			int count = 1;
 			String linea;
@@ -131,7 +134,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					}
 				}
 			} else {
-					for(int i =0; i<7;i++) {
+					for(int i =0; i<11;i++) {
 					String elemento = st.nextToken();
 					if(elemento!="0") {
 						switch(i) {
@@ -155,6 +158,18 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 							break;
 						case 6: 
 							this.toolbox[i] = new Tool("programa4");
+							break;
+						case 7: 
+							this.toolbox[i] = new Tool("programa5");
+							break;
+						case 8: 
+							this.toolbox[i] = new Tool("programa6");
+							break;
+						case 9: 
+							this.toolbox[i] = new Tool("programa7");
+							break;
+						case 10: 
+							this.toolbox[i] = new Tool("programa8");
 							break;
 						default:
 							System.out.println("ERROR SUGOIII");
@@ -185,17 +200,48 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//bordes
 		g.setColor(Color.YELLOW);
-		g.fillRect(34, 17, 17, 400);
-		g.fillRect(683, 17, 17, 400);
+		if(this.espacios==2) {
+			g.fillRect(214, 17, 17, 400);
+			g.fillRect(413, 17, 17, 400);
+		} else if(this.espacios==3) {
+			g.fillRect(214, 17, 17, 400);
+			g.fillRect(503, 17, 17, 400);
+		} else if(this.espacios==4) {
+			g.fillRect(214, 17, 17, 400);
+			g.fillRect(593, 17, 17, 400);
+		} else if(this.espacios==5) {
+			g.fillRect(124, 17, 17, 400);
+			g.fillRect(593, 17, 17, 400);
+		} else if(this.espacios==6) {
+			g.fillRect(34, 17, 17, 400);
+			g.fillRect(593, 17, 17, 400);
+		} else if(this.espacios==7) {
+			g.fillRect(34, 17, 17, 400);
+			g.fillRect(683, 17, 17, 400);
+		}
+		
 		
 		//garra
 		g.setColor(Color.BLACK);
 		g.fillRect(75, 27, 40, 15);
 		g.fillRect(59, 47, 76, 17);
+		
 		//base de cajitas
 		g.setColor(Color.BLUE);
-		for(int i = 0; i<7; i++) {
-			g.fillRect(59 + 90*i, 383, 76, 17);
+		for(int i = 0; i<this.espacios; i++) {
+			if(this.espacios==2) {
+				g.fillRect(239 + 90*i, 383, 76, 17);
+			} else if(this.espacios==3) {
+				g.fillRect(239 + 90*i, 383, 76, 17);
+			} else if(this.espacios==4) {
+				g.fillRect(239 + 90*i, 383, 76, 17);
+			} else if(this.espacios==5) {
+				g.fillRect(149 + 90*i, 383, 76, 17);
+			} else if(this.espacios==6) {
+				g.fillRect(59 + 90*i, 383, 76, 17);
+			} else if(this.espacios==7) {
+				g.fillRect(59 + 90*i, 383, 76, 17);
+			}
 		}
 		
 		
@@ -260,15 +306,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.WHITE);
 		g.fillRect(751, 451, 65, 42);
 		
-		for(int i = 0; i<4; i++) {
+		
+		//CHECAR
+		for(int i = 0; i<5; i++) {
 			g.fillRect(751 + 117*i, 451, 65, 42);
 		}
 		
-		for(int i = 0; i<4; i++) {
+		//CHECAR
+		for(int i = 0; i<5; i++) {
 			g.fillRect(751 + 117*i, 537, 65, 42);
 		}
 		
-		for(int i = 0; i<4; i++) {
+		//CHECAR
+		for(int i = 0; i<5; i++) {
 			if(i==3) {
 				g.setColor(Color.RED);
 			}
@@ -284,11 +334,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		
 	}
+	
 
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getX()<655 && e.getX()>540 && e.getY()<735 && e.getY()>680) {
+			this.play = !this.play;
+			if(this.play) {
+				this.run();
+			}
+		}
 	}
 
 	@Override
@@ -330,7 +386,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
+		while(this.play) {
+			try {
+				
+				Thread.sleep(40);
+			} catch(InterruptedException ex) {
+				System.out.println("Terrible");
+			}
+		}
 	}
 
 }
