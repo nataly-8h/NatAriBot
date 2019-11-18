@@ -327,6 +327,41 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		//GOAL
 		g.setColor(Color.BLUE);
 		g.fillRect(734, 17, 449, 400);
+		g.setColor(Color.WHITE);
+		for(int i = 0; i<this.espacios; i++) {
+			if(this.espacios==2) {
+				g.fillRect(914 + 64*i, 383, 50, 17);
+			} else if(this.espacios==3) {
+				g.fillRect(914 + 64*i, 383, 50, 17);
+			} else if(this.espacios==4) {
+				g.fillRect(914 + 64*i, 383, 50, 17);
+			} else if(this.espacios==5) {
+				g.fillRect(824 + 64*i, 383, 50, 17);
+			} else if(this.espacios==6) {
+				g.fillRect(734 + 64*i, 383, 50, 17);
+			} else if(this.espacios==7) {
+				g.fillRect(734 + 64*i, 383, 50, 17);
+			}
+		}
+		
+		g.setColor(Color.BLACK);
+		for(int i=0;i<this.espacios;i++) {
+			for(int j=0;j<this.meta[i].size();j++) {
+				if(this.espacios==2) {
+					g.fillRect(914+i*64, 333 - j*50, 46, 46);
+				} else if(this.espacios==3) {
+					g.fillRect(914+i*64, 333 - j*50, 46, 46);
+				}else if(this.espacios==4) {
+					g.fillRect(914+i*64, 333 - j*50, 46, 46);
+				}else if(this.espacios==5) {
+					g.fillRect(824+i*64, 333 - j*50, 46, 46);
+				}else if(this.espacios==6) {
+					g.fillRect(734+i*64, 333 - j*50, 46, 46);
+				}else if(this.espacios==7) {
+					g.fillRect(734+i*64, 333 - j*50, 46, 46);
+				}
+			}
+		}
 		
 		//TOOLBOX
 		g.setColor(Color.ORANGE);
