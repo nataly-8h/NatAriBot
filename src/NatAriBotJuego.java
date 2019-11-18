@@ -225,8 +225,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//garra
 		g.setColor(Color.BLACK);
-		g.fillRect(75, 27, 40, 15);
-		g.fillRect(59, 47, 76, 17);
+		if(this.espacios==2) {
+			g.fillRect(255, 27, 40, 15);
+			g.fillRect(239, 47, 76, 17);
+		} else if(this.espacios==3) {
+			g.fillRect(255, 27, 40, 15);
+			g.fillRect(239, 47, 76, 17);
+		} else if(this.espacios==4) {
+			g.fillRect(255, 27, 40, 15);
+			g.fillRect(239, 47, 76, 17);
+		} else if(this.espacios==5) {
+			g.fillRect(165, 27, 40, 15);
+			g.fillRect(149, 47, 76, 17);
+		} else if(this.espacios==6) {
+			g.fillRect(75, 27, 40, 15);
+			g.fillRect(59, 47, 76, 17);
+		} else if(this.espacios==7) {
+			g.fillRect(75, 27, 40, 15);
+			g.fillRect(59, 47, 76, 17);
+		}
 		
 		//base de cajitas
 		g.setColor(Color.BLUE);
