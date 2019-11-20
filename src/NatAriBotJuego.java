@@ -32,7 +32,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Queue<Tool>[] programas;
 	
-	private Image img;
+	private Image img,
+					derTrue,
+					derFalse;
 	
 	private Tool[] toolbox;
 	
@@ -138,9 +140,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			} else {
 					for(int i =0; i<13;i++) {
 					String elemento = st.nextToken();
-					if(elemento!="0") {
+					if(elemento.equals("1")) {
 						switch(i) {
-						case 0: 
+						case 0:
 							this.toolbox[i] = new Tool("derecha");
 							break;
 						case 1: 
@@ -191,6 +193,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			contador++;
 			
 		}
+		this.derTrue = new ImageIcon("DerTrue.png").getImage();
+		this.derFalse = new ImageIcon("DerFalsepng.png").getImage();
 		//HOMBRES DEL PILAR
 		//this.img= new ImageIcon("pilarMen.jpg").getImage();
 		
@@ -370,7 +374,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 		
 		//TOOLBOX
-		g.setColor(Color.ORANGE);
+		g.setColor(new Color(19,79,158));
 		g.fillRect(734, 434, 449, 249);
 		
 		//herramientas
@@ -379,7 +383,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		
 		for(int i = 0; i<5; i++) {
-			g.fillRect(751 + 87*i, 451, 65, 42);
+			if(i==0 && this.toolbox[0]!=null) {
+				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
+				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
+			} else if(i==0) {
+				g.drawImage(this.derFalse, 751+87*i, 451, 65, 42, this);
+			}else {
+				//g.fillRect(751 + 87*i, 451, 65, 42);
+			}
 		}
 		
 		for(int i = 0; i<5; i++) {
@@ -420,7 +431,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getX()>750 && e.getX()<815 && e.getY()>450 && e.getY()<495 && this.toolbox[0]!=null && !this.play) {
-			System.out.println("HOLA");
+			
 		} else if(e.getX()>835 && e.getX()<905 && e.getY()>450 && e.getY()<495 && this.toolbox[1]!=null && !this.play) {
 			
 		} else if(e.getX()>922 && e.getX()<987 && e.getY()>450 && e.getY()<495 && this.toolbox[2]!=null && !this.play) {
