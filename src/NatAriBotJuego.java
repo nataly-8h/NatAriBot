@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,29 +29,30 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 
-public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener {
-
-	private Queue<Tool>[] programas;
+public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 	
 	private Image img,
 					derTrue,
 					derFalse;
 	
-	private Tool[] toolbox;
+	private Tool[] toolbox,
+					programa1,
+					programa2,
+					programa3,
+					programa4;
 	
 	private Stack<Caja>[] cajas,
 							meta;
 	
 	private int espacios,
-				sizeMax1,
-				sizeMax2,
-				sizeMax3,
-				sizeMax4,
-				maxCajas;
+				maxCajas,
+				coorToolx,
+				coorTooly;
 	
 	private String nivel;
 	
-	private boolean play;
+	private boolean play,
+					flagDer;
 	
 	
 	
@@ -65,6 +67,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addKeyListener(this);
 		this.setFocusable(true);
 		this.addMouseListener(this);
+		this.addMouseMotionListener(this);
 		this.avl = new AVLTree();
 		this.niveles = new Hashtable<Integer, String>();
 		this.toolbox = new Tool[13];
@@ -88,24 +91,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		nivel = niveles.get(avl.root.getValue());
 		StringTokenizer st = new StringTokenizer(nivel);
 		int contador = 0;
-		this.programas = (Queue<Tool>[]) new Queue[4];
-		for(int i =0;i<4;i++) {
-			this.programas[i] = new LinkedList<Tool>();
-		}
 		while(st.hasMoreTokens()) {
 			if(contador<4) {
 				switch(contador) {
 					case 0:
-						sizeMax1 = Integer.parseInt(st.nextToken());
+						this.programa1 = new Tool[Integer.parseInt(st.nextToken())];
 						break;
 					case 1:
-						sizeMax2 = Integer.parseInt(st.nextToken());
+						this.programa2 = new Tool[Integer.parseInt(st.nextToken())];
 						break;
 					case 2:
-						sizeMax3 = Integer.parseInt(st.nextToken());
+						this.programa3 = new Tool[Integer.parseInt(st.nextToken())];
 						break;
 					case 3:
-						sizeMax4 = Integer.parseInt(st.nextToken());
+						this.programa4 = new Tool[Integer.parseInt(st.nextToken())];
 						break;
 				}
 			}else if(contador==4) {
@@ -312,19 +311,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		//Espacios: 68 de separación
 		g.setColor(Color.BLACK);
 		
-		for(int i  = 0; i<this.sizeMax1; i++) {
+		for(int i  = 0; i<this.programa1.length; i++) {
 			g.fillRect(156 + 68*i, 454, 65, 42);
 		}
 		
-		for(int i  = 0; i<this.sizeMax2; i++) {
+		for(int i  = 0; i<this.programa2.length; i++) {
 			g.fillRect(156 + 68*i, 510, 65, 42);
 		}
 		
-		for(int i  = 0; i<this.sizeMax3; i++) {
+		for(int i  = 0; i<this.programa3.length; i++) {
 			g.fillRect(156 + 68*i, 566, 65, 42);
 		}
 		
-		for(int i  = 0; i<this.sizeMax4; i++) {
+		for(int i  = 0; i<this.programa4.length; i++) {
 			g.fillRect(156 + 68*i, 622, 65, 42);
 		}
 		
@@ -333,6 +332,15 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.drawString(" P R O G R A M A   2 ", 38, 534);
 		g.drawString(" P R O G R A M A   3 ", 38, 588);
 		g.drawString(" P R O G R A M A   4 ", 38, 644);
+		
+		/*
+		for(int i = 0; i<4;i++) {
+			for(int j=0;j<this.programas[i].size();j++) {
+				
+			}
+		}
+		*/
+		
 		
 		//GOAL
 		g.setColor(Color.BLUE);
@@ -385,7 +393,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		for(int i = 0; i<5; i++) {
 			if(i==0 && this.toolbox[0]!=null) {
 				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
-				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
+				if(this.flagDer) {
+					g.drawImage(this.derTrue, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
 			} else if(i==0) {
 				g.drawImage(this.derFalse, 751+87*i, 451, 65, 42, this);
 			}else {
@@ -431,7 +441,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void mousePressed(MouseEvent e) {
 		if(e.getX()>750 && e.getX()<815 && e.getY()>450 && e.getY()<495 && this.toolbox[0]!=null && !this.play) {
-			
+			this.flagDer = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>835 && e.getX()<905 && e.getY()>450 && e.getY()<495 && this.toolbox[1]!=null && !this.play) {
 			
 		} else if(e.getX()>922 && e.getX()<987 && e.getY()>450 && e.getY()<495 && this.toolbox[2]!=null && !this.play) {
@@ -465,7 +478,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(e.getX()>121 && e.getX()<186 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer) {
+				
+			}
+		}
+		this.flagDer=false;
 	}
 
 	@Override
@@ -505,6 +523,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				System.out.println("Terrible");
 			}
 		}
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		this.coorToolx = e.getX();
+		this.coorTooly = e.getY();
+		this.repaint();
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
