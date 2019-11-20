@@ -374,20 +374,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//CHECAR
 		for(int i = 0; i<5; i++) {
-			g.fillRect(751 + 117*i, 451, 65, 42);
+			g.fillRect(751 + 87*i, 451, 65, 42);
 		}
 		
 		//CHECAR
 		for(int i = 0; i<5; i++) {
-			g.fillRect(751 + 117*i, 537, 65, 42);
+			g.fillRect(751 + 87*i, 537, 65, 42);
 		}
 		
 		//CHECAR
 		for(int i = 0; i<5; i++) {
 			if(i==3) {
 				g.setColor(Color.RED);
+			}else if(i==4) {
+				g.setColor(Color.BLUE);
 			}
-			g.fillRect(751 + 117*i, 623, 65, 42);
+			g.fillRect(751 + 87*i, 623, 65, 42);
 		}
 		
 		
@@ -453,7 +455,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void run() {
 		while(this.play) {
 			try {
-				
+				System.out.println("HOLAAAAAAAAAAAAAA");
 				Thread.sleep(40);
 			} catch(InterruptedException ex) {
 				System.out.println("Terrible");
