@@ -33,7 +33,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	
 	private Image img,
 					derTrue,
-					derFalse;
+					derFalse,
+					downTrue,
+					downFalse,
+					izqTrue,
+					izqFalse;
 	
 	private Tool[] toolbox,
 					programa1,
@@ -52,7 +56,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	private String nivel;
 	
 	private boolean play,
-					flagDer;
+					flagDer,
+					flagIzq,
+					flagDown;
 	
 	
 	
@@ -194,6 +200,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 		this.derTrue = new ImageIcon("DerTrue.png").getImage();
 		this.derFalse = new ImageIcon("DerFalsepng.png").getImage();
+		this.downTrue = new ImageIcon("DownTrue.png").getImage();
+		this.downFalse = new ImageIcon("DownFalse.png").getImage();
+		this.izqTrue = new ImageIcon("IzqTrue.png").getImage();
+		this.izqFalse = new ImageIcon("IzqFalse.png").getImage();
 		//HOMBRES DEL PILAR
 		//this.img= new ImageIcon("pilarMen.jpg").getImage();
 		
@@ -333,13 +343,30 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.drawString(" P R O G R A M A   3 ", 38, 588);
 		g.drawString(" P R O G R A M A   4 ", 38, 644);
 		
-		/*
-		for(int i = 0; i<4;i++) {
-			for(int j=0;j<this.programas[i].size();j++) {
-				
+		
+		for(int i = 0; i<this.programa1.length;i++) {
+			if(this.programa1[i]!=null) {
+				if(this.programa1[i].getAccion()=="der") {
+					g.drawImage(this.derTrue, 156+68*i, 454, 65, 42, this);
+				} else if(this.programa1[i].getAccion()=="izq") {
+					g.drawImage(this.izqTrue,156+68*i,454,65,42,this);
+				} else if (this.programa1[i].getAccion()=="down") {
+					g.drawImage(this.downTrue,156+68*i,454,65,42,this);
+				}
 			}
 		}
-		*/
+		
+		for(int i = 0; i<this.programa2.length;i++) {
+			
+		}
+
+		for(int i = 0; i<this.programa3.length;i++) {
+	
+		}
+
+		for(int i = 0; i<this.programa4.length;i++) {
+	
+		}
 		
 		
 		//GOAL
@@ -398,8 +425,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			} else if(i==0) {
 				g.drawImage(this.derFalse, 751+87*i, 451, 65, 42, this);
-			}else {
-				//g.fillRect(751 + 87*i, 451, 65, 42);
+			}else if(i==1 && this.toolbox[1]!=null){
+				g.drawImage(this.izqTrue,751+87*i,451,65,42,this);
+				if(this.flagIzq) {
+					g.drawImage(this.izqTrue, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==1) {
+				g.drawImage(this.izqFalse, 751+87*i, 451, 65, 42, this);
+			} else if(i==2 && this.toolbox[2]!=null){
+				g.drawImage(this.downTrue,751+87*i,451,65,42,this);
+				if(this.flagDown) {
+					g.drawImage(this.downTrue, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==2) {
+				g.drawImage(this.downFalse, 751+87*i, 451, 65, 42, this);
 			}
 		}
 		
@@ -446,9 +485,15 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.coorTooly = e.getY();
 			this.repaint();
 		} else if(e.getX()>835 && e.getX()<905 && e.getY()>450 && e.getY()<495 && this.toolbox[1]!=null && !this.play) {
-			
+			this.flagIzq = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>922 && e.getX()<987 && e.getY()>450 && e.getY()<495 && this.toolbox[2]!=null && !this.play) {
-			
+			this.flagDown = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>450 && e.getY()<495 && this.toolbox[3]!=null && !this.play) {
 			
 		} else if(e.getX()>1096 && e.getX()<1161 && e.getY()>450 && e.getY()<495 && this.toolbox[4]!=null && !this.play) {
@@ -479,11 +524,34 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(e.getX()>121 && e.getX()<186 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer) {
-				
+			if(this.flagDer && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("der");
+			} else if(this.flagIzq && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("izq");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			}
+		} else if(e.getX()>194 && e.getX()<259 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("der");
+			} else if(this.flagIzq && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("izq");
+			} else if(this.flagDown && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("down");
+			}
+		} else if(e.getX()>262 && e.getX()<327 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("der");
+			} else if(this.flagIzq && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("izq");
+			} else if(this.flagDown && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("down");
 			}
 		}
-		this.flagDer=false;
+		this.flagDer = false;
+		this.flagIzq = false;
+		this.flagDown = false;
+		this.repaint();
 	}
 
 	@Override
