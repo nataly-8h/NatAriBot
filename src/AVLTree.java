@@ -24,7 +24,7 @@ public class AVLTree {
 	BinaryNode insert(BinaryNode currentNode, int value) {
 		// THIS ELSE_IF BLOCK IS BST CONDITION
 		if (currentNode == null) {
-			System.out.println("Successfully inserted " + value + " in AVL Tree");
+			//System.out.println("Successfully inserted " + value + " in AVL Tree");
 			return createNewNode(value);
 		} else if (value <= currentNode.getValue()) {
 			currentNode.setLeft(insert(currentNode.getLeft(), value));
