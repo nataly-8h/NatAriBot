@@ -22,7 +22,6 @@ import java.util.ListIterator;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.StringTokenizer;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
