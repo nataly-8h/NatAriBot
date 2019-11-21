@@ -353,19 +353,51 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else if (this.programa1[i].getAccion()=="down") {
 					g.drawImage(this.downTrue,156+68*i,454,65,42,this);
 				}
+			} else {
+				continue;
 			}
 		}
 		
 		for(int i = 0; i<this.programa2.length;i++) {
-			
+			if(this.programa2[i]!=null) {
+				if(this.programa2[i].getAccion()=="der") {
+					g.drawImage(this.derTrue, 156+68*i, 510, 65, 42, this);
+				} else if(this.programa2[i].getAccion()=="izq") {
+					g.drawImage(this.izqTrue,156+68*i,510,65,42,this);
+				} else if (this.programa2[i].getAccion()=="down") {
+					g.drawImage(this.downTrue,156+68*i,510,65,42,this);
+				}
+			} else {
+				continue;
+			}
 		}
 
 		for(int i = 0; i<this.programa3.length;i++) {
-	
+			if(this.programa3[i]!=null) {
+				if(this.programa3[i].getAccion()=="der") {
+					g.drawImage(this.derTrue, 156+68*i, 566, 65, 42, this);
+				} else if(this.programa3[i].getAccion()=="izq") {
+					g.drawImage(this.izqTrue,156+68*i,566,65,42,this);
+				} else if (this.programa3[i].getAccion()=="down") {
+					g.drawImage(this.downTrue,156+68*i,566,65,42,this);
+				}
+			} else {
+				continue;
+			}
 		}
 
 		for(int i = 0; i<this.programa4.length;i++) {
-	
+			if(this.programa4[i]!=null) {
+				if(this.programa4[i].getAccion()=="der") {
+					g.drawImage(this.derTrue, 156+68*i, 622, 65, 42, this);
+				} else if(this.programa4[i].getAccion()=="izq") {
+					g.drawImage(this.izqTrue,156+68*i,622,65,42,this);
+				} else if (this.programa4[i].getAccion()=="down") {
+					g.drawImage(this.downTrue,156+68*i,622,65,42,this);
+				}
+			} else {
+				continue;
+			}
 		}
 		
 		
@@ -474,6 +506,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if(this.play) {
 				this.run();
 			}
+		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>620 && e.getY()<665 && !this.play) {
+			this.programa1 = new Tool[this.programa1.length];
+			this.programa2 = new Tool[this.programa2.length];
+			this.programa3 = new Tool[this.programa3.length];
+			this.programa4 = new Tool[this.programa4.length];
 		}
 	}
 
@@ -518,6 +555,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			
 		} else if(e.getX()>922 && e.getX()<987 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
 			
+		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>620 && e.getY()<665 && !this.play) {
+			this.programa1 = new Tool[this.programa1.length];
+			this.programa2 = new Tool[this.programa2.length];
+			this.programa3 = new Tool[this.programa3.length];
+			this.programa4 = new Tool[this.programa4.length];
 		}
 	}
 
@@ -530,24 +572,1005 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[0] = new Tool("izq");
 			} else if(this.flagDown && 0<this.programa1.length) {
 				this.programa1[0] = new Tool("down");
-			}
-		} else if(e.getX()>194 && e.getX()<259 && e.getY()<475 && e.getY()>433) {
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>194 && e.getX()<259 && e.getY()<475 && e.getY()>433) {
 			if(this.flagDer && 1<this.programa1.length) {
 				this.programa1[1] = new Tool("der");
 			} else if(this.flagIzq && 1<this.programa1.length) {
 				this.programa1[1] = new Tool("izq");
 			} else if(this.flagDown && 1<this.programa1.length) {
 				this.programa1[1] = new Tool("down");
-			}
-		} else if(e.getX()>262 && e.getX()<327 && e.getY()<475 && e.getY()>433) {
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>262 && e.getX()<327 && e.getY()<475 && e.getY()>433) {
 			if(this.flagDer && 2<this.programa1.length) {
 				this.programa1[2] = new Tool("der");
 			} else if(this.flagIzq && 2<this.programa1.length) {
 				this.programa1[2] = new Tool("izq");
 			} else if(this.flagDown && 2<this.programa1.length) {
 				this.programa1[2] = new Tool("down");
-			}
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} else if(e.getX()>330 && e.getX()<395 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("der");
+			} else if(this.flagIzq && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("izq");
+			} else if(this.flagDown && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>398 && e.getX()<463 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("der");
+			} else if(this.flagIzq && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("izq");
+			} else if(this.flagDown && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
 		}
+		
+		
+		else if(e.getX()>466 && e.getX()<531 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("der");
+			} else if(this.flagIzq && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("izq");
+			} else if(this.flagDown && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>534 && e.getX()<599 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("der");
+			} else if(this.flagIzq && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("izq");
+			} else if(this.flagDown && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>602 && e.getX()<667 && e.getY()<475 && e.getY()>433) {
+			if(this.flagDer && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("der");
+			} else if(this.flagIzq && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("izq");
+			} else if(this.flagDown && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+			
+		//PROGRAMA 2
+			
+		} else if(e.getX()>121 && e.getX()<186 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("der");
+			} else if(this.flagIzq && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("izq");
+			} else if(this.flagDown && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+			
+			
+			
+		}else if(e.getX()>194 && e.getX()<259 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("der");
+			} else if(this.flagIzq && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("izq");
+			} else if(this.flagDown && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>262 && e.getX()<327 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("der");
+			} else if(this.flagIzq && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("izq");
+			} else if(this.flagDown && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>330 && e.getX()<395 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("der");
+			} else if(this.flagIzq && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("izq");
+			} else if(this.flagDown && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>398 && e.getX()<463 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("der");
+			} else if(this.flagIzq && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("izq");
+			} else if(this.flagDown && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		}
+		
+		
+		else if(e.getX()>466 && e.getX()<531 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("der");
+			} else if(this.flagIzq && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("izq");
+			} else if(this.flagDown && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>534 && e.getX()<599 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("der");
+			} else if(this.flagIzq && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("izq");
+			} else if(this.flagDown && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>602 && e.getX()<667 && e.getY()<531 && e.getY()>489) {
+			if(this.flagDer && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("der");
+			} else if(this.flagIzq && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("izq");
+			} else if(this.flagDown && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+			
+			
+		//PROGRAMA 3
+			
+		} 
+		
+		else if(e.getX()>121 && e.getX()<186 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("der");
+			} else if(this.flagIzq && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("izq");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			}
+			/*
+			else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("down");
+			}*/
+
+		}
+		
+		else if(e.getX()>194 && e.getX()<259 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("der");
+			} else if(this.flagIzq && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("izq");
+			} else if(this.flagDown && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+			
+		} 
+		
+		else if(e.getX()>262 && e.getX()<327 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("der");
+			} else if(this.flagIzq && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("izq");
+			} else if(this.flagDown && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>330 && e.getX()<395 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("der");
+			} else if(this.flagIzq && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("izq");
+			} else if(this.flagDown && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>398 && e.getX()<463 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("der");
+			} else if(this.flagIzq && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("izq");
+			} else if(this.flagDown && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		}
+		
+		
+		else if(e.getX()>466 && e.getX()<531 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("der");
+			} else if(this.flagIzq && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("izq");
+			} else if(this.flagDown && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>534 && e.getX()<599 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("der");
+			} else if(this.flagIzq && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("izq");
+			} else if(this.flagDown && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>602 && e.getX()<667 && e.getY()<587 && e.getY()>545) {
+			if(this.flagDer && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("der");
+			} else if(this.flagIzq && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("izq");
+			} else if(this.flagDown && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+			
+			//PROGRAMA 4
+			
+			
+		} else if(e.getX()>121 && e.getX()<186 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("der");
+			} else if(this.flagIzq && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("izq");
+			} else if(this.flagDown && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+
+		}
+		
+		else if(e.getX()>194 && e.getX()<259 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("der");
+			} else if(this.flagIzq && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("izq");
+			} else if(this.flagDown && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>262 && e.getX()<327 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("der");
+			} else if(this.flagIzq && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("izq");
+			} else if(this.flagDown && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>330 && e.getX()<395 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("der");
+			} else if(this.flagIzq && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("izq");
+			} else if(this.flagDown && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>398 && e.getX()<463 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("der");
+			} else if(this.flagIzq && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("izq");
+			} else if(this.flagDown && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		}
+		
+		
+		else if(e.getX()>466 && e.getX()<531 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("der");
+			} else if(this.flagIzq && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("izq");
+			} else if(this.flagDown && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>534 && e.getX()<599 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("der");
+			} else if(this.flagIzq && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("izq");
+			} else if(this.flagDown && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		} 
+		
+		else if(e.getX()>602 && e.getX()<667 && e.getY()<643 && e.getY()>601) {
+			if(this.flagDer && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("der");
+			} else if(this.flagIzq && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("izq");
+			} else if(this.flagDown && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("down");
+			}/*
+			else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		} else if(this.flagDown && 0<this.programa3.length) {
+			this.programa3[0] = new Tool("down");
+		}*/
+		}
+		
 		this.flagDer = false;
 		this.flagIzq = false;
 		this.flagDown = false;
