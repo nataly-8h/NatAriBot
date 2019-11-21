@@ -44,6 +44,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					programa2,
 					programa3,
 					programa4;
+	
+	private BinaryNode nodeCurrent,
+						nodePrevious;
 
 	private Stack<Caja>[] cajas,
 							meta;
@@ -76,7 +79,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addMouseMotionListener(this);
 		this.avl = new AVLTree();
 		this.niveles = new Hashtable<Integer, String>();
-		this.toolbox = new Tool[12];
+		this.toolbox = new Tool[13];
 		this.play = false;
 		this.maxCajas = 6;
 		try {
@@ -95,6 +98,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			System.out.println("Ocurri� un error de I/O "+ ex);
 		}
 		nivel = niveles.get(avl.root.getValue());
+		this.nodeCurrent = avl.root;
+		this.nodePrevious = avl.root;
 		StringTokenizer st = new StringTokenizer(nivel);
 		int contador = 0;
 		while(st.hasMoreTokens()) {
@@ -143,9 +148,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					}
 				}
 			} else {
-					for(int i =0; i<11;i++) {
+					for(int i =0; i<13;i++) {
 					String elemento = st.nextToken();
-					if(elemento!="0") {
+					if(elemento.equals("1")) {
 						switch(i) {
 						case 0:
 							this.toolbox[i] = new Tool("derecha");
@@ -178,6 +183,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 							this.toolbox[i] = new Tool("programa7");
 							break;
 						case 10:
+							this.toolbox[i] = new Tool("programa8");
+							break;
+						case 11:
+							this.toolbox[i] = new Tool("programa8");
+							break;
+						case 12:
 							this.toolbox[i] = new Tool("programa8");
 							break;
 						default:
@@ -435,7 +446,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 
 		//TOOLBOX
-		g.setColor(Color.ORANGE);
+		g.setColor(new Color(19,79,158));
 		g.fillRect(734, 434, 449, 249);
 
 		//herramientas
@@ -493,6 +504,113 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 
 	}
+	
+	public void changeLevel() {
+		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
+		StringTokenizer st = new StringTokenizer(nivel);
+		int contador = 0;
+		while(st.hasMoreTokens()) {
+			if(contador<4) {
+				switch(contador) {
+					case 0:
+						this.programa1 = new Tool[Integer.parseInt(st.nextToken())];
+						break;
+					case 1:
+						this.programa2 = new Tool[Integer.parseInt(st.nextToken())];
+						break;
+					case 2:
+						this.programa3 = new Tool[Integer.parseInt(st.nextToken())];
+						break;
+					case 3:
+						this.programa4 = new Tool[Integer.parseInt(st.nextToken())];
+						break;
+				}
+			}else if(contador==4) {
+				this.espacios = Integer.parseInt(st.nextToken());
+				this.cajas = (Stack<Caja>[]) new Stack[this.espacios];
+				this.meta = (Stack<Caja>[]) new Stack[this.espacios];
+				for(int i = 0;i<this.espacios;i++) {
+					this.cajas[i] = new Stack<Caja>();
+					this.meta[i] = new Stack<Caja>();
+				}
+
+				for(int i=0;i<this.espacios;i++) {
+					String cajas = st.nextToken();
+					for(int j=0;j<cajas.length();j++) {
+						if(cajas.charAt(j)=='0') {
+							continue;
+						} else {
+							this.cajas[i].add(new Caja(Character.getNumericValue(cajas.charAt(j))));
+						}
+					}
+				}
+				for(int i=0;i<this.espacios;i++) {
+					String goal = st.nextToken();
+					for(int j=0;j<goal.length();j++) {
+						if(goal.charAt(j)=='0') {
+							continue;
+						} else {
+							this.meta[i].add(new Caja(Character.getNumericValue(goal.charAt(j))));
+						}
+					}
+				}
+			} else {
+					for(int i =0; i<13;i++) {
+					String elemento = st.nextToken();
+					if(elemento.equals("1")) {
+						switch(i) {
+						case 0:
+							this.toolbox[i] = new Tool("derecha");
+							break;
+						case 1:
+							this.toolbox[i] = new Tool("abajo");
+							break;
+						case 2:
+							this.toolbox[i] = new Tool("izquierda");
+							break;
+						case 3:
+							this.toolbox[i] = new Tool("programa1");
+							break;
+						case 4:
+							this.toolbox[i] = new Tool("programa2");
+							break;
+						case 5:
+							this.toolbox[i] = new Tool("programa3");
+							break;
+						case 6:
+							this.toolbox[i] = new Tool("programa4");
+							break;
+						case 7:
+							this.toolbox[i] = new Tool("programa5");
+							break;
+						case 8:
+							this.toolbox[i] = new Tool("programa6");
+							break;
+						case 9:
+							this.toolbox[i] = new Tool("programa7");
+							break;
+						case 10:
+							this.toolbox[i] = new Tool("programa8");
+							break;
+						case 11:
+							this.toolbox[i] = new Tool("programa8");
+							break;
+						case 12:
+							this.toolbox[i] = new Tool("programa8");
+							break;
+						default:
+							System.out.println("ERROR SUGOIII");
+							System.exit(0);
+						}
+					}
+				}
+			}
+
+
+			contador++;
+		}
+		this.repaint();
+	}
 
 
 
@@ -503,11 +621,18 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if(this.play) {
 				this.run();
 			}
+			
+		//CLEAR
 		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>620 && e.getY()<665 && !this.play) {
 			this.programa1 = new Tool[this.programa1.length];
 			this.programa2 = new Tool[this.programa2.length];
 			this.programa3 = new Tool[this.programa3.length];
 			this.programa4 = new Tool[this.programa4.length];
+		}
+		
+		//SKIP
+		else if(e.getX()>1096 && e.getX()<1161 && e.getY()>620 && e.getY()<665 && !this.play) {
+			this.changeLevel();
 		}
 	}
 
