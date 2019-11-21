@@ -32,9 +32,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Queue<Tool>[] programas;
 	
-	private Image img,
-					derTrue,
-					derFalse;
+	private Image img;
 	
 	private Tool[] toolbox;
 	
@@ -67,7 +65,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addMouseListener(this);
 		this.avl = new AVLTree();
 		this.niveles = new Hashtable<Integer, String>();
-		this.toolbox = new Tool[13];
+		this.toolbox = new Tool[12];
 		this.play = false;
 		this.maxCajas = 6;
 		try {
@@ -138,11 +136,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					}
 				}
 			} else {
-					for(int i =0; i<13;i++) {
+					for(int i =0; i<11;i++) {
 					String elemento = st.nextToken();
-					if(elemento.equals("1")) {
+					if(elemento!="0") {
 						switch(i) {
-						case 0:
+						case 0: 
 							this.toolbox[i] = new Tool("derecha");
 							break;
 						case 1: 
@@ -175,12 +173,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						case 10: 
 							this.toolbox[i] = new Tool("programa8");
 							break;
-						case 11: 
-							this.toolbox[i] = new Tool("programa9");
-							break;
-						case 12: 
-							this.toolbox[i] = new Tool("programa10");
-							break;
 						default:
 							System.out.println("ERROR SUGOIII");
 							System.exit(0);
@@ -193,8 +185,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			contador++;
 			
 		}
-		this.derTrue = new ImageIcon("DerTrue.png").getImage();
-		this.derFalse = new ImageIcon("DerFalsepng.png").getImage();
 		//HOMBRES DEL PILAR
 		//this.img= new ImageIcon("pilarMen.jpg").getImage();
 		
@@ -374,7 +364,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 		
 		//TOOLBOX
-		g.setColor(new Color(19,79,158));
+		g.setColor(Color.ORANGE);
 		g.fillRect(734, 434, 449, 249);
 		
 		//herramientas
@@ -382,21 +372,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(751, 451, 65, 42);
 		
 		
+		//CHECAR
 		for(int i = 0; i<5; i++) {
-			if(i==0 && this.toolbox[0]!=null) {
-				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
-				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
-			} else if(i==0) {
-				g.drawImage(this.derFalse, 751+87*i, 451, 65, 42, this);
-			}else {
-				//g.fillRect(751 + 87*i, 451, 65, 42);
-			}
+			g.fillRect(751 + 87*i, 451, 65, 42);
 		}
 		
+		//CHECAR
 		for(int i = 0; i<5; i++) {
 			g.fillRect(751 + 87*i, 537, 65, 42);
 		}
 		
+		//CHECAR
 		for(int i = 0; i<5; i++) {
 			if(i==3) {
 				g.setColor(Color.RED);
@@ -421,7 +407,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getX()<655 && e.getX()>540 && e.getY()<735 && e.getY()>680) {
-			this.play = true;
+			this.play = !this.play;
 			if(this.play) {
 				this.run();
 			}
@@ -430,37 +416,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		if(e.getX()>750 && e.getX()<815 && e.getY()>450 && e.getY()<495 && this.toolbox[0]!=null && !this.play) {
-			
-		} else if(e.getX()>835 && e.getX()<905 && e.getY()>450 && e.getY()<495 && this.toolbox[1]!=null && !this.play) {
-			
-		} else if(e.getX()>922 && e.getX()<987 && e.getY()>450 && e.getY()<495 && this.toolbox[2]!=null && !this.play) {
-			
-		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>450 && e.getY()<495 && this.toolbox[3]!=null && !this.play) {
-			
-		} else if(e.getX()>1096 && e.getX()<1161 && e.getY()>450 && e.getY()<495 && this.toolbox[4]!=null && !this.play) {
-			
-		}
-		//NUEVA LINEA
-		else if(e.getX()>750 && e.getX()<815 && e.getY()>535 && e.getY()<580 && this.toolbox[5]!=null && !this.play) {
-			
-		} else if(e.getX()>835 && e.getX()<905 && e.getY()>535 && e.getY()<580 && this.toolbox[6]!=null && !this.play) {
-			
-		} else if(e.getX()>922 && e.getX()<987 && e.getY()>535 && e.getY()<580 && this.toolbox[7]!=null && !this.play) {
-			
-		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>535 && e.getY()<580 && this.toolbox[8]!=null && !this.play)  {
-			
-		} else if(e.getX()>1096 && e.getX()<1161 && e.getY()>535 && e.getY()<580 && this.toolbox[9]!=null && !this.play) {
-			
-		}
-		//NUEVA LINEA
-		else if(e.getX()>750 && e.getX()<815 && e.getY()>620 && e.getY()<665 && this.toolbox[10]!=null && !this.play) {
-			
-		} else if(e.getX()>835 && e.getX()<905 && e.getY()>620 && e.getY()<665 && this.toolbox[11]!=null && !this.play) {
-			
-		} else if(e.getX()>922 && e.getX()<987 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
-			
-		}
+		// TODO Auto-generated method stub
 	}
 
 	@Override
@@ -499,7 +455,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void run() {
 		while(this.play) {
 			try {
-				System.out.println("HOLAAAAAAAAAAAAAA");
+			System.out.println("HOLAAAAAAAAAAAAAA");
 				Thread.sleep(40);
 			} catch(InterruptedException ex) {
 				System.out.println("Terrible");
