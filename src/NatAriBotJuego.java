@@ -53,7 +53,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	private int espacios,
 				maxCajas,
 				coorToolx,
-				coorTooly;
+				coorTooly,
+				posGarra;
 
 	private String nivel;
 
@@ -77,6 +78,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
 		this.avl = new AVLTree();
+		this.posGarra= 0;
 		this.niveles = new Hashtable<Integer, String>();
 		this.toolbox = new Tool[13];
 		this.play = false;
@@ -1728,9 +1730,44 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void run() {
 		while(this.play) {
+			boolean hasCaja=false;
+			Caja caja = null;;
+			boolean win = true;
 			try {
-			System.out.println("HOLAAAAAAAAAAAAAA");
-				Thread.sleep(40);
+			for(int i = 0;i<programa1.length;i++) {
+				if(programa1[i].getAccion()=="der") {
+					if(posGarra<this.espacios-1) {
+						posGarra++;
+					}
+				} else if(programa1[i].getAccion()=="izq") {
+					if(posGarra>0) {
+						posGarra--;
+					}
+				} else if(programa1[i].getAccion()=="down") {
+					if(!this.cajas[posGarra].isEmpty() && !hasCaja) {
+						hasCaja = true;
+						caja = this.cajas[posGarra].pop();
+					} else {
+						this.cajas[posGarra].add(caja);
+					}
+				}
+				
+				for(int j=0;j<this.cajas.length;j++) {
+					if(this.cajas[j].equals(this.meta[j])) {
+						win = true;
+						continue;
+					} else {
+						win = false;
+						break;
+					}
+				}
+				System.out.println(win);
+				if(win) {
+					System.out.println("HOLA");
+				}
+				Thread.sleep(400);
+			}
+			this.play=false;
 			} catch(InterruptedException ex) {
 				System.out.println("Terrible");
 			}
