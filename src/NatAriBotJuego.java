@@ -1767,20 +1767,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					} else {
 						this.cajas[posGarra].add(caja);
 					}
+					//Thread.sleep(400);
 				}
 				
-				for(int j=0;j<this.cajas.length;j++) {
-					if(this.cajas[j].equals(this.meta[j])) {
-						win = true;
-						continue;
-					} else {
-						win = false;
-						break;
-					}
-				}
-				System.out.println(win);
+				
+				
+				
+				
 				if(win) {
 					System.out.println("HOLA");
+					this.play=false;
 				}
 				Thread.sleep(400);
 			}
