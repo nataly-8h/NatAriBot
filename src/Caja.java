@@ -1,13 +1,17 @@
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
+
 public class Caja {
 	private int x,
 				y,
 				color;
+	
 	public Caja(int color) {
 		this.x = 0;
 		this.y = 0;
 		this.color = color;
+		
 	}
 	public int getColor() {
 		return color;

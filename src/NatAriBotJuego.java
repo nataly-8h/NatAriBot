@@ -36,8 +36,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					downTrue,
 					downFalse,
 					izqTrue,
-					izqFalse;
+					izqFalse,
+					borde,
+					gameBox;
 
+	private Image[] cajaImage = new Image[4];
+	
 	private Tool[] toolbox,
 					programa1,
 					programa2,
@@ -208,6 +212,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.downFalse = new ImageIcon("DownFalse.png").getImage();
 		this.izqTrue = new ImageIcon("IzqTrue.png").getImage();
 		this.izqFalse = new ImageIcon("IzqFalse.png").getImage();
+		this.borde = new ImageIcon("borde.png").getImage();
+		this.gameBox = new ImageIcon("gameBox.png").getImage();
+		
+		this.cajaImage[0] = new ImageIcon("redbox.png").getImage();
+		this.cajaImage[1] = new ImageIcon("yellbox.png").getImage();
+		this.cajaImage[2] = new ImageIcon("greenbox.png").getImage();
+		this.cajaImage[3] = new ImageIcon("bluebox.png").getImage();
+
 		//HOMBRES DEL PILAR
 		//this.img= new ImageIcon("pilarMen.jpg").getImage();
 
@@ -220,29 +232,34 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void paint(Graphics g) {
 		super.paint(g);
 		//PANEL DE JUEGO
-		g.setColor(Color.GREEN);
-		g.fillRect(17, 17, 700, 400);
+		g.drawImage(this.gameBox, 17, 17, this);
+		//g.fillRect(17, 17, 700, 400);
 
 		//bordes
 		g.setColor(Color.YELLOW);
 		if(this.espacios==2) {
-			g.fillRect(214, 17, 17, 400);
-			g.fillRect(413, 17, 17, 400);
+			g.drawImage(this.borde, 214, 17, 17, 400, this);
+			g.drawImage(this.borde, 413, 17, 17, 400, this);
 		} else if(this.espacios==3) {
-			g.fillRect(214, 17, 17, 400);
-			g.fillRect(503, 17, 17, 400);
+			g.drawImage(this.borde, 214, 17, 17, 400, this);
+			g.drawImage(this.borde, 503, 17, 17, 400, this);
+
 		} else if(this.espacios==4) {
-			g.fillRect(214, 17, 17, 400);
-			g.fillRect(593, 17, 17, 400);
+			g.drawImage(this.borde, 214, 17, 17, 400, this);
+			g.drawImage(this.borde, 593, 17, 17, 400, this);
+
 		} else if(this.espacios==5) {
-			g.fillRect(124, 17, 17, 400);
-			g.fillRect(593, 17, 17, 400);
+			g.drawImage(this.borde, 124, 17, 17, 400, this);
+			g.drawImage(this.borde, 593, 17, 17, 400, this);
+
 		} else if(this.espacios==6) {
-			g.fillRect(34, 17, 17, 400);
-			g.fillRect(593, 17, 17, 400);
+			g.drawImage(this.borde, 34, 17, 17, 400, this);
+			g.drawImage(this.borde, 593, 17, 17, 400, this);
+
 		} else if(this.espacios==7) {
-			g.fillRect(34, 17, 17, 400);
-			g.fillRect(683, 17, 17, 400);
+			g.drawImage(this.borde, 34, 17, 17, 400, this);
+			g.drawImage(this.borde, 683, 17, 17, 400, this);
+
 		}
 
 
