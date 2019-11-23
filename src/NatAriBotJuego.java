@@ -2204,6 +2204,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	
 	public void accionCheck(Tool[] programa) {
 		for(int i = 0;i<programa.length;i++) {
+			try {
+				this.repaint();
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				System.out.println("TERRIBLE");
+			}
 			this.numAcciones++;
 			if(this.numAcciones>this.maxAcciones) {
 				break;
@@ -2268,6 +2274,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.accionCheck(this.programa4);
 				}
 			}
+			
+			
+			
 			if(win) {
 				System.out.println("HOLA");
 				this.play=false;
@@ -2287,7 +2296,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.accionCheck(this.programa1);
 				if(!win) {
 				this.gameOver = true;
-				this.repaint();
+				//this.repaint();
 				//this.tryAgain();
 				}
 				this.play=false;
