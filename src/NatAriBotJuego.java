@@ -38,8 +38,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					izqTrue,
 					izqFalse,
 					borde,
-					gameBox;
-
+					gameBox,
+					progBox,
+					pro1,
+					pro2,
+					pro3,
+					pro4,
+					ifRed,
+					ifYell,
+					ifGreen,
+					ifBlue,
+					ifAll,
+					ifNone;
+	
 	private Image[] cajaImage = new Image[4];
 	
 	private Tool[] toolbox,
@@ -65,7 +76,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	private boolean play,
 					flagDer,
 					flagIzq,
-					flagDown;
+					flagDown,
+					flagProg1,
+					flagProg2,
+					flagProg3,
+					flagProg4,
+					flagIfRed,
+					flagIfYell,
+					flagIfGreen,
+					flagIfBlue,
+					flagIfAll,
+					flagIfNone;
 
 
 
@@ -209,13 +230,27 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 		}
 		this.derTrue = new ImageIcon("DerTrue.png").getImage();
-		this.derFalse = new ImageIcon("DerFalsepng.png").getImage();
+		this.derFalse = new ImageIcon("DerFalse.png").getImage();
 		this.downTrue = new ImageIcon("DownTrue.png").getImage();
 		this.downFalse = new ImageIcon("DownFalse.png").getImage();
 		this.izqTrue = new ImageIcon("IzqTrue.png").getImage();
 		this.izqFalse = new ImageIcon("IzqFalse.png").getImage();
 		this.borde = new ImageIcon("borde.png").getImage();
+		
 		this.gameBox = new ImageIcon("gameBox.png").getImage();
+		this.progBox = new ImageIcon("progbox.png").getImage();
+		
+		this.pro1 = new ImageIcon("P1.png").getImage();
+		this.pro2 = new ImageIcon("P2.png").getImage();
+		this.pro3 = new ImageIcon("P3.png").getImage();
+		this.pro4 = new ImageIcon("P4.png").getImage();
+		
+		this.ifRed = new ImageIcon("ifRed.png").getImage();
+		this.ifYell = new ImageIcon("ifYell.png").getImage();
+		this.ifGreen = new ImageIcon("ifGreen.png").getImage();
+		this.ifBlue = new ImageIcon("ifBlue.png").getImage();
+		this.ifAll = new ImageIcon("ifAll.png").getImage();
+		this.ifNone = new ImageIcon("ifNone.png").getImage();
 		
 		this.cajaImage[0] = new ImageIcon("redbox.png").getImage();
 		this.cajaImage[1] = new ImageIcon("yellbox.png").getImage();
@@ -327,11 +362,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 
 		//PROGRAMA
-		g.setColor(Color.DARK_GRAY);
-		g.fillRect(17, 434, 700, 249);
-
+		g.drawImage(progBox, 17,  434, this);
+		
 		//programas
-		g.setColor(Color.RED);
+		g.setColor(Color.gray);
 		g.fillRect(34, 451, 666, 47);
 		g.fillRect(34, 507, 666, 47);
 		g.fillRect(34, 563, 666, 47);
@@ -342,7 +376,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(156, 454, 65, 42);
 
 		//Espacios: 68 de separaci�n
-		g.setColor(Color.BLACK);
+		g.setColor(new Color(19, 79, 158));
 
 		for(int i  = 0; i<this.programa1.length; i++) {
 			g.fillRect(156 + 68*i, 454, 65, 42);
@@ -366,6 +400,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.drawString(" P R O G R A M A   3 ", 38, 588);
 		g.drawString(" P R O G R A M A   4 ", 38, 644);
 
+		
 
 		for(int i = 0; i<this.programa1.length;i++) {
 			if(this.programa1[i]!=null) {
@@ -500,7 +535,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 		//CHECAR
 		for(int i = 0; i<5; i++) {
-			g.fillRect(751 + 87*i, 537, 65, 42);
+			int x = 87*i;
+			g.drawImage(this.pro4, 751 + 87*i, 537, this);
+			//g.fillRect(751 + 87*i, 537, 65, 42);
 		}
 
 		//CHECAR
@@ -581,10 +618,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 							this.toolbox[i] = new Tool("derecha");
 							break;
 						case 1:
-							this.toolbox[i] = new Tool("abajo");
+							this.toolbox[i] = new Tool("izquierda");
 							break;
 						case 2:
-							this.toolbox[i] = new Tool("izquierda");
+							this.toolbox[i] = new Tool("abajo");
 							break;
 						case 3:
 							this.toolbox[i] = new Tool("programa1");
@@ -599,22 +636,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 							this.toolbox[i] = new Tool("programa4");
 							break;
 						case 7:
-							this.toolbox[i] = new Tool("programa5");
+							this.toolbox[i] = new Tool("ifRed");
 							break;
 						case 8:
-							this.toolbox[i] = new Tool("programa6");
+							this.toolbox[i] = new Tool("ifYell");
 							break;
 						case 9:
-							this.toolbox[i] = new Tool("programa7");
+							this.toolbox[i] = new Tool("ifGreen");
 							break;
 						case 10:
-							this.toolbox[i] = new Tool("programa8");
+							this.toolbox[i] = new Tool("ifBlue");
 							break;
 						case 11:
-							this.toolbox[i] = new Tool("programa8");
+							this.toolbox[i] = new Tool("ifAll");
 							break;
 						case 12:
-							this.toolbox[i] = new Tool("programa8");
+							this.toolbox[i] = new Tool("ifNone");
 							break;
 						default:
 							System.out.println("ERROR SUGOIII");
