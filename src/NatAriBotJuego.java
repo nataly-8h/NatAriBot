@@ -246,8 +246,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.BLACK);
 		for(int i=0;i<this.espacios;i++) {
 			for(int j=0;j<this.cajas[i].size();j++) {
+				Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
 				if(this.espacios==2) {
-					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],254+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				} else if(this.espacios==3) {
 					g.fillRect(254+i*90, 333 - j*50, 46, 46);
 				}else if(this.espacios==4) {
