@@ -74,6 +74,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	private String nivel;
 
 	private boolean play,
+					gameOver,
 					flagDer,
 					flagIzq,
 					flagDown,
@@ -126,109 +127,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		nivel = niveles.get(avl.root.getValue());
 		this.nodeCurrent = avl.root;
 		this.nodePrevious = avl.root;
-		StringTokenizer st = new StringTokenizer(nivel);
-		int contador = 0;
-		while(st.hasMoreTokens()) {
-			if(contador<4) {
-				switch(contador) {
-					case 0:
-						this.programa1 = new Tool[Integer.parseInt(st.nextToken())];
-						break;
-					case 1:
-						this.programa2 = new Tool[Integer.parseInt(st.nextToken())];
-						break;
-					case 2:
-						this.programa3 = new Tool[Integer.parseInt(st.nextToken())];
-						break;
-					case 3:
-						this.programa4 = new Tool[Integer.parseInt(st.nextToken())];
-						break;
-				}
-			}else if(contador==4) {
-				this.espacios = Integer.parseInt(st.nextToken());
-				this.cajas = (Stack<Caja>[]) new Stack[this.espacios];
-				this.meta = (Stack<Caja>[]) new Stack[this.espacios];
-				for(int i = 0;i<this.espacios;i++) {
-					this.cajas[i] = new Stack<Caja>();
-					this.meta[i] = new Stack<Caja>();
-				}
-
-				for(int i=0;i<this.espacios;i++) {
-					String cajas = st.nextToken();
-					for(int j=0;j<cajas.length();j++) {
-						if(cajas.charAt(j)=='0') {
-							continue;
-						} else {
-							this.cajas[i].add(new Caja(Character.getNumericValue(cajas.charAt(j))));
-						}
-					}
-				}
-				for(int i=0;i<this.espacios;i++) {
-					String goal = st.nextToken();
-					for(int j=0;j<goal.length();j++) {
-						if(goal.charAt(j)=='0') {
-							continue;
-						} else {
-							this.meta[i].add(new Caja(Character.getNumericValue(goal.charAt(j))));
-						}
-					}
-				}
-			} else {
-					for(int i =0; i<13;i++) {
-					String elemento = st.nextToken();
-					if(elemento.equals("1")) {
-						switch(i) {
-						case 0:
-							this.toolbox[i] = new Tool("derecha");
-							break;
-						case 1:
-							this.toolbox[i] = new Tool("abajo");
-							break;
-						case 2:
-							this.toolbox[i] = new Tool("izquierda");
-							break;
-						case 3:
-							this.toolbox[i] = new Tool("programa1");
-							break;
-						case 4:
-							this.toolbox[i] = new Tool("programa2");
-							break;
-						case 5:
-							this.toolbox[i] = new Tool("programa3");
-							break;
-						case 6:
-							this.toolbox[i] = new Tool("programa4");
-							break;
-						case 7:
-							this.toolbox[i] = new Tool("programa5");
-							break;
-						case 8:
-							this.toolbox[i] = new Tool("programa6");
-							break;
-						case 9:
-							this.toolbox[i] = new Tool("programa7");
-							break;
-						case 10:
-							this.toolbox[i] = new Tool("programa8");
-							break;
-						case 11:
-							this.toolbox[i] = new Tool("programa8");
-							break;
-						case 12:
-							this.toolbox[i] = new Tool("programa8");
-							break;
-						default:
-							System.out.println("ERROR SUGOIII");
-							System.exit(0);
-						}
-					}
-				}
-			}
-
-
-			contador++;
-
-		}
+		
+		this.paintLevel();
+		
 		this.derTrue = new ImageIcon("DerTrue.png").getImage();
 		this.derFalse = new ImageIcon("DerFalse.png").getImage();
 		this.downTrue = new ImageIcon("DownTrue.png").getImage();
@@ -257,8 +158,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.cajaImage[2] = new ImageIcon("greenbox.png").getImage();
 		this.cajaImage[3] = new ImageIcon("bluebox.png").getImage();
 
-		//HOMBRES DEL PILAR
-		//this.img= new ImageIcon("pilarMen.jpg").getImage();
+		this.img= new ImageIcon("pilarMen.jpg").getImage();
 
 		//Initialize Thread
 
@@ -268,6 +168,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void paint(Graphics g) {
 		super.paint(g);
+		
 		//PANEL DE JUEGO
 		g.drawImage(this.gameBox, 17, 17, this);
 		//g.fillRect(17, 17, 700, 400);
@@ -552,16 +453,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 
 		//CIRCULO DE PLAY
-		g.setColor(Color.GREEN);
+		if(this.play) {
+			g.setColor(Color.RED);
+			System.out.println("HOLA");
+		} else if(!this.play) {
+			g.setColor(Color.GREEN);
+		}
 		g.fillOval(545, 683, 110, 110);
-
+		
 
 
 
 	}
 	
-	public void changeLevel() {
-		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
+	public void paintLevel() {
 		StringTokenizer st = new StringTokenizer(nivel);
 		int contador = 0;
 		while(st.hasMoreTokens()) {
@@ -664,6 +569,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 			contador++;
 		}
+	}
+	
+	public void changeLevel() {
+		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
+		this.paintLevel();
 		this.repaint();
 	}
 
@@ -672,9 +582,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		if(e.getX()<655 && e.getX()>540 && e.getY()<735 && e.getY()>680) {
-			this.play = !this.play;
+			boolean flag = false;
+			for(int i =0;i<this.programa1.length;i++) {
+				if(this.programa1[i]==null) {
+					continue;
+				} else {
+					flag = true;
+					break;
+				}
+			}
+			if(flag) {
+				this.play = !this.play;
+			}
+			
+			
 			if(this.play) {
+				this.repaint();
 				this.run();
+			} else {
+				this.tryAgain();
 			}
 			
 		//CLEAR
@@ -1754,6 +1680,34 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.repaint();
 	}
 
+	public boolean equalsStacks() {
+		for(int i =0;i<this.cajas.length;i++) {
+			Stack<Caja> cajasCopia = (Stack<Caja>) this.cajas[i].clone();
+			Stack<Caja> metaCopia = (Stack<Caja>) this.meta[i].clone();
+			while(!cajasCopia.isEmpty()) {
+				if(!metaCopia.isEmpty()) {
+					if(cajasCopia.pop().getColor()==(metaCopia.pop().getColor())) {
+						continue;
+					} else {
+						return false;
+					}
+				} else {
+					return false;
+				}
+			}
+			if(!metaCopia.isEmpty()) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public void tryAgain() {
+		this.gameOver=false;
+		this.paintLevel();
+		this.repaint();
+	}
+	
 	@Override
 	public void mouseEntered(MouseEvent e) {
 		// TODO Auto-generated method stub
@@ -1786,40 +1740,51 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		while(this.play) {
 			boolean hasCaja=false;
 			Caja caja = null;;
-			boolean win = true;
+			boolean win = false;
 			try {
 			for(int i = 0;i<programa1.length;i++) {
+				if(programa1[i]==null) {
+					continue;
+				}
 				if(programa1[i].getAccion()=="der") {
 					if(posGarra<this.espacios-1) {
 						posGarra++;
+					} else {
+						this.gameOver = true;
 					}
 				} else if(programa1[i].getAccion()=="izq") {
 					if(posGarra>0) {
 						posGarra--;
+					} else {
+						this.gameOver = true;
 					}
 				} else if(programa1[i].getAccion()=="down") {
 					if(!this.cajas[posGarra].isEmpty() && !hasCaja) {
 						hasCaja = true;
 						caja = this.cajas[posGarra].pop();
-					} else {
-						this.cajas[posGarra].add(caja);
+					} else if(this.cajas[posGarra].isEmpty() && !hasCaja){
+						//NADA
+					} else if(hasCaja) {
+						if(this.cajas[posGarra].size()==this.maxCajas) {
+							this.gameOver = true;
+						} else {
+							this.cajas[posGarra].add(caja);
+							if(this.equalsStacks()) {
+								win = true;
+							}
+						}
 					}
 				}
-				
-				for(int j=0;j<this.cajas.length;j++) {
-					if(this.cajas[j].equals(this.meta[j])) {
-						win = true;
-						continue;
-					} else {
-						win = false;
-						break;
-					}
-				}
-				System.out.println(win);
 				if(win) {
 					System.out.println("HOLA");
+					this.play=false;
 				}
 				Thread.sleep(400);
+			}
+			if(!win) {
+				this.gameOver = true;
+				this.repaint();
+				//this.tryAgain();
 			}
 			this.play=false;
 			} catch(InterruptedException ex) {
