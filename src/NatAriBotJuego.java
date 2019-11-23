@@ -53,6 +53,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	
 	private Image[] cajaImage = new Image[4];
 	
+	private Caja caja;
+	
 	private Tool[] toolbox,
 					programa1,
 					programa2,
@@ -69,7 +71,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				maxCajas,
 				coorToolx,
 				coorTooly,
-				posGarra;
+				posGarra,
+				maxAcciones,
+				numAcciones;
 
 	private String nivel;
 
@@ -87,7 +91,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					flagIfGreen,
 					flagIfBlue,
 					flagIfAll,
-					flagIfNone;
+					flagIfNone,
+					hasCaja,
+					win;
 
 
 
@@ -103,6 +109,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.setFocusable(true);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.maxAcciones = 1000;
+		this.numAcciones = 0;
 		this.avl = new AVLTree();
 		this.posGarra= 0;
 		this.niveles = new Hashtable<Integer, String>();
@@ -260,15 +268,65 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						}
 					}
 				} else if(this.espacios==3) {
-					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],254+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==4) {
-					g.fillRect(254+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],254+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],254+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==5) {
-					g.fillRect(164+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],164+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],164+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],164+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],164+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==6) {
-					g.fillRect(74+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],74+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==7) {
-					g.fillRect(74+i*90, 333 - j*50, 46, 46);
+					while(!cajaCopia.isEmpty()) {
+						if(cajaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],74+i*90, 333 - j*50, 46, 46,this);
+						} else if(cajaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],74+i*90, 333 - j*50, 46, 46,this);
+						}
+					}
 				}
 			}
 		}
@@ -322,6 +380,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.izqTrue,156+68*i,454,65,42,this);
 				} else if (this.programa1[i].getAccion()=="down") {
 					g.drawImage(this.downTrue,156+68*i,454,65,42,this);
+				} else if (this.programa1[i].getAccion()=="prog1") {
+					g.drawImage(this.pro1,156+68*i,454,65,42,this);
+				} else if (this.programa1[i].getAccion()=="prog2") {
+					g.drawImage(this.pro2,156+68*i,454,65,42,this);
+				} else if (this.programa1[i].getAccion()=="prog3") {
+					g.drawImage(this.pro3,156+68*i,454,65,42,this);
+				} else if (this.programa1[i].getAccion()=="prog4") {
+					g.drawImage(this.pro4,156+68*i,454,65,42,this);
 				}
 			} else {
 				continue;
@@ -336,6 +402,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.izqTrue,156+68*i,510,65,42,this);
 				} else if (this.programa2[i].getAccion()=="down") {
 					g.drawImage(this.downTrue,156+68*i,510,65,42,this);
+				} else if (this.programa2[i].getAccion()=="prog1") {
+					g.drawImage(this.pro1,156+68*i, 510, 65, 42,this);
+				} else if (this.programa2[i].getAccion()=="prog2") {
+					g.drawImage(this.pro2,156+68*i, 510, 65, 42,this);
+				} else if (this.programa2[i].getAccion()=="prog3") {
+					g.drawImage(this.pro3,156+68*i, 510, 65, 42,this);
+				} else if (this.programa2[i].getAccion()=="prog4") {
+					g.drawImage(this.pro4,156+68*i, 510, 65, 42,this);
 				}
 			} else {
 				continue;
@@ -350,6 +424,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.izqTrue,156+68*i,566,65,42,this);
 				} else if (this.programa3[i].getAccion()=="down") {
 					g.drawImage(this.downTrue,156+68*i,566,65,42,this);
+				} else if (this.programa3[i].getAccion()=="prog1") {
+					g.drawImage(this.pro1,156+68*i, 566, 65, 42,this);
+				} else if (this.programa3[i].getAccion()=="prog2") {
+					g.drawImage(this.pro2,156+68*i, 566, 65, 42,this);
+				} else if (this.programa3[i].getAccion()=="prog3") {
+					g.drawImage(this.pro3,156+68*i, 566, 65, 42,this);
+				} else if (this.programa3[i].getAccion()=="prog4") {
+					g.drawImage(this.pro4,156+68*i, 566, 65, 42,this);
 				}
 			} else {
 				continue;
@@ -364,6 +446,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.izqTrue,156+68*i,622,65,42,this);
 				} else if (this.programa4[i].getAccion()=="down") {
 					g.drawImage(this.downTrue,156+68*i,622,65,42,this);
+				} else if (this.programa4[i].getAccion()=="prog1") {
+					g.drawImage(this.pro1,156+68*i, 622, 65, 42,this);
+				} else if (this.programa4[i].getAccion()=="prog2") {
+					g.drawImage(this.pro2,156+68*i, 622, 65, 42,this);
+				} else if (this.programa4[i].getAccion()=="prog3") {
+					g.drawImage(this.pro3,156+68*i, 622, 65, 42,this);
+				} else if (this.programa4[i].getAccion()=="prog4") {
+					g.drawImage(this.pro4,156+68*i, 622, 65, 42,this);
 				}
 			} else {
 				continue;
@@ -394,18 +484,79 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.BLACK);
 		for(int i=0;i<this.espacios;i++) {
 			for(int j=0;j<this.meta[i].size();j++) {
+				Stack<Caja> metaCopia = (Stack<Caja>) this.meta[i].clone();
 				if(this.espacios==2) {
-					g.fillRect(922+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],922+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				} else if(this.espacios==3) {
-					g.fillRect(922+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],922+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==4) {
-					g.fillRect(922+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],922+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==5) {
-					g.fillRect(832+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],922+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],922+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==6) {
-					g.fillRect(742+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],742+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				}else if(this.espacios==7) {
-					g.fillRect(742+i*64, 333 - j*50, 46, 46);
+					while(!metaCopia.isEmpty()) {
+						if(metaCopia.pop().getColor()==1) {
+							g.drawImage(this.cajaImage[0],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==2) {
+							g.drawImage(this.cajaImage[1],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==3) {
+							g.drawImage(this.cajaImage[2],742+i*64, 333 - j*50, 46, 46,this);
+						} else if(metaCopia.pop().getColor()==4) {
+							g.drawImage(this.cajaImage[3],742+i*64, 333 - j*50, 46, 46,this);
+						}
+					}
 				}
 			}
 		}
@@ -419,7 +570,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(751, 451, 65, 42);
 
 
-		//CHECAR
 		for(int i = 0; i<5; i++) {
 			if(i==0 && this.toolbox[0]!=null) {
 				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
@@ -445,14 +595,31 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 
-		//CHECAR
 		for(int i = 0; i<5; i++) {
-			int x = 87*i;
-			g.drawImage(this.pro4, 751 + 87*i, 537, this);
+			if(i==0) {
+				g.drawImage(this.pro1, 751 + 87*i, 537, this);
+				if(this.flagProg1) {
+					g.drawImage(this.pro1, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==1) {
+				g.drawImage(this.pro2, 751 + 87*i, 537, this);
+				if(this.flagProg2) {
+					g.drawImage(this.pro2, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==2) {
+				g.drawImage(this.pro3, 751 + 87*i, 537, this);
+				if(this.flagProg3) {
+					g.drawImage(this.pro3, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==3) {
+				g.drawImage(this.pro4, 751 + 87*i, 537, this);
+				if(this.flagProg4) {
+					g.drawImage(this.pro4, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			}
 			//g.fillRect(751 + 87*i, 537, 65, 42);
 		}
 
-		//CHECAR
 		for(int i = 0; i<5; i++) {
 			if(i==3) {
 				g.setColor(Color.RED);
@@ -645,23 +812,29 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>450 && e.getY()<495 && this.toolbox[3]!=null && !this.play) {
-
-		} else if(e.getX()>1096 && e.getX()<1161 && e.getY()>450 && e.getY()<495 && this.toolbox[4]!=null && !this.play) {
-
 		}
 		//NUEVA LINEA
 		else if(e.getX()>750 && e.getX()<815 && e.getY()>535 && e.getY()<580 && this.toolbox[5]!=null && !this.play) {
-
+			this.flagProg1 = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>835 && e.getX()<905 && e.getY()>535 && e.getY()<580 && this.toolbox[6]!=null && !this.play) {
-
+			this.flagProg2 = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>922 && e.getX()<987 && e.getY()>535 && e.getY()<580 && this.toolbox[7]!=null && !this.play) {
-
+			this.flagProg3 = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>535 && e.getY()<580 && this.toolbox[8]!=null && !this.play)  {
-
-		} else if(e.getX()>1096 && e.getX()<1161 && e.getY()>535 && e.getY()<580 && this.toolbox[9]!=null && !this.play) {
-
-		}
+			this.flagProg4 = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} 
 		//NUEVA LINEA
 		else if(e.getX()>750 && e.getX()<815 && e.getY()>620 && e.getY()<665 && this.toolbox[10]!=null && !this.play) {
 
@@ -686,28 +859,28 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[0] = new Tool("izq");
 			} else if(this.flagDown && 0<this.programa1.length) {
 				this.programa1[0] = new Tool("down");
-			}/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			}
+			else if(this.flagProg1 && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("prog1");
+			} else if(this.flagProg2 && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("prog2");
+			} else if(this.flagProg3 && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("prog3");
+			} else if(this.flagProg4 && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("prog4");
+			} /*else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			} else if(this.flagDown && 0<this.programa1.length) {
+				this.programa1[0] = new Tool("down");
+			}*/
 		}
 
 		else if(e.getX()>194 && e.getX()<259 && e.getY()<475 && e.getY()>433) {
@@ -717,7 +890,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[1] = new Tool("izq");
 			} else if(this.flagDown && 1<this.programa1.length) {
 				this.programa1[1] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("prog1");
+			} else if(this.flagProg2 && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("prog2");
+			} else if(this.flagProg3 && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("prog3");
+			} else if(this.flagProg4 && 1<this.programa1.length) {
+				this.programa1[1] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -748,7 +930,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[2] = new Tool("izq");
 			} else if(this.flagDown && 2<this.programa1.length) {
 				this.programa1[2] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("prog1");
+			} else if(this.flagProg2 && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("prog2");
+			} else if(this.flagProg3 && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("prog3");
+			} else if(this.flagProg4 && 2<this.programa1.length) {
+				this.programa1[2] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -777,7 +968,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[3] = new Tool("izq");
 			} else if(this.flagDown && 3<this.programa1.length) {
 				this.programa1[3] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("prog1");
+			} else if(this.flagProg2 && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("prog2");
+			} else if(this.flagProg3 && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("prog3");
+			} else if(this.flagProg4 && 3<this.programa1.length) {
+				this.programa1[3] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -808,7 +1008,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[4] = new Tool("izq");
 			} else if(this.flagDown && 4<this.programa1.length) {
 				this.programa1[4] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("prog1");
+			} else if(this.flagProg2 && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("prog2");
+			} else if(this.flagProg3 && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("prog3");
+			} else if(this.flagProg4 && 4<this.programa1.length) {
+				this.programa1[4] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -840,7 +1049,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[5] = new Tool("izq");
 			} else if(this.flagDown && 5<this.programa1.length) {
 				this.programa1[5] = new Tool("down");
-			}/*
+			}else if(this.flagProg1 && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("prog1");
+			} else if(this.flagProg2 && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("prog2");
+			} else if(this.flagProg3 && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("prog3");
+			} else if(this.flagProg4 && 5<this.programa1.length) {
+				this.programa1[5] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -871,7 +1089,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[6] = new Tool("izq");
 			} else if(this.flagDown && 6<this.programa1.length) {
 				this.programa1[6] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("prog1");
+			} else if(this.flagProg2 && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("prog2");
+			} else if(this.flagProg3 && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("prog3");
+			} else if(this.flagProg4 && 6<this.programa1.length) {
+				this.programa1[6] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -902,7 +1129,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa1[7] = new Tool("izq");
 			} else if(this.flagDown && 7<this.programa1.length) {
 				this.programa1[7] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("prog1");
+			} else if(this.flagProg2 && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("prog2");
+			} else if(this.flagProg3 && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("prog3");
+			} else if(this.flagProg4 && 7<this.programa1.length) {
+				this.programa1[7] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -934,7 +1170,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[0] = new Tool("izq");
 			} else if(this.flagDown && 0<this.programa2.length) {
 				this.programa2[0] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("prog1");
+			} else if(this.flagProg2 && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("prog2");
+			} else if(this.flagProg3 && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("prog3");
+			} else if(this.flagProg4 && 0<this.programa2.length) {
+				this.programa2[0] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -966,7 +1211,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[1] = new Tool("izq");
 			} else if(this.flagDown && 1<this.programa2.length) {
 				this.programa2[1] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("prog1");
+			} else if(this.flagProg2 && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("prog2");
+			} else if(this.flagProg3 && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("prog3");
+			} else if(this.flagProg4 && 1<this.programa2.length) {
+				this.programa2[1] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -997,7 +1251,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[2] = new Tool("izq");
 			} else if(this.flagDown && 2<this.programa2.length) {
 				this.programa2[2] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("prog1");
+			} else if(this.flagProg2 && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("prog2");
+			} else if(this.flagProg3 && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("prog3");
+			} else if(this.flagProg4 && 2<this.programa2.length) {
+				this.programa2[2] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1028,7 +1291,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[3] = new Tool("izq");
 			} else if(this.flagDown && 3<this.programa2.length) {
 				this.programa2[3] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("prog1");
+			} else if(this.flagProg2 && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("prog2");
+			} else if(this.flagProg3 && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("prog3");
+			} else if(this.flagProg4 && 3<this.programa2.length) {
+				this.programa2[3] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1059,7 +1331,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[4] = new Tool("izq");
 			} else if(this.flagDown && 4<this.programa2.length) {
 				this.programa2[4] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("prog1");
+			} else if(this.flagProg2 && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("prog2");
+			} else if(this.flagProg3 && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("prog3");
+			} else if(this.flagProg4 && 4<this.programa2.length) {
+				this.programa2[4] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1091,7 +1372,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[5] = new Tool("izq");
 			} else if(this.flagDown && 5<this.programa2.length) {
 				this.programa2[5] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("prog1");
+			} else if(this.flagProg2 && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("prog2");
+			} else if(this.flagProg3 && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("prog3");
+			} else if(this.flagProg4 && 5<this.programa2.length) {
+				this.programa2[5] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1122,7 +1412,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[6] = new Tool("izq");
 			} else if(this.flagDown && 6<this.programa2.length) {
 				this.programa2[6] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("prog1");
+			} else if(this.flagProg2 && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("prog2");
+			} else if(this.flagProg3 && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("prog3");
+			} else if(this.flagProg4 && 6<this.programa2.length) {
+				this.programa2[6] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1153,7 +1452,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa2[7] = new Tool("izq");
 			} else if(this.flagDown && 7<this.programa2.length) {
 				this.programa2[7] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("prog1");
+			} else if(this.flagProg2 && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("prog2");
+			} else if(this.flagProg3 && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("prog3");
+			} else if(this.flagProg4 && 7<this.programa2.length) {
+				this.programa2[7] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1188,6 +1496,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[0] = new Tool("izq");
 			} else if(this.flagDown && 0<this.programa3.length) {
 				this.programa3[0] = new Tool("down");
+			} else if(this.flagProg1 && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("prog1");
+			} else if(this.flagProg2 && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("prog2");
+			} else if(this.flagProg3 && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("prog3");
+			} else if(this.flagProg4 && 0<this.programa3.length) {
+				this.programa3[0] = new Tool("prog4");
 			}
 			/*
 			else if(this.flagDown && 0<this.programa3.length) {
@@ -1221,7 +1537,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[1] = new Tool("izq");
 			} else if(this.flagDown && 1<this.programa3.length) {
 				this.programa3[1] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("prog1");
+			} else if(this.flagProg2 && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("prog2");
+			} else if(this.flagProg3 && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("prog3");
+			} else if(this.flagProg4 && 1<this.programa3.length) {
+				this.programa3[1] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1253,7 +1578,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[2] = new Tool("izq");
 			} else if(this.flagDown && 2<this.programa3.length) {
 				this.programa3[2] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("prog1");
+			} else if(this.flagProg2 && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("prog2");
+			} else if(this.flagProg3 && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("prog3");
+			} else if(this.flagProg4 && 2<this.programa3.length) {
+				this.programa3[2] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1284,7 +1618,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[3] = new Tool("izq");
 			} else if(this.flagDown && 3<this.programa3.length) {
 				this.programa3[3] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("prog1");
+			} else if(this.flagProg2 && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("prog2");
+			} else if(this.flagProg3 && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("prog3");
+			} else if(this.flagProg4 && 3<this.programa3.length) {
+				this.programa3[3] = new Tool("prog4");
+			}
+			
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1315,7 +1659,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[4] = new Tool("izq");
 			} else if(this.flagDown && 4<this.programa3.length) {
 				this.programa3[4] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("prog1");
+			} else if(this.flagProg2 && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("prog2");
+			} else if(this.flagProg3 && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("prog3");
+			} else if(this.flagProg4 && 4<this.programa3.length) {
+				this.programa3[4] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1347,7 +1700,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[5] = new Tool("izq");
 			} else if(this.flagDown && 5<this.programa3.length) {
 				this.programa3[5] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("prog1");
+			} else if(this.flagProg2 && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("prog2");
+			} else if(this.flagProg3 && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("prog3");
+			} else if(this.flagProg4 && 5<this.programa3.length) {
+				this.programa3[5] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1378,7 +1740,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[6] = new Tool("izq");
 			} else if(this.flagDown && 6<this.programa3.length) {
 				this.programa3[6] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("prog1");
+			} else if(this.flagProg2 && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("prog2");
+			} else if(this.flagProg3 && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("prog3");
+			} else if(this.flagProg4 && 6<this.programa3.length) {
+				this.programa3[6] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1409,7 +1780,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa3[7] = new Tool("izq");
 			} else if(this.flagDown && 7<this.programa3.length) {
 				this.programa3[7] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("prog1");
+			} else if(this.flagProg2 && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("prog2");
+			} else if(this.flagProg3 && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("prog3");
+			} else if(this.flagProg4 && 7<this.programa3.length) {
+				this.programa3[7] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1442,7 +1822,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[0] = new Tool("izq");
 			} else if(this.flagDown && 0<this.programa4.length) {
 				this.programa4[0] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("prog1");
+			} else if(this.flagProg2 && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("prog2");
+			} else if(this.flagProg3 && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("prog3");
+			} else if(this.flagProg4 && 0<this.programa4.length) {
+				this.programa4[0] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1474,7 +1863,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[1] = new Tool("izq");
 			} else if(this.flagDown && 1<this.programa4.length) {
 				this.programa4[1] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("prog1");
+			} else if(this.flagProg2 && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("prog2");
+			} else if(this.flagProg3 && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("prog3");
+			} else if(this.flagProg4 && 1<this.programa4.length) {
+				this.programa4[1] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1505,7 +1903,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[2] = new Tool("izq");
 			} else if(this.flagDown && 2<this.programa4.length) {
 				this.programa4[2] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("prog1");
+			} else if(this.flagProg2 && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("prog2");
+			} else if(this.flagProg3 && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("prog3");
+			} else if(this.flagProg4 && 2<this.programa4.length) {
+				this.programa4[2] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1536,7 +1943,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[3] = new Tool("izq");
 			} else if(this.flagDown && 3<this.programa4.length) {
 				this.programa4[3] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("prog1");
+			} else if(this.flagProg2 && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("prog2");
+			} else if(this.flagProg3 && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("prog3");
+			} else if(this.flagProg4 && 3<this.programa4.length) {
+				this.programa4[3] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1567,7 +1983,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[4] = new Tool("izq");
 			} else if(this.flagDown && 4<this.programa4.length) {
 				this.programa4[4] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("prog1");
+			} else if(this.flagProg2 && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("prog2");
+			} else if(this.flagProg3 && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("prog3");
+			} else if(this.flagProg4 && 4<this.programa4.length) {
+				this.programa4[4] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1599,7 +2024,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[5] = new Tool("izq");
 			} else if(this.flagDown && 5<this.programa4.length) {
 				this.programa4[5] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("prog1");
+			} else if(this.flagProg2 && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("prog2");
+			} else if(this.flagProg3 && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("prog3");
+			} else if(this.flagProg4 && 5<this.programa4.length) {
+				this.programa4[5] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1630,7 +2064,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[6] = new Tool("izq");
 			} else if(this.flagDown && 6<this.programa4.length) {
 				this.programa4[6] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("prog1");
+			} else if(this.flagProg2 && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("prog2");
+			} else if(this.flagProg3 && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("prog3");
+			} else if(this.flagProg4 && 6<this.programa4.length) {
+				this.programa4[6] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1661,7 +2104,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.programa4[7] = new Tool("izq");
 			} else if(this.flagDown && 7<this.programa4.length) {
 				this.programa4[7] = new Tool("down");
-			}/*
+			} else if(this.flagProg1 && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("prog1");
+			} else if(this.flagProg2 && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("prog2");
+			} else if(this.flagProg3 && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("prog3");
+			} else if(this.flagProg4 && 7<this.programa4.length) {
+				this.programa4[7] = new Tool("prog4");
+			}
+			/*
 			else if(this.flagDown && 0<this.programa3.length) {
 			this.programa3[0] = new Tool("down");
 		} else if(this.flagDown && 0<this.programa3.length) {
@@ -1688,6 +2140,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.flagDer = false;
 		this.flagIzq = false;
 		this.flagDown = false;
+		this.flagProg1 = false;
+		this.flagProg2 = false;
+		this.flagProg3 = false;
+		this.flagProg4 = false;
 		this.repaint();
 	}
 
@@ -1745,59 +2201,96 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		// TODO Auto-generated method stub
 
 	}
+	
+	public void accionCheck(Tool[] programa) {
+		for(int i = 0;i<programa.length;i++) {
+			this.numAcciones++;
+			if(this.numAcciones>this.maxAcciones) {
+				break;
+			}
+			if(programa[i]==null) {
+				continue;
+			}
+			if(programa[i].getAccion()=="der") {
+				if(posGarra<this.espacios-1) {
+					posGarra++;
+				} else {
+					this.gameOver = true;
+				}
+			} else if(programa[i].getAccion()=="izq") {
+				if(posGarra>0) {
+					posGarra--;
+				} else {
+					this.gameOver = true;
+				}
+			} else if(programa[i].getAccion()=="down") {
+				if(!this.cajas[posGarra].isEmpty() && !hasCaja) {
+					hasCaja = true;
+					caja = this.cajas[posGarra].pop();
+				} else if(this.cajas[posGarra].isEmpty() && !hasCaja){
+					//NADA
+				} else if(hasCaja) {
+					if(this.cajas[posGarra].size()==this.maxCajas) {
+						this.gameOver = true;
+					} else {
+						this.cajas[posGarra].add(caja);
+						if(this.equalsStacks()) {
+							win = true;
+						}
+					}
+				}
+			} else if(programa[i].getAccion()=="prog1") {
+				if(programa.equals(this.programa1)) {
+					i=-1;
+				} else {
+					i=programa.length;
+					this.accionCheck(this.programa1);
+				}
+			} else if(programa[i].getAccion()=="prog2") {
+				if(programa.equals(this.programa2)) {
+					i=-1;
+				} else {
+					i=programa.length;
+					this.accionCheck(this.programa2);
+				}
+			} else if(programa[i].getAccion()=="prog3") {
+				if(programa.equals(this.programa3)) {
+					i=-1;
+				} else {
+					i=programa.length;
+					this.accionCheck(this.programa3);
+				}
+			} else if(programa[i].getAccion()=="prog4") {
+				if(programa.equals(this.programa4)) {
+					i=-1;
+				} else {
+					i=programa.length;
+					this.accionCheck(this.programa4);
+				}
+			}
+			if(win) {
+				System.out.println("HOLA");
+				this.play=false;
+				break;
+			}
+		}
+	}
 
 	@Override
 	public void run() {
 		while(this.play) {
-			boolean hasCaja=false;
-			Caja caja = null;;
-			boolean win = false;
+			this.hasCaja=false;
+			this.caja = null;
+			this.win = false;
 			try {
-			for(int i = 0;i<programa1.length;i++) {
-				if(programa1[i]==null) {
-					continue;
-				}
-				if(programa1[i].getAccion()=="der") {
-					if(posGarra<this.espacios-1) {
-						posGarra++;
-					} else {
-						this.gameOver = true;
-					}
-				} else if(programa1[i].getAccion()=="izq") {
-					if(posGarra>0) {
-						posGarra--;
-					} else {
-						this.gameOver = true;
-					}
-				} else if(programa1[i].getAccion()=="down") {
-					if(!this.cajas[posGarra].isEmpty() && !hasCaja) {
-						hasCaja = true;
-						caja = this.cajas[posGarra].pop();
-					} else if(this.cajas[posGarra].isEmpty() && !hasCaja){
-						//NADA
-					} else if(hasCaja) {
-						if(this.cajas[posGarra].size()==this.maxCajas) {
-							this.gameOver = true;
-						} else {
-							this.cajas[posGarra].add(caja);
-							if(this.equalsStacks()) {
-								win = true;
-							}
-						}
-					}
-				}
-				if(win) {
-					System.out.println("HOLA");
-					this.play=false;
-				}
 				Thread.sleep(400);
-			}
-			if(!win) {
+				this.accionCheck(this.programa1);
+				if(!win) {
 				this.gameOver = true;
 				this.repaint();
 				//this.tryAgain();
-			}
-			this.play=false;
+				}
+				this.play=false;
 			} catch(InterruptedException ex) {
 				System.out.println("Terrible");
 			}

@@ -1,0 +1,4 @@
+0 rojo
+1 amarilo
+2 verde
+3 azul
