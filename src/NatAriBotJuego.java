@@ -58,6 +58,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	
 	private Caja caja;
 	
+	private Garra garra;
+	
 	private Tool[] toolbox,
 					programa1,
 					programa2,
@@ -218,31 +220,18 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 		//garra
 		g.setColor(Color.BLACK);
-		if(this.espacios==2) {
-			g.fillRect(255, 27, 40, 15);
-			g.drawImage(barraGarra, 239, 314, 76, 17, this);
-			g.drawImage(garraDer, 232, 310, 15, 60, this);
-			//g.drawImage(garraDer, 239, 310, 15, 60, this);
-			
-			g.drawImage(garraIzq, 308, 310,  15, 60, this);
-			//g.drawImage(garraIzq, 300, 310,  15, 60, this);
-			//g.fillRect(239, 47, 76, 17);
-		} else if(this.espacios==3) {
-			g.fillRect(255, 27, 40, 15);
-			g.fillRect(239, 47, 76, 17);
-		} else if(this.espacios==4) {
-			g.fillRect(255, 27, 40, 15);
-			g.fillRect(239, 47, 76, 17);
-		} else if(this.espacios==5) {
-			g.fillRect(165, 27, 40, 15);
-			g.fillRect(149, 47, 76, 17);
-		} else if(this.espacios==6) {
-			g.fillRect(75, 27, 40, 15);
-			g.fillRect(59, 47, 76, 17);
-		} else if(this.espacios==7) {
-			g.fillRect(75, 27, 40, 15);
-			g.fillRect(59, 47, 76, 17);
+		if(this.espacios==2 || this.espacios==3 || this.espacios==4 ) {
+			garra = new Garra(239);			
+		}else if(this.espacios==5) {
+			garra = new Garra(149);
+		} else if(this.espacios==6 || this.espacios==7) {
+			garra = new Garra(59);
 		}
+		
+		g.drawImage(borde, garra.getBarraX(), 17, 17, garra.getLargo(), this);
+		g.drawImage(barraGarra, garra.getPosX(), garra.getPosY(), 76, 17, this);
+		g.drawImage(garraDer, garra.getDerX(), garra.getDerY(), 15, 60, this);
+		g.drawImage(garraIzq, garra.getIzqX(), garra.getIzqY(),  15, 60, this);
 
 		//base de cajitas
 		g.setColor(Color.BLUE);
@@ -269,6 +258,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			for(int j=0;j<this.cajas[i].size();j++) {
 				Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
 				if(this.espacios==2) {
+					
 					while(!cajaCopia.isEmpty()) {
 						if(cajaCopia.pop().getColor()==1) {
 							g.drawImage(this.cajaImage[0],254+i*90, 333 - j*50, 46, 46,this);
@@ -549,7 +539,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 
-		g.setColor(Color.BLACK);
 		for(int i=0;i<this.espacios;i++) {
 			for(int j=0;j<this.meta[i].size();j++) {
 				Stack<Caja> metaCopia = (Stack<Caja>) this.meta[i].clone();
