@@ -2501,12 +2501,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void bajar() {
 		int n = 0;
 		int cantidad = 0;
-		if(cajas[posGarra].size()<=1) {
+		if(cajas[posGarra].size()<=1 && !hasCaja) {
 			cantidad = 1;
-		}else {
+		}else if(!hasCaja){
 			cantidad = cajas[posGarra].size();
+		}else {
+			cantidad = cajas[posGarra].size() + 1;
 		}
-		while (n <= 315 - (cantidad*50) ) {
+		while (n <= 333 - (cantidad*50) ) {
 			
 			if (hasCaja) {
 				caja.setY(this.garra.getPosY() + 1);
@@ -2593,7 +2595,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			} else if (programa[i].getAccion() == "down"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
 
-				System.out.println(cajas[posGarra].size());
+				//System.out.println(cajas[posGarra].size());
 				this.bajar();
 				this.cerrar();
 
