@@ -141,6 +141,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.nodeCurrent = avl.root;
 		this.nodePrevious = avl.root;
 		
+		
+		
 		this.paintLevel();
 		
 		this.derTrue = new ImageIcon("DerTrue.png").getImage();
@@ -178,6 +180,15 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.img= new ImageIcon("pilarMen.jpg").getImage();
 
 		//Initialize Thread
+		
+		//garra
+				if(this.espacios==2 || this.espacios==3 || this.espacios==4 ) {
+					garra = new Garra(239);			
+				}else if(this.espacios==5) {
+					garra = new Garra(149);
+				} else if(this.espacios==6 || this.espacios==7) {
+					garra = new Garra(59);
+				}
 
 		Thread hilo = new Thread(this);
 		hilo.start();
@@ -219,14 +230,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 
 		//garra
-		g.setColor(Color.BLACK);
-		if(this.espacios==2 || this.espacios==3 || this.espacios==4 ) {
-			garra = new Garra(239);			
-		}else if(this.espacios==5) {
-			garra = new Garra(149);
-		} else if(this.espacios==6 || this.espacios==7) {
-			garra = new Garra(59);
-		}
 		
 		g.drawImage(borde, garra.getBarraX(), 17, 17, garra.getLargo(), this);
 		g.drawImage(barraGarra, garra.getPosX(), garra.getPosY(), 76, 17, this);
@@ -2275,12 +2278,24 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 			if(programa[i].getAccion()=="der") {
 				if(posGarra<this.espacios-1) {
+					int n = 0;
+					while(n<=80) {
+						n++;
+						this.garra.setPosX(this.garra.getPosX() + 1);
+						this.paintImmediately(0, 0, 1300, 1300);
+					}
 					posGarra++;
 				} else {
 					this.gameOver = true;
 				}
 			} else if(programa[i].getAccion()=="izq") {
 				if(posGarra>0) {
+					int n = 0;
+					while(n<=80) {
+						n++;
+						this.garra.setPosX(this.garra.getPosX() - 1);
+						this.paintImmediately(0, 0, 1300, 1300);
+					}
 					posGarra--;
 				} else {
 					this.gameOver = true;
@@ -2322,6 +2337,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					i=programa.length;
 					this.accionCheck(this.programa3);
 				}
+				
 			} else if(programa[i].getAccion()=="prog4") {
 				if(programa.equals(this.programa4)) {
 					i=-1;

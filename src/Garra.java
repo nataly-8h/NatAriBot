@@ -16,7 +16,7 @@ public class Garra {
 		super();
 		this.posX = posX;
 		this.posY = 47;
-		this.largo = 30;
+		this.largo = posY - 17;
 		this.barraX = posX + 29;
 		this.derX = posX - 7;
 		this.derY = posY - 4;
@@ -56,6 +56,7 @@ public class Garra {
 	}
 
 	public void setPosY(int posY) {
+		this.largo = posY - 17;
 		this.derY = posY - 4;
 		this.izqY = posY - 4;
 		this.posY = posY;
