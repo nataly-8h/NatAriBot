@@ -8,8 +8,7 @@ public class Caja {
 				color;
 	
 	public Caja(int color) {
-		this.x = 0;
-		this.y = 0;
+		
 		this.color = color;
 		
 	}
