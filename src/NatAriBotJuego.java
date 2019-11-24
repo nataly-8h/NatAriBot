@@ -402,6 +402,61 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else if (this.programa1[i].getAccion()=="prog4") {
 					g.drawImage(this.pro4,156+68*i,454,65,42,this);
 				}
+				
+				else if (this.programa1[i].getAccion()=="ifRed") {
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="ifYell") {
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="ifGreen") {
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="ifBlue") {
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="ifNone") {
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="ifAll") {
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+			
+				
+				else if (this.programa1[i].getAccion()=="redIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfDer") {
+					g.drawImage(this.derTrue,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+				
+				else if (this.programa1[i].getAccion()=="redIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
 			} else {
 				continue;
 			}
@@ -634,33 +689,39 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		//ifs
 		
-		for(int i = 0; i<5; i++) {
+		for(int i = 0; i<6; i++) {
 			if(i==0) {
-				g.drawImage(this.ifRed, 751 + 50*i, 623, this);
-				if(this.flagProg1) {
-					g.drawImage(this.pro1, this.coorToolx, this.coorTooly, 65, 42, this);
+				g.drawImage(this.ifRed, 751 + 45*i, 623, this);
+				if(this.flagIfRed) {
+					g.drawImage(this.ifRed, this.coorToolx, this.coorTooly, this);
 				}
 			} else if(i==1) {
-				g.drawImage(this.pro2, 751 + 87*i, 537, this);
-				if(this.flagProg2) {
-					g.drawImage(this.pro2, this.coorToolx, this.coorTooly, 65, 42, this);
+				g.drawImage(this.ifBlue, 751 + 45*i, 623, this);
+				if(this.flagIfBlue) {
+					g.drawImage(this.ifBlue, this.coorToolx, this.coorTooly, this);
 				}
 			} else if(i==2) {
-				g.drawImage(this.pro3, 751 + 87*i, 537, this);
-				if(this.flagProg3) {
-					g.drawImage(this.pro3, this.coorToolx, this.coorTooly, 65, 42, this);
+				g.drawImage(this.ifGreen, 751 + 45*i, 623, this);
+				if(this.flagIfGreen) {
+					g.drawImage(this.ifGreen, this.coorToolx, this.coorTooly, this);
 				}
 			} else if(i==3) {
-				g.drawImage(this.pro4, 751 + 87*i, 537, this);
-				if(this.flagProg4) {
-					g.drawImage(this.pro4, this.coorToolx, this.coorTooly, 65, 42, this);
+				g.drawImage(this.ifYell, 751 + 45*i, 623, this);
+				if(this.flagIfYell) {
+					g.drawImage(this.ifYell, this.coorToolx, this.coorTooly, this);
+				}
+			} else if(i==4) {
+				g.drawImage(this.ifNone, 751 + 45*i, 623, this);
+				if(this.flagIfNone) {
+					g.drawImage(this.ifNone, this.coorToolx, this.coorTooly, this);
+				}
+			} else if(i==5) {
+				g.drawImage(this.ifAll, 751 + 45*i, 623, this);
+				if(this.flagIfAll) {
+					g.drawImage(this.ifAll, this.coorToolx, this.coorTooly, this);
 				}
 			}
 		}
-//		
-//		for(int i = 0; i<5; i++) {
-//			g.fillRect(751 + 50*i, 623, 13, 42);
-//		}
 		
 		
 		g.setColor(Color.RED);
@@ -834,6 +895,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 	}
 	
+	
 	public void actionComprobation(Tool herramienta) {
 		if(herramienta.getAccion().equals("der")) {
 			this.flagDer= true;
@@ -894,12 +956,36 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.repaint();
 		} 
 		//NUEVA LINEA
-		else if(e.getX()>750 && e.getX()<815 && e.getY()>620 && e.getY()<665 && this.toolbox[10]!=null && !this.play) {
-
-		} else if(e.getX()>835 && e.getX()<905 && e.getY()>620 && e.getY()<665 && this.toolbox[11]!=null && !this.play) {
-
-		} else if(e.getX()>922 && e.getX()<987 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
-
+		else if(e.getX()>750 && e.getX()<765 && e.getY()>620 && e.getY()<665 && this.toolbox[10]!=null && !this.play) {
+			this.flagIfRed = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} else if(e.getX()>795 && e.getX()<810 && e.getY()>620 && e.getY()<665 && this.toolbox[11]!=null && !this.play) {
+			this.flagIfBlue = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} else if(e.getX()>840 && e.getX()<855 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
+			this.flagIfGreen = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} else if(e.getX()>885 && e.getX()<900 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
+			this.flagIfYell = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} else if(e.getX()>930 && e.getX()<945 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
+			this.flagIfNone = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		} else if(e.getX()>975 && e.getX()<990 && e.getY()>620 && e.getY()<665 && this.toolbox[12]!=null && !this.play) {
+			this.flagIfAll = true;
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
 		} else if(e.getX()>1009 && e.getX()<1074 && e.getY()>620 && e.getY()<665 && !this.play) {
 			this.programa1 = new Tool[this.programa1.length];
 			this.programa2 = new Tool[this.programa2.length];
@@ -916,640 +1002,369 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}*/
 		
 	}
+	
+	public void ifChecker(Tool[] programa, int pos, Tool herramienta, Tool ifTool) {
+		//DERECHA IFS
+		
+		if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfDer");
+		} else if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfDer");
+		} else if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfDer");
+		} else if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfDer");
+		} else if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfDer");
+		} else if(herramienta.getAccion().equals("der") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfDer");
+		}
+		
+		//IZQUIERDA IFS
+		else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfIzq");
+		} else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfIzq");
+		} else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfIzq");
+		} else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfIzq");
+		} else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfIzq");
+		} else if(herramienta.getAccion().equals("izq") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfIzq");
+		}
+		
+		//DOWN IFS
+		if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfDown");
+		} else if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfDown");
+		} else if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfDown");
+		} else if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfDown");
+		} else if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfDown");
+		} else if(herramienta.getAccion().equals("down") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfDown");
+		}
+		
+		//PROG 1 IFS
+		else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg1");
+		} else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg1");
+		} else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg1");
+		} else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg1");
+		} else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg1");
+		} else if(herramienta.getAccion().equals("prog1") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg1");
+		}
+		
+		//PROG 2 IFS
+		else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg2");
+		} else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg2");
+		} else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg2");
+		} else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg2");
+		} else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg2");
+		} else if(herramienta.getAccion().equals("prog2") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg2");
+		}
+		
+		//PROG 3 IFS
+		else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg3");
+		} else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg3");
+		} else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg3");
+		} else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg3");
+		} else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg3");
+		} else if(herramienta.getAccion().equals("prog3") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg3");
+		}
+		
+		//PROG 4
+		else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg4");
+		} else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg4");
+		} else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg4");
+		} else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg4");
+		} else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg4");
+		} else if(herramienta.getAccion().equals("prog4") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg4");
+		}
+		
+		
+		//CASOS ESPECIALES
+		else if(herramienta.getAccion().equals("redIfDer") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfDer");
+		} else if(herramienta.getAccion().equals("redIfIzq") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfIzq");
+		} else if(herramienta.getAccion().equals("redIfDown") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfDown");
+		} else if(herramienta.getAccion().equals("redIfProg1") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg1");
+		} else if(herramienta.getAccion().equals("redIfProg2") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg2");
+		} else if(herramienta.getAccion().equals("redIfProg3") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4") && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("redIfProg4");
+		}
+		
+		
+		
+	}
 
+	public boolean hasIf(Tool herramienta) {
+		if(herramienta.getAccion().equals("ifRed")) {
+			return true;
+		} else if(herramienta.getAccion().equals("ifBlue")) {
+			return true;
+		} else if(herramienta.getAccion().equals("ifGreen")) {
+			return true;
+		} else if(herramienta.getAccion().equals("ifYell")) {
+			return true;
+		} else if(herramienta.getAccion().equals("ifNone")) {
+			return true;
+		} else if(herramienta.getAccion().equals("ifAll")) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public void toolPut(Tool[] programa, int pos) {
+		if(this.flagDer && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("der");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("der");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("der");
+				}
+			}
+		} else if(this.flagIzq && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("izq");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("izq");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("izq");
+				}
+			}
+		} else if(this.flagDown && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("down");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("down");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("down");
+				}
+			}
+		}
+		//PROGR
+		else if(this.flagProg1 && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("prog1");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("prog1");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("prog1");
+				}
+			}
+		} else if(this.flagProg2 && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("prog2");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("prog2");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("prog2");
+				}
+			}
+		} else if(this.flagProg3 && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("prog3");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("prog3");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("prog3");
+				}
+			}
+		} else if(this.flagProg4 && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("prog4");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					Tool tmp = new Tool("prog4");
+					this.ifChecker(programa, pos, tmp, programa[pos]);
+				} else {
+					programa[pos] = new Tool("prog4");
+				}
+			}
+			
+		 //IFS
+			
+		} else if(this.flagIfRed && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifRed");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifRed");
+				}
+				Tool tmp = new Tool("ifRed");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		} else if(this.flagIfBlue && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifBlue");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifBlue");
+				}
+				Tool tmp = new Tool("ifBlue");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		} else if(this.flagIfGreen && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifGreen");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifGreen");
+				}
+				Tool tmp = new Tool("ifGreen");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		} else if(this.flagIfYell && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifYell");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifYell");
+				}
+				Tool tmp = new Tool("ifYell");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		} 
+		else if(this.flagIfNone && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifNone");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifNone");
+				}
+				Tool tmp = new Tool("ifNone");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		} else if(this.flagIfAll && pos<programa.length) {
+			if(programa[pos]==null) {
+				programa[pos] = new Tool("ifAll");
+			} else {
+				if(this.hasIf(programa[pos])) {
+					programa[pos] = new Tool("ifAll");
+				}
+				Tool tmp = new Tool("ifAll");
+				this.ifChecker(programa, pos, programa[pos], tmp);
+			}
+		}
+	}
+	
 	@Override
 	public void mouseReleased(MouseEvent e) {
 		if(e.getX()>121 && e.getX()<186 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("der");
-			} else if(this.flagIzq && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("izq");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			}
-			else if(this.flagProg1 && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("prog1");
-			} else if(this.flagProg2 && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("prog2");
-			} else if(this.flagProg3 && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("prog3");
-			} else if(this.flagProg4 && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("prog4");
-			} /*else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa1.length) {
-				this.programa1[0] = new Tool("down");
-			}*/
+			this.toolPut(this.programa1, 0);
 		}
 
 		else if(e.getX()>194 && e.getX()<259 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("der");
-			} else if(this.flagIzq && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("izq");
-			} else if(this.flagDown && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("down");
-			} else if(this.flagProg1 && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("prog1");
-			} else if(this.flagProg2 && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("prog2");
-			} else if(this.flagProg3 && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("prog3");
-			} else if(this.flagProg4 && 1<this.programa1.length) {
-				this.programa1[1] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 1);
 		}
 
 		else if(e.getX()>262 && e.getX()<327 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("der");
-			} else if(this.flagIzq && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("izq");
-			} else if(this.flagDown && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("down");
-			} else if(this.flagProg1 && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("prog1");
-			} else if(this.flagProg2 && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("prog2");
-			} else if(this.flagProg3 && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("prog3");
-			} else if(this.flagProg4 && 2<this.programa1.length) {
-				this.programa1[2] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
-		} else if(e.getX()>330 && e.getX()<395 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("der");
-			} else if(this.flagIzq && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("izq");
-			} else if(this.flagDown && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("down");
-			} else if(this.flagProg1 && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("prog1");
-			} else if(this.flagProg2 && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("prog2");
-			} else if(this.flagProg3 && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("prog3");
-			} else if(this.flagProg4 && 3<this.programa1.length) {
-				this.programa1[3] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 2);
+		} 
+		
+		else if(e.getX()>330 && e.getX()<395 && e.getY()<475 && e.getY()>433) {
+			this.toolPut(this.programa1, 3);
 		}
 
 		else if(e.getX()>398 && e.getX()<463 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("der");
-			} else if(this.flagIzq && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("izq");
-			} else if(this.flagDown && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("down");
-			} else if(this.flagProg1 && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("prog1");
-			} else if(this.flagProg2 && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("prog2");
-			} else if(this.flagProg3 && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("prog3");
-			} else if(this.flagProg4 && 4<this.programa1.length) {
-				this.programa1[4] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 4);
 		}
 
 
 		else if(e.getX()>466 && e.getX()<531 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("der");
-			} else if(this.flagIzq && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("izq");
-			} else if(this.flagDown && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("down");
-			}else if(this.flagProg1 && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("prog1");
-			} else if(this.flagProg2 && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("prog2");
-			} else if(this.flagProg3 && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("prog3");
-			} else if(this.flagProg4 && 5<this.programa1.length) {
-				this.programa1[5] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 5);
 		}
 
 		else if(e.getX()>534 && e.getX()<599 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("der");
-			} else if(this.flagIzq && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("izq");
-			} else if(this.flagDown && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("down");
-			} else if(this.flagProg1 && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("prog1");
-			} else if(this.flagProg2 && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("prog2");
-			} else if(this.flagProg3 && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("prog3");
-			} else if(this.flagProg4 && 6<this.programa1.length) {
-				this.programa1[6] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 6);
 		}
 
 		else if(e.getX()>602 && e.getX()<667 && e.getY()<475 && e.getY()>433) {
-			if(this.flagDer && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("der");
-			} else if(this.flagIzq && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("izq");
-			} else if(this.flagDown && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("down");
-			} else if(this.flagProg1 && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("prog1");
-			} else if(this.flagProg2 && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("prog2");
-			} else if(this.flagProg3 && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("prog3");
-			} else if(this.flagProg4 && 7<this.programa1.length) {
-				this.programa1[7] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa1, 7);
 
 		//PROGRAMA 2
 
 		} else if(e.getX()>121 && e.getX()<186 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("der");
-			} else if(this.flagIzq && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("izq");
-			} else if(this.flagDown && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("down");
-			} else if(this.flagProg1 && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("prog1");
-			} else if(this.flagProg2 && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("prog2");
-			} else if(this.flagProg3 && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("prog3");
-			} else if(this.flagProg4 && 0<this.programa2.length) {
-				this.programa2[0] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 0);
 
 
 
 		}else if(e.getX()>194 && e.getX()<259 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("der");
-			} else if(this.flagIzq && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("izq");
-			} else if(this.flagDown && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("down");
-			} else if(this.flagProg1 && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("prog1");
-			} else if(this.flagProg2 && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("prog2");
-			} else if(this.flagProg3 && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("prog3");
-			} else if(this.flagProg4 && 1<this.programa2.length) {
-				this.programa2[1] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 1);
 		}
 
 		else if(e.getX()>262 && e.getX()<327 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("der");
-			} else if(this.flagIzq && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("izq");
-			} else if(this.flagDown && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("down");
-			} else if(this.flagProg1 && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("prog1");
-			} else if(this.flagProg2 && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("prog2");
-			} else if(this.flagProg3 && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("prog3");
-			} else if(this.flagProg4 && 2<this.programa2.length) {
-				this.programa2[2] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 2);
 		}
 
 		else if(e.getX()>330 && e.getX()<395 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("der");
-			} else if(this.flagIzq && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("izq");
-			} else if(this.flagDown && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("down");
-			} else if(this.flagProg1 && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("prog1");
-			} else if(this.flagProg2 && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("prog2");
-			} else if(this.flagProg3 && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("prog3");
-			} else if(this.flagProg4 && 3<this.programa2.length) {
-				this.programa2[3] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 3);
 		}
 
 		else if(e.getX()>398 && e.getX()<463 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("der");
-			} else if(this.flagIzq && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("izq");
-			} else if(this.flagDown && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("down");
-			} else if(this.flagProg1 && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("prog1");
-			} else if(this.flagProg2 && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("prog2");
-			} else if(this.flagProg3 && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("prog3");
-			} else if(this.flagProg4 && 4<this.programa2.length) {
-				this.programa2[4] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 4);
 		}
 
 
 		else if(e.getX()>466 && e.getX()<531 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("der");
-			} else if(this.flagIzq && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("izq");
-			} else if(this.flagDown && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("down");
-			} else if(this.flagProg1 && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("prog1");
-			} else if(this.flagProg2 && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("prog2");
-			} else if(this.flagProg3 && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("prog3");
-			} else if(this.flagProg4 && 5<this.programa2.length) {
-				this.programa2[5] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 5);
 		}
 
 		else if(e.getX()>534 && e.getX()<599 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("der");
-			} else if(this.flagIzq && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("izq");
-			} else if(this.flagDown && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("down");
-			} else if(this.flagProg1 && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("prog1");
-			} else if(this.flagProg2 && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("prog2");
-			} else if(this.flagProg3 && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("prog3");
-			} else if(this.flagProg4 && 6<this.programa2.length) {
-				this.programa2[6] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 6);
 		}
 
 		else if(e.getX()>602 && e.getX()<667 && e.getY()<531 && e.getY()>489) {
-			if(this.flagDer && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("der");
-			} else if(this.flagIzq && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("izq");
-			} else if(this.flagDown && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("down");
-			} else if(this.flagProg1 && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("prog1");
-			} else if(this.flagProg2 && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("prog2");
-			} else if(this.flagProg3 && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("prog3");
-			} else if(this.flagProg4 && 7<this.programa2.length) {
-				this.programa2[7] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa2, 7);
 
 
 		//PROGRAMA 3
@@ -1557,651 +1372,74 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 
 		else if(e.getX()>121 && e.getX()<186 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("der");
-			} else if(this.flagIzq && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("izq");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagProg1 && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("prog1");
-			} else if(this.flagProg2 && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("prog2");
-			} else if(this.flagProg3 && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("prog3");
-			} else if(this.flagProg4 && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			} else if(this.flagDown && 0<this.programa3.length) {
-				this.programa3[0] = new Tool("down");
-			}*/
+			this.toolPut(this.programa3, 0);
 
 		}
 
 		else if(e.getX()>194 && e.getX()<259 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("der");
-			} else if(this.flagIzq && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("izq");
-			} else if(this.flagDown && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("down");
-			} else if(this.flagProg1 && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("prog1");
-			} else if(this.flagProg2 && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("prog2");
-			} else if(this.flagProg3 && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("prog3");
-			} else if(this.flagProg4 && 1<this.programa3.length) {
-				this.programa3[1] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 1);
 
 		}
 
 		else if(e.getX()>262 && e.getX()<327 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("der");
-			} else if(this.flagIzq && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("izq");
-			} else if(this.flagDown && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("down");
-			} else if(this.flagProg1 && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("prog1");
-			} else if(this.flagProg2 && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("prog2");
-			} else if(this.flagProg3 && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("prog3");
-			} else if(this.flagProg4 && 2<this.programa3.length) {
-				this.programa3[2] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 2);
 		}
 
 		else if(e.getX()>330 && e.getX()<395 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("der");
-			} else if(this.flagIzq && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("izq");
-			} else if(this.flagDown && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("down");
-			} else if(this.flagProg1 && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("prog1");
-			} else if(this.flagProg2 && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("prog2");
-			} else if(this.flagProg3 && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("prog3");
-			} else if(this.flagProg4 && 3<this.programa3.length) {
-				this.programa3[3] = new Tool("prog4");
-			}
-			
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 3);
 		}
 
 		else if(e.getX()>398 && e.getX()<463 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("der");
-			} else if(this.flagIzq && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("izq");
-			} else if(this.flagDown && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("down");
-			} else if(this.flagProg1 && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("prog1");
-			} else if(this.flagProg2 && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("prog2");
-			} else if(this.flagProg3 && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("prog3");
-			} else if(this.flagProg4 && 4<this.programa3.length) {
-				this.programa3[4] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 4);
 		}
 
 
 		else if(e.getX()>466 && e.getX()<531 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("der");
-			} else if(this.flagIzq && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("izq");
-			} else if(this.flagDown && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("down");
-			} else if(this.flagProg1 && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("prog1");
-			} else if(this.flagProg2 && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("prog2");
-			} else if(this.flagProg3 && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("prog3");
-			} else if(this.flagProg4 && 5<this.programa3.length) {
-				this.programa3[5] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 5);
 		}
 
 		else if(e.getX()>534 && e.getX()<599 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("der");
-			} else if(this.flagIzq && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("izq");
-			} else if(this.flagDown && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("down");
-			} else if(this.flagProg1 && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("prog1");
-			} else if(this.flagProg2 && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("prog2");
-			} else if(this.flagProg3 && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("prog3");
-			} else if(this.flagProg4 && 6<this.programa3.length) {
-				this.programa3[6] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 6);
 		}
 
 		else if(e.getX()>602 && e.getX()<667 && e.getY()<587 && e.getY()>545) {
-			if(this.flagDer && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("der");
-			} else if(this.flagIzq && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("izq");
-			} else if(this.flagDown && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("down");
-			} else if(this.flagProg1 && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("prog1");
-			} else if(this.flagProg2 && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("prog2");
-			} else if(this.flagProg3 && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("prog3");
-			} else if(this.flagProg4 && 7<this.programa3.length) {
-				this.programa3[7] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa3, 7);
 
 			//PROGRAMA 4
 
 
 		} else if(e.getX()>121 && e.getX()<186 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("der");
-			} else if(this.flagIzq && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("izq");
-			} else if(this.flagDown && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("down");
-			} else if(this.flagProg1 && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("prog1");
-			} else if(this.flagProg2 && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("prog2");
-			} else if(this.flagProg3 && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("prog3");
-			} else if(this.flagProg4 && 0<this.programa4.length) {
-				this.programa4[0] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 0);
 
 		}
 
 		else if(e.getX()>194 && e.getX()<259 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("der");
-			} else if(this.flagIzq && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("izq");
-			} else if(this.flagDown && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("down");
-			} else if(this.flagProg1 && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("prog1");
-			} else if(this.flagProg2 && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("prog2");
-			} else if(this.flagProg3 && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("prog3");
-			} else if(this.flagProg4 && 1<this.programa4.length) {
-				this.programa4[1] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 1);
 		}
 
 		else if(e.getX()>262 && e.getX()<327 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("der");
-			} else if(this.flagIzq && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("izq");
-			} else if(this.flagDown && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("down");
-			} else if(this.flagProg1 && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("prog1");
-			} else if(this.flagProg2 && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("prog2");
-			} else if(this.flagProg3 && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("prog3");
-			} else if(this.flagProg4 && 2<this.programa4.length) {
-				this.programa4[2] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 2);
 		}
 
 		else if(e.getX()>330 && e.getX()<395 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("der");
-			} else if(this.flagIzq && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("izq");
-			} else if(this.flagDown && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("down");
-			} else if(this.flagProg1 && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("prog1");
-			} else if(this.flagProg2 && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("prog2");
-			} else if(this.flagProg3 && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("prog3");
-			} else if(this.flagProg4 && 3<this.programa4.length) {
-				this.programa4[3] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 3);
 		}
 
 		else if(e.getX()>398 && e.getX()<463 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("der");
-			} else if(this.flagIzq && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("izq");
-			} else if(this.flagDown && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("down");
-			} else if(this.flagProg1 && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("prog1");
-			} else if(this.flagProg2 && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("prog2");
-			} else if(this.flagProg3 && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("prog3");
-			} else if(this.flagProg4 && 4<this.programa4.length) {
-				this.programa4[4] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 4);
 		}
 
 
 		else if(e.getX()>466 && e.getX()<531 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("der");
-			} else if(this.flagIzq && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("izq");
-			} else if(this.flagDown && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("down");
-			} else if(this.flagProg1 && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("prog1");
-			} else if(this.flagProg2 && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("prog2");
-			} else if(this.flagProg3 && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("prog3");
-			} else if(this.flagProg4 && 5<this.programa4.length) {
-				this.programa4[5] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 5);
 		}
 
 		else if(e.getX()>534 && e.getX()<599 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("der");
-			} else if(this.flagIzq && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("izq");
-			} else if(this.flagDown && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("down");
-			} else if(this.flagProg1 && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("prog1");
-			} else if(this.flagProg2 && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("prog2");
-			} else if(this.flagProg3 && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("prog3");
-			} else if(this.flagProg4 && 6<this.programa4.length) {
-				this.programa4[6] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 6);
 		}
 
 		else if(e.getX()>602 && e.getX()<667 && e.getY()<643 && e.getY()>601) {
-			if(this.flagDer && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("der");
-			} else if(this.flagIzq && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("izq");
-			} else if(this.flagDown && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("down");
-			} else if(this.flagProg1 && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("prog1");
-			} else if(this.flagProg2 && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("prog2");
-			} else if(this.flagProg3 && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("prog3");
-			} else if(this.flagProg4 && 7<this.programa4.length) {
-				this.programa4[7] = new Tool("prog4");
-			}
-			/*
-			else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		} else if(this.flagDown && 0<this.programa3.length) {
-			this.programa3[0] = new Tool("down");
-		}*/
+			this.toolPut(this.programa4, 7);
 		}
 
 		this.flagDer = false;
@@ -2211,9 +1449,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.flagProg2 = false;
 		this.flagProg3 = false;
 		this.flagProg4 = false;
+		this.flagIfAll = false;
+		this.flagIfNone = false;
+		this.flagIfRed = false;
+		this.flagIfGreen = false;
+		this.flagIfYell = false;
+		this.flagIfBlue = false;
 		this.repaint();
 	}
 
+	
+	
 	public boolean equalsStacks() {
 		for(int i =0;i<this.cajas.length;i++) {
 			Stack<Caja> cajasCopia = (Stack<Caja>) this.cajas[i].clone();
