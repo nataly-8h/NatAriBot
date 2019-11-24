@@ -1338,9 +1338,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			contador++;
 		}
 	}
+	
+	public void nextLevel() {
+		this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
+		this.nodeCurrent= this.nodeCurrent.getRight();
+		this.paintLevel();
+		this.repaint();
+	}
 
 	public void changeLevel() {
 		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
+		this.nodeCurrent= this.nodeCurrent.getLeft();
 		this.paintLevel();
 		this.repaint();
 	}
@@ -2524,7 +2532,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 				this.play=false;
 				this.win = false;
-				this.changeLevel();
+				this.nextLevel();
 				break;
 			}
 		}
