@@ -657,10 +657,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			}
 		}
-		
-		for(int i = 0; i<5; i++) {
-			g.fillRect(751 + 50*i, 623, 13, 42);
-		}
+//		
+//		for(int i = 0; i<5; i++) {
+//			g.fillRect(751 + 50*i, 623, 13, 42);
+//		}
 		
 		
 		g.setColor(Color.RED);
