@@ -1210,6 +1210,134 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 
 	}
+	
+	public void paintLevelAgain() {
+		StringTokenizer st = new StringTokenizer(nivel);
+		int contador = 0;
+		while (st.hasMoreTokens()) {
+			if (contador < 4) {
+				switch (contador) {
+				case 0:
+					st.nextToken();
+					break;
+				case 1:
+					st.nextToken();
+					break;
+				case 2:
+					st.nextToken();
+					break;
+				case 3:
+					st.nextToken();
+					break;
+				}
+			} else if (contador == 4) {
+				this.espacios = Integer.parseInt(st.nextToken());
+				this.cajas = (Stack<Caja>[]) new Stack[this.espacios];
+				this.meta = (Stack<Caja>[]) new Stack[this.espacios];
+				for (int i = 0; i < this.espacios; i++) {
+					this.cajas[i] = new Stack<Caja>();
+					this.meta[i] = new Stack<Caja>();
+				}
+
+				for (int i = 0; i < this.espacios; i++) {
+					String cajas = st.nextToken();
+					for (int j = 0; j < cajas.length(); j++) {
+						if (cajas.charAt(j) == '0') {
+							continue;
+						} else {
+							this.cajas[i].add(new Caja(Character.getNumericValue(cajas.charAt(j))));
+						}
+					}
+				}
+				for (int i = 0; i < this.espacios; i++) {
+					String goal = st.nextToken();
+					for (int j = 0; j < goal.length(); j++) {
+						if (goal.charAt(j) == '0') {
+							continue;
+						} else {
+							this.meta[i].add(new Caja(Character.getNumericValue(goal.charAt(j))));
+						}
+					}
+				}
+			} else {
+				for (int i = 0; i < 13; i++) {
+					String elemento = st.nextToken();
+					if (elemento.equals("1")) {
+						switch (i) {
+						case 0:
+							this.toolbox[i] = new Tool("derecha");
+							break;
+						case 1:
+							this.toolbox[i] = new Tool("izquierda");
+							break;
+						case 2:
+							this.toolbox[i] = new Tool("abajo");
+							break;
+						case 3:
+							this.toolbox[i] = new Tool("programa1");
+							break;
+						case 4:
+							this.toolbox[i] = new Tool("programa2");
+							break;
+						case 5:
+							this.toolbox[i] = new Tool("programa3");
+							break;
+						case 6:
+							this.toolbox[i] = new Tool("programa4");
+							break;
+						case 7:
+							this.toolbox[i] = new Tool("ifRed");
+							break;
+						case 8:
+							this.toolbox[i] = new Tool("ifYell");
+							break;
+						case 9:
+							this.toolbox[i] = new Tool("ifGreen");
+							break;
+						case 10:
+							this.toolbox[i] = new Tool("ifBlue");
+							break;
+						case 11:
+							this.toolbox[i] = new Tool("ifAll");
+							break;
+						case 12:
+							this.toolbox[i] = new Tool("ifNone");
+							break;
+						default:
+							System.out.println("ERROR SUGOIII");
+							System.exit(0);
+						}
+					}
+				}
+			}
+			
+			if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
+				garra = new Garra(239);
+			} else if (this.espacios == 5) {
+				garra = new Garra(149);
+			} else if (this.espacios == 6 || this.espacios == 7) {
+				garra = new Garra(59);
+			}
+
+			// cajitas
+
+			for (int i = 0; i < this.espacios; i++) {
+				for (int j = 0; j < this.cajas[i].size(); j++) {
+					if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
+						this.cajas[i].get(j).setX(254 + i * 90);
+					}else if(this.espacios == 5) {
+						this.cajas[i].get(j).setX(164 + i * 90);
+					}else if(this.espacios == 6 || this.espacios == 7) {
+						this.cajas[i].get(j).setX(74 + i * 90);
+					}
+
+					this.cajas[i].get(j).setY(333 - j * 50);
+				}
+			}
+
+			contador++;
+		}
+	}
 
 	public void paintLevel() {
 		StringTokenizer st = new StringTokenizer(nivel);
@@ -2189,7 +2317,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void tryAgain() {
 		this.gameOver = false;
-		this.paintLevel();
+		this.paintLevelAgain();
 		this.repaint();
 	}
 
@@ -2550,8 +2678,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				if (!win) {
 					this.play=false;
 					this.gameOver = true;
-					// this.repaint();
-					// this.tryAgain();
+					//this.tryAgain();
+					//this.repaint();
 				}
 			} catch(InterruptedException ex) {
 				System.out.println("Terrible");
