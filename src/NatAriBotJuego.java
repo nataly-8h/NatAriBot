@@ -1310,6 +1310,30 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					}
 				}
 			}
+			
+			if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
+				garra = new Garra(239);
+			} else if (this.espacios == 5) {
+				garra = new Garra(149);
+			} else if (this.espacios == 6 || this.espacios == 7) {
+				garra = new Garra(59);
+			}
+
+			// cajitas
+
+			for (int i = 0; i < this.espacios; i++) {
+				for (int j = 0; j < this.cajas[i].size(); j++) {
+					if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
+						this.cajas[i].get(j).setX(254 + i * 90);
+					}else if(this.espacios == 5) {
+						this.cajas[i].get(j).setX(164 + i * 90);
+					}else if(this.espacios == 6 || this.espacios == 7) {
+						this.cajas[i].get(j).setX(74 + i * 90);
+					}
+
+					this.cajas[i].get(j).setY(333 - j * 50);
+				}
+			}
 
 			contador++;
 		}
