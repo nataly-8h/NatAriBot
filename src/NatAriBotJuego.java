@@ -1554,25 +1554,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.repaint();
 		}
 		// NUEVA LINEA
-		else if (e.getX() > 750 && e.getX() < 815 && e.getY() > 535 && e.getY() < 580 && this.toolbox[5] != null
+		else if (e.getX() > 750 && e.getX() < 815 && e.getY() > 535 && e.getY() < 580 && this.toolbox[3] != null
 				&& !this.play) {
 			this.flagProg1 = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 835 && e.getX() < 905 && e.getY() > 535 && e.getY() < 580 && this.toolbox[6] != null
+		} else if (e.getX() > 835 && e.getX() < 905 && e.getY() > 535 && e.getY() < 580 && this.toolbox[4] != null
 				&& !this.play) {
 			this.flagProg2 = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 922 && e.getX() < 987 && e.getY() > 535 && e.getY() < 580 && this.toolbox[7] != null
+		} else if (e.getX() > 922 && e.getX() < 987 && e.getY() > 535 && e.getY() < 580 && this.toolbox[5] != null
 				&& !this.play) {
 			this.flagProg3 = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 1009 && e.getX() < 1074 && e.getY() > 535 && e.getY() < 580 && this.toolbox[8] != null
+		} else if (e.getX() > 1009 && e.getX() < 1074 && e.getY() > 535 && e.getY() < 580 && this.toolbox[6] != null
 				&& !this.play) {
 			this.flagProg4 = true;
 			this.coorToolx = e.getX();
@@ -1580,31 +1580,31 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.repaint();
 		}
 		// NUEVA LINEA
-		else if (e.getX() > 750 && e.getX() < 765 && e.getY() > 620 && e.getY() < 665 && this.toolbox[10] != null
+		else if (e.getX() > 750 && e.getX() < 765 && e.getY() > 620 && e.getY() < 665 && this.toolbox[7] != null
 				&& !this.play) {
 			this.flagIfRed = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 795 && e.getX() < 810 && e.getY() > 620 && e.getY() < 665 && this.toolbox[11] != null
+		} else if (e.getX() > 795 && e.getX() < 810 && e.getY() > 620 && e.getY() < 665 && this.toolbox[8] != null
 				&& !this.play) {
 			this.flagIfBlue = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 840 && e.getX() < 855 && e.getY() > 620 && e.getY() < 665 && this.toolbox[12] != null
+		} else if (e.getX() > 840 && e.getX() < 855 && e.getY() > 620 && e.getY() < 665 && this.toolbox[9] != null
 				&& !this.play) {
 			this.flagIfGreen = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 885 && e.getX() < 900 && e.getY() > 620 && e.getY() < 665 && this.toolbox[12] != null
+		} else if (e.getX() > 885 && e.getX() < 900 && e.getY() > 620 && e.getY() < 665 && this.toolbox[10] != null
 				&& !this.play) {
 			this.flagIfYell = true;
 			this.coorToolx = e.getX();
 			this.coorTooly = e.getY();
 			this.repaint();
-		} else if (e.getX() > 930 && e.getX() < 945 && e.getY() > 620 && e.getY() < 665 && this.toolbox[12] != null
+		} else if (e.getX() > 930 && e.getX() < 945 && e.getY() > 620 && e.getY() < 665 && this.toolbox[11] != null
 				&& !this.play) {
 			this.flagIfNone = true;
 			this.coorToolx = e.getX();
@@ -2670,6 +2670,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void run() {
+<<<<<<< Updated upstream
 		
 		while(true) {
 			// entra si hay que ejecutar
@@ -2698,6 +2699,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					Thread.sleep(50);
 				} catch(InterruptedException ex) {
 					System.out.println("Terrible");
+=======
+		while (this.play) {
+			this.hasCaja = false;
+			this.caja = null;
+			this.win = false;
+			try {
+				Thread.sleep(400);
+				this.accionCheck(this.programa1);
+				if (!win) {
+					this.play=false;
+					this.gameOver = true;
+					//this.tryAgain();
+					//this.paintImmediately(0,0,1300,1300);
+>>>>>>> Stashed changes
 				}
 			}
 		}
