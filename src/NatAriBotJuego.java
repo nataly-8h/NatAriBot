@@ -57,6 +57,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Hashtable<Integer, String> niveles;
 	private AVLTree avl;
+	
+	private Thread th;
 
 
 	public NatAriBotJuego() {
@@ -161,16 +163,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 
-
-
-
-		Thread hilo = new Thread(this);
-		hilo.start();
-
-
-
-
-
+		this.th = new Thread(this);
+		this.th.start();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -1330,13 +1324,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 			if (flag) {
 				this.play = !this.play;
-			}
-
-			if (this.play) {
 				this.paintImmediately(0, 0, 1300, 1300);
-				this.run();
-			} else {
-				this.tryAgain();
 			}
 
 			// CLEAR
@@ -2466,22 +2454,38 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void run() {
-		while (this.play) {
-			this.hasCaja = false;
-			this.caja = null;
-			this.win = false;
-			try {
-				Thread.sleep(400);
-				this.accionCheck(this.programa1);
-				if (!win) {
-					this.gameOver = true;
-					// this.repaint();
-					// this.tryAgain();
+		
+		while(true) {
+			// entra si hay que ejecutar
+			if (this.play) {
+				this.hasCaja = false;
+				this.caja = null;
+				this.win = false;
+				try {
+					Thread.sleep(400);
+					this.accionCheck(this.programa1);
+					if (!win) {
+						this.gameOver = true;
+						// this.repaint();
+						// this.tryAgain();
+						this.tryAgain();
+					}
+				} catch(InterruptedException ex) {
+					System.out.println("Terrible");
 				}
-			} catch(InterruptedException ex) {
-				System.out.println("Terrible");
+				this.play = false;
+				this.paintImmediately(0, 0, 1300, 1300);
+				
+				//si no hay que ejecutar duerme 50 ms y vuelve a checar
+			} else {
+				try {
+					Thread.sleep(50);
+				} catch(InterruptedException ex) {
+					System.out.println("Terrible");
+				}
 			}
 		}
+		
 	}
 
 	@Override
