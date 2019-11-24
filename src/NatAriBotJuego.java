@@ -230,17 +230,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		for (int i = 0; i < this.espacios; i++) {
 			for (int j = 0; j < this.cajas[i].size(); j++) {
 				Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
-				while (!cajaCopia.isEmpty()) {
-					if (cajaCopia.peek().getColor() == 1) {
-						g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-					} else if (cajaCopia.peek().getColor() == 2) {
-						g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-					} else if (cajaCopia.peek().getColor() == 3) {
-						g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-					} else if (cajaCopia.peek().getColor() == 4) {
-						g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-					}
-					cajaCopia.pop();
+				if (this.cajas[i].get(j).getColor()==1) {
+					g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
+				} else if (this.cajas[i].get(j).getColor()==2) {
+					g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
+				} else if (this.cajas[i].get(j).getColor()==3) {
+					g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
+				} else if (this.cajas[i].get(j).getColor()==4) {
+					g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
 				}
 			}
 		}
@@ -1013,83 +1010,68 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			for (int j = 0; j < this.meta[i].size(); j++) {
 				Stack<Caja> metaCopia = (Stack<Caja>) this.meta[i].clone();
 				if (this.espacios == 2) {
-					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
 						}
-						metaCopia.pop();
-					}
 				} else if (this.espacios == 3) {
-					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
 						}
-						metaCopia.pop();
-					}
 				} else if (this.espacios == 4) {
-					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
 						}
-						metaCopia.pop();
-					}
 				} else if (this.espacios == 5) {
 					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
 						}
 						metaCopia.pop();
 					}
 				} else if (this.espacios == 6) {
-					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
 						}
-						metaCopia.pop();
-					}
 				} else if (this.espacios == 7) {
-					while (!metaCopia.isEmpty()) {
-						if (metaCopia.peek().getColor() == 1) {
+						if (this.meta[i].get(j).getColor()==1) {
 							g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 2) {
+						} else if (this.meta[i].get(j).getColor()==2) {
 							g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 3) {
+						} else if (this.meta[i].get(j).getColor()==3) {
 							g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (metaCopia.peek().getColor() == 4) {
+						} else if (this.meta[i].get(j).getColor()==4) {
 							g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
 						}
-						metaCopia.pop();
-					}
 				}
 			}
 		}
@@ -2317,6 +2299,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void tryAgain() {
 		this.gameOver = false;
+		this.hasCaja = false;
+		this.caja = null;
+		this.win = false;
 		this.paintLevelAgain();
 		this.repaint();
 	}
@@ -2499,6 +2484,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void bajar() {
+		System.out.println(this.cajas[posGarra].size());
 		int n = 0;
 		int cantidad = 0;
 		if(cajas[posGarra].size()<=1 && !hasCaja) {
