@@ -49,7 +49,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					ifGreen,
 					ifBlue,
 					ifAll,
-					ifNone;
+					ifNone,
+					barraGarra,
+					garraDer,
+					garraIzq;
 	
 	private Image[] cajaImage = new Image[4];
 	
@@ -161,6 +164,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.ifAll = new ImageIcon("ifAll.png").getImage();
 		this.ifNone = new ImageIcon("ifNone.png").getImage();
 		
+		this.barraGarra = new ImageIcon("barragarra.png").getImage();
+		this.garraDer = new ImageIcon("garraDer.png").getImage();
+		this.garraIzq = new ImageIcon("garraIzq.png").getImage();
+		
 		this.cajaImage[0] = new ImageIcon("redbox.png").getImage();
 		this.cajaImage[1] = new ImageIcon("yellbox.png").getImage();
 		this.cajaImage[2] = new ImageIcon("greenbox.png").getImage();
@@ -213,7 +220,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.BLACK);
 		if(this.espacios==2) {
 			g.fillRect(255, 27, 40, 15);
-			g.fillRect(239, 47, 76, 17);
+			g.drawImage(barraGarra, 239, 314, 76, 17, this);
+			g.drawImage(garraDer, 232, 310, 15, 60, this);
+			//g.drawImage(garraDer, 239, 310, 15, 60, this);
+			
+			g.drawImage(garraIzq, 308, 310,  15, 60, this);
+			//g.drawImage(garraIzq, 300, 310,  15, 60, this);
+			//g.fillRect(239, 47, 76, 17);
 		} else if(this.espacios==3) {
 			g.fillRect(255, 27, 40, 15);
 			g.fillRect(239, 47, 76, 17);
@@ -569,7 +582,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.setColor(Color.WHITE);
 		g.fillRect(751, 451, 65, 42);
 
-
+		//izq der down
 		for(int i = 0; i<5; i++) {
 			if(i==0 && this.toolbox[0]!=null) {
 				g.drawImage(this.derTrue, 751+87*i, 451, 65, 42, this);
@@ -594,7 +607,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				g.drawImage(this.downFalse, 751+87*i, 451, 65, 42, this);
 			}
 		}
-
+		//programa 1 2 3 4
 		for(int i = 0; i<5; i++) {
 			if(i==0) {
 				g.drawImage(this.pro1, 751 + 87*i, 537, this);
@@ -617,17 +630,43 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.pro4, this.coorToolx, this.coorTooly, 65, 42, this);
 				}
 			}
-			//g.fillRect(751 + 87*i, 537, 65, 42);
 		}
-
+		
+		//ifs
+		
 		for(int i = 0; i<5; i++) {
-			if(i==3) {
-				g.setColor(Color.RED);
-			}else if(i==4) {
-				g.setColor(Color.BLUE);
+			if(i==0) {
+				g.drawImage(this.ifRed, 751 + 50*i, 623, this);
+				if(this.flagProg1) {
+					g.drawImage(this.pro1, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==1) {
+				g.drawImage(this.pro2, 751 + 87*i, 537, this);
+				if(this.flagProg2) {
+					g.drawImage(this.pro2, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==2) {
+				g.drawImage(this.pro3, 751 + 87*i, 537, this);
+				if(this.flagProg3) {
+					g.drawImage(this.pro3, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
+			} else if(i==3) {
+				g.drawImage(this.pro4, 751 + 87*i, 537, this);
+				if(this.flagProg4) {
+					g.drawImage(this.pro4, this.coorToolx, this.coorTooly, 65, 42, this);
+				}
 			}
-			g.fillRect(751 + 87*i, 623, 65, 42);
 		}
+		
+		for(int i = 0; i<5; i++) {
+			g.fillRect(751 + 50*i, 623, 13, 42);
+		}
+		
+		
+		g.setColor(Color.RED);
+		g.fillRect(1012, 623, 65, 42);
+		g.setColor(Color.BLUE);
+		g.fillRect(1099, 623, 65, 42);
 
 
 		//CIRCULO DE PLAY
