@@ -2364,12 +2364,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void bajar() {
 		int n = 0;
-		while (n <= 315  && garra.isArriba()) {
-			if (n == 315 - (cajas[posGarra].size()*50)) {
-				garra.setArriba(false);
-			}
+		int cantidad = 0;
+		if(cajas[posGarra].size()<=1) {
+			cantidad = 1;
+		}else {
+			cantidad = cajas[posGarra].size();
+		}
+		while (n <= 315 - (cantidad*50) ) {
+			
 			if (hasCaja) {
-				caja.setY(this.garra.getPosY() - 1);
+				caja.setY(this.garra.getPosY() + 1);
 			}
 			n++;
 			this.garra.setPosY(this.garra.getPosY() + 1);
@@ -2383,8 +2387,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 
 		int n = this.garra.getPosY();
-		while (n >= 47 && !garra.isArriba()) {
-			if (n == 265) {
+		while (n >= 47 
+				) {
+			if (n == 47) {
 				garra.setArriba(true);
 			}
 
@@ -2437,7 +2442,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 0)) {
 				if (posGarra < this.espacios - 1) {
 					this.derecha();
-					posGarra++;
+					this.posGarra++;
 				} else {
 					this.gameOver = true;
 				}
@@ -2445,13 +2450,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 1)) {
 				if (posGarra > 0) {
 					this.izquierda();
-					posGarra--;
+					this.posGarra--;
 				} else {
 					this.gameOver = true;
 				}
 			} else if (programa[i].getAccion() == "down"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
 
+				System.out.println(cajas[posGarra].size());
 				this.bajar();
 				this.cerrar();
 
