@@ -2670,8 +2670,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void run() {
-<<<<<<< Updated upstream
-		
 		while(true) {
 			// entra si hay que ejecutar
 			if (this.play) {
@@ -2692,31 +2690,34 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 				this.play = false;
 				this.paintImmediately(0, 0, 1300, 1300);
-				
+
 				//si no hay que ejecutar duerme 50 ms y vuelve a checar
 			} else {
 				try {
 					Thread.sleep(50);
 				} catch(InterruptedException ex) {
 					System.out.println("Terrible");
-=======
-		while (this.play) {
-			this.hasCaja = false;
-			this.caja = null;
-			this.win = false;
-			try {
-				Thread.sleep(400);
-				this.accionCheck(this.programa1);
-				if (!win) {
-					this.play=false;
-					this.gameOver = true;
-					//this.tryAgain();
-					//this.paintImmediately(0,0,1300,1300);
->>>>>>> Stashed changes
 				}
+				while (this.play) {
+					this.hasCaja = false;
+					this.caja = null;
+					this.win = false;
+					try {
+						Thread.sleep(400);
+						this.accionCheck(this.programa1);
+						if (!win) {
+							this.play=false;
+							this.gameOver = true;
+							//this.tryAgain();
+							//this.paintImmediately(0,0,1300,1300);
+						}
+					} catch(InterruptedException e) {
+						System.out.println("ERROR");
+					}
+				}
+
 			}
 		}
-		
 	}
 
 	@Override
