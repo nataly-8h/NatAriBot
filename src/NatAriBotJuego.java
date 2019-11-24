@@ -174,8 +174,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		hilo.start();
 	}
 
-	public void paint(Graphics g) {
-		super.paint(g);
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
 		
 		//PANEL DE JUEGO
 		g.drawImage(this.gameBox, 17, 17, this);
@@ -775,7 +775,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			
 			
 			if(this.play) {
-				this.repaint();
+				this.paintImmediately(0,0,1300,1300);
 				this.run();
 			} else {
 				this.tryAgain();
@@ -794,6 +794,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.changeLevel();
 		}
 	}
+	
+	public void actionComprobation(Tool herramienta) {
+		if(herramienta.getAccion().equals("der")) {
+			this.flagDer= true;
+		} else if(herramienta.getAccion().equals("izq")) {
+			this.flagIzq = true;
+		} else if(herramienta.getAccion().equals("down")) {
+			this.flagDown = true;
+		} else if(herramienta.getAccion().equals("prog1")) {
+			this.flagProg1 = true;
+		} else if(herramienta.getAccion().equals("prog2")) {
+			this.flagProg2 = true;
+		} else if(herramienta.getAccion().equals("prog3")) {
+			this.flagProg3 = true;
+		} else if(herramienta.getAccion().equals("prog4")) {
+			this.flagProg4 = true;
+		} 
+	}
+	
 
 	@Override
 	public void mousePressed(MouseEvent e) {
@@ -848,6 +867,15 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.programa3 = new Tool[this.programa3.length];
 			this.programa4 = new Tool[this.programa4.length];
 		}
+		
+		//NUEVA LINEA
+		/*else if(e.getX()>1009 && e.getX()<1074 && e.getY()>620 && e.getY()<665 && this.programa1[0]!=null && !this.play) {
+			this.actionComprobation(this.programa1[0]);
+			this.coorToolx = e.getX();
+			this.coorTooly = e.getY();
+			this.repaint();
+		}*/
+		
 	}
 
 	@Override
@@ -2205,8 +2233,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void accionCheck(Tool[] programa) {
 		for(int i = 0;i<programa.length;i++) {
 			try {
-				this.repaint();
-				Thread.sleep(2000);
+				Thread.sleep(1000);
+				this.paintImmediately(0, 0, 1300, 1300);
 			} catch (InterruptedException e) {
 				System.out.println("TERRIBLE");
 			}
