@@ -31,6 +31,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
+
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
 	private Image img, derTrue, derFalse, downTrue, downFalse, izqTrue, izqFalse, borde, gameBox, progBox, pro1, pro2,
@@ -161,16 +162,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 
-
-
-
 		Thread hilo = new Thread(this);
 		hilo.start();
-
-
-
-
-
 	}
 
 	public void paintComponent(Graphics g) {
@@ -1200,7 +1193,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillOval(545, 683, 110, 110);
 
 		if(win) {
-			g.drawImage(this.img,0,0,1000,1000,this);
+			g.drawImage(this.img,0,0,100,100,this);
 		}
 
 
@@ -2311,6 +2304,84 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 	}
 
+	//ANIMACIONES WUUU
+	public void derecha() {
+		int n = 0;
+		while (n <= 90) {
+			n++;
+			if(hasCaja) {
+				this.caja.setX(this.caja.getX() +1);
+			}
+			this.garra.setPosX(this.garra.getPosX() + 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	
+	public void izquierda() {
+		int n = 0;
+		while (n <= 90) {
+			n++;
+			this.garra.setPosX(this.garra.getPosX() - 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	
+	public void bajar() {
+		int n = 0;
+		while (n <= 315 - (cajas[posGarra].size()*50) && garra.isArriba()) {
+			if (n == 315 - (cajas[posGarra].size()*50)) {
+				garra.setArriba(false);
+			}
+			if (hasCaja) {
+				caja.setY(this.garra.getPosY() - 1);
+			}
+			n++;
+			this.garra.setPosY(this.garra.getPosY() + 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	
+	public void subir() {
+		if(this.garra.isOpen()) {
+			this.abrir();
+		}
+		
+		int n = 0;
+		while (n <= 265 && !garra.isArriba()) {
+			if (n == 265) {
+				garra.setArriba(true);
+			}
+
+			if (hasCaja) {
+				caja.setY(this.garra.getPosY() + 1);
+			}
+
+			n++;
+			this.garra.setPosY(this.garra.getPosY() - 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	
+	public void cerrar() {
+		int a = this.garra.getDerX();
+		while (a <= this.garra.getPosX() - 1) {
+			a++;
+			this.garra.setDerX(this.garra.getDerX() + 1);
+			this.garra.setIzqX(this.garra.getIzqX() - 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	public void abrir() {
+		int a = 0;
+		while (a <= 7) {
+			a++;
+			this.garra.setDerX(this.garra.getDerX() - 1);
+			this.garra.setIzqX(this.garra.getIzqX() + 1);
+			this.paintImmediately(0, 0, 1300, 1300);
+		}
+	}
+	
+	//ACTION CHECK :)
 	public void accionCheck(Tool[] programa) {
 		for (int i = 0; i < programa.length; i++) {
 			try {
@@ -2329,16 +2400,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if (programa[i].getAccion() == "der"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 0)) {
 				if (posGarra < this.espacios - 1) {
-					int n = 0;
-					while (n <= 90) {
-						n++;
-						if(hasCaja) {
-							//System.out.println("entr�");
-							this.caja.setX(this.caja.getX() +1);
-						}
-						this.garra.setPosX(this.garra.getPosX() + 1);
-						this.paintImmediately(0, 0, 1300, 1300);
-					}
+					this.derecha();
 					posGarra++;
 				} else {
 					this.gameOver = true;
@@ -2346,45 +2408,26 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			} else if (programa[i].getAccion() == "izq"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 1)) {
 				if (posGarra > 0) {
-					int n = 0;
-					while (n <= 90) {
-						n++;
-						this.garra.setPosX(this.garra.getPosX() - 1);
-						this.paintImmediately(0, 0, 1300, 1300);
-					}
+					this.izquierda();
 					posGarra--;
 				} else {
 					this.gameOver = true;
 				}
 			} else if (programa[i].getAccion() == "down"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
-				// bajar
-				int n = 0;
-				while (n <= 265 && garra.isArriba()) {
-					if (n == 265) {
-						garra.setArriba(false);
-					}
-					n++;
-					this.garra.setPosY(this.garra.getPosY() + 1);
-					this.paintImmediately(0, 0, 1300, 1300);
-				}
-				// cerrar
-				int a = this.garra.getDerX();
-				while (a <= this.garra.getPosX() - 1) {
-					a++;
-					this.garra.setDerX(this.garra.getDerX() + 1);
-					this.garra.setIzqX(this.garra.getIzqX() - 1);
-					this.paintImmediately(0, 0, 1300, 1300);
-				}
+				
+				this.bajar();
+				this.cerrar();
+				
 				if (!this.cajas[posGarra].isEmpty() && !hasCaja) {
+					this.garra.setOpen(false);
 					hasCaja = true;
 					caja = this.cajas[posGarra].pop();
-					System.out.println(caja.getX());
 
 				} else if (this.cajas[posGarra].isEmpty() && !hasCaja) {
-					// NADA
+					this.garra.setOpen(true);
 				} else if (hasCaja) {
-
+					this.garra.setOpen(true);
 					if (this.cajas[posGarra].size() == this.maxCajas) {
 						this.gameOver = true;
 					} else {
@@ -2396,21 +2439,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					}
 				}
 
-				// subir
-				n = 0;
-				while (n <= 265 && !garra.isArriba()) {
-					if (n == 265) {
-						garra.setArriba(true);
-					}
-
-					if (hasCaja) {
-						caja.setY(this.garra.getPosY() + 10);
-					}
-
-					n++;
-					this.garra.setPosY(this.garra.getPosY() - 1);
-					this.paintImmediately(0, 0, 1300, 1300);
-				}
+				this.subir();
+				
 
 			} else if (programa[i].getAccion() == "prog1"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 3)) {
@@ -2474,6 +2504,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				Thread.sleep(400);
 				this.accionCheck(this.programa1);
 				if (!win) {
+					this.play=false;
 					this.gameOver = true;
 					// this.repaint();
 					// this.tryAgain();
