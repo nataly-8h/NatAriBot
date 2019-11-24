@@ -450,6 +450,106 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.izqTrue,156+68*i,454,this);
 					g.drawImage(this.ifAll,156+68*i,454,this);
 				}
+				
+				else if (this.programa1[i].getAccion()=="redIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfDown") {
+					g.drawImage(this.downTrue,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+				
+				else if (this.programa1[i].getAccion()=="redIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfProg1") {
+					g.drawImage(this.pro1,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+				
+				else if (this.programa1[i].getAccion()=="redIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfProg2") {
+					g.drawImage(this.pro2,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+				
+				else if (this.programa1[i].getAccion()=="redIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfProg3") {
+					g.drawImage(this.pro3,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
+				
+				else if (this.programa1[i].getAccion()=="redIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifRed,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="yellIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifYell,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="greenIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifGreen,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="blueIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifBlue,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="noneIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifNone,156+68*i,454,this);
+				} else if (this.programa1[i].getAccion()=="allIfProg4") {
+					g.drawImage(this.pro4,156+68*i,454,this);
+					g.drawImage(this.ifAll,156+68*i,454,this);
+				}
 			} else {
 				continue;
 			}
@@ -471,6 +571,161 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.pro3,156+68*i, 510, 65, 42,this);
 				} else if (this.programa2[i].getAccion()=="prog4") {
 					g.drawImage(this.pro4,156+68*i, 510, 65, 42,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="ifRed") {
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="ifYell") {
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="ifGreen") {
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="ifBlue") {
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="ifNone") {
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="ifAll") {
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+			
+				
+				else if (this.programa2[i].getAccion()=="redIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfDer") {
+					g.drawImage(this.derTrue,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfDown") {
+					g.drawImage(this.downTrue,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfProg1") {
+					g.drawImage(this.pro1,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfProg2") {
+					g.drawImage(this.pro2,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfProg3") {
+					g.drawImage(this.pro3,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
+				}
+				
+				else if (this.programa2[i].getAccion()=="redIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifRed,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="yellIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifYell,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="greenIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifGreen,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="blueIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifBlue,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="noneIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifNone,156+68*i,510,this);
+				} else if (this.programa2[i].getAccion()=="allIfProg4") {
+					g.drawImage(this.pro4,156+68*i,510,this);
+					g.drawImage(this.ifAll,156+68*i,510,this);
 				}
 			} else {
 				continue;
@@ -494,6 +749,161 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else if (this.programa3[i].getAccion()=="prog4") {
 					g.drawImage(this.pro4,156+68*i, 566, 65, 42,this);
 				}
+				
+				else if (this.programa3[i].getAccion()=="ifRed") {
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="ifYell") {
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="ifGreen") {
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="ifBlue") {
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="ifNone") {
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="ifAll") {
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+			
+				
+				else if (this.programa3[i].getAccion()=="redIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfDer") {
+					g.drawImage(this.derTrue,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfDown") {
+					g.drawImage(this.downTrue,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfProg1") {
+					g.drawImage(this.pro1,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfProg2") {
+					g.drawImage(this.pro2,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfProg3") {
+					g.drawImage(this.pro3,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
+				
+				else if (this.programa3[i].getAccion()=="redIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifRed,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="yellIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifYell,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="greenIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifGreen,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="blueIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifBlue,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="noneIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifNone,156+68*i,566,this);
+				} else if (this.programa3[i].getAccion()=="allIfProg4") {
+					g.drawImage(this.pro4,156+68*i,566,this);
+					g.drawImage(this.ifAll,156+68*i,566,this);
+				}
 			} else {
 				continue;
 			}
@@ -515,6 +925,161 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.pro3,156+68*i, 622, 65, 42,this);
 				} else if (this.programa4[i].getAccion()=="prog4") {
 					g.drawImage(this.pro4,156+68*i, 622, 65, 42,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="ifRed") {
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="ifYell") {
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="ifGreen") {
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="ifBlue") {
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="ifNone") {
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="ifAll") {
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+			
+				
+				else if (this.programa4[i].getAccion()=="redIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfDer") {
+					g.drawImage(this.derTrue,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfIzq") {
+					g.drawImage(this.izqTrue,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfDown") {
+					g.drawImage(this.downTrue,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfProg1") {
+					g.drawImage(this.pro1,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfProg2") {
+					g.drawImage(this.pro2,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfProg3") {
+					g.drawImage(this.pro3,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
+				}
+				
+				else if (this.programa4[i].getAccion()=="redIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifRed,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="yellIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifYell,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="greenIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifGreen,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="blueIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifBlue,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="noneIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifNone,156+68*i,622,this);
+				} else if (this.programa4[i].getAccion()=="allIfProg4") {
+					g.drawImage(this.pro4,156+68*i,622,this);
+					g.drawImage(this.ifAll,156+68*i,622,this);
 				}
 			} else {
 				continue;
@@ -725,7 +1290,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		//CIRCULO DE PLAY
 		if(this.play) {
 			g.setColor(Color.RED);
-			System.out.println("HOLA");
 		} else if(!this.play) {
 			g.setColor(Color.GREEN);
 		}
@@ -1104,22 +1668,317 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		
 		//CASOS ESPECIALES
-		else if(herramienta.getAccion().equals("redIfDer") && ifTool.getAccion().equals("ifRed")) {
+		//RED
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfDer");
-		} else if(herramienta.getAccion().equals("redIfIzq") && ifTool.getAccion().equals("ifRed")) {
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfIzq");
-		} else if(herramienta.getAccion().equals("redIfDown") && ifTool.getAccion().equals("ifRed")) {
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfDown");
-		} else if(herramienta.getAccion().equals("redIfProg1") && ifTool.getAccion().equals("ifRed")) {
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfProg1");
-		} else if(herramienta.getAccion().equals("redIfProg2") && ifTool.getAccion().equals("ifRed")) {
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfProg2");
-		} else if(herramienta.getAccion().equals("redIfProg3") && ifTool.getAccion().equals("ifRed")) {
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfProg3");
-		} else if(herramienta.getAccion().equals("redIfProg4") && ifTool.getAccion().equals("ifRed")) {
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifRed")) {
 			programa[pos] = new Tool("redIfProg4");
 		}
 		
+		//BLUE
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfDer");
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfIzq");
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfDown");
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg1");
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg2");
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifBlue")) {
+			programa[pos] = new Tool("blueIfProg4");
+		}
+		
+		//Green
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfDer");
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfIzq");
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfDown");
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg1");
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg2");
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifGreen")) {
+			programa[pos] = new Tool("greenIfProg4");
+		}
+		
+		//Yellow
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfDer");
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifRed")) {
+			programa[pos] = new Tool("yellIfIzq");
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfDown");
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg1");
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("redIfProg2");
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifYell")) {
+			programa[pos] = new Tool("yellIfProg4");
+		}
+		
+		//ALL
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfDer");
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfIzq");
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfDown");
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg1");
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg2");
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifAll")) {
+			programa[pos] = new Tool("allIfProg4");
+		}
+		
+		//NONE
+		else if((herramienta.getAccion().equals("redIfDer") || 
+				herramienta.getAccion().equals("yellIfDer") || 
+				herramienta.getAccion().equals("greenIfDer") || 
+				herramienta.getAccion().equals("blueIfDer") || 
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfDer");
+		} else if((herramienta.getAccion().equals("redIfIzq") || 
+				herramienta.getAccion().equals("yellIfIzq") || 
+				herramienta.getAccion().equals("greenIfIzq") || 
+				herramienta.getAccion().equals("blueIfIzq") || 
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfIzq");
+		} else if((herramienta.getAccion().equals("redIfDown")  || 
+				herramienta.getAccion().equals("yellIfDown") || 
+				herramienta.getAccion().equals("greenIfDown") || 
+				herramienta.getAccion().equals("blueIfDown") || 
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfDown");
+		} else if((herramienta.getAccion().equals("redIfProg1")  || 
+				herramienta.getAccion().equals("yellIfProg1") || 
+				herramienta.getAccion().equals("greenIfProg1") || 
+				herramienta.getAccion().equals("blueIfProg1") || 
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg1");
+		} else if((herramienta.getAccion().equals("redIfProg2")  || 
+				herramienta.getAccion().equals("yellIfProg2") || 
+				herramienta.getAccion().equals("greenIfProg2") || 
+				herramienta.getAccion().equals("blueIfProg2") || 
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg2");
+		} else if((herramienta.getAccion().equals("redIfProg3")  || 
+				herramienta.getAccion().equals("yellIfProg3") || 
+				herramienta.getAccion().equals("greenIfProg3") || 
+				herramienta.getAccion().equals("blueIfProg3") || 
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg3");
+		} else if(herramienta.getAccion().equals("redIfProg4")  || 
+				herramienta.getAccion().equals("yellIfProg4") || 
+				herramienta.getAccion().equals("greenIfProg4") || 
+				herramienta.getAccion().equals("blueIfProg4") || 
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4") && ifTool.getAccion().equals("ifNone")) {
+			programa[pos] = new Tool("noneIfProg4");
+		}
 		
 		
 	}
@@ -1507,6 +2366,174 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	}
 	
+	public int ToolIfChecker(Tool herramienta) {
+		if(herramienta.getAccion().equals("redIfDer") ||
+				herramienta.getAccion().equals("redIfIzq") ||
+				herramienta.getAccion().equals("redIfDown") ||
+				herramienta.getAccion().equals("redIfProg1") ||
+				herramienta.getAccion().equals("redIfProg2") ||
+				herramienta.getAccion().equals("redIfProg3") ||
+				herramienta.getAccion().equals("redIfProg4")) {
+			return 0;
+		} else if(herramienta.getAccion().equals("yellIfDer") ||
+				herramienta.getAccion().equals("yellIfIzq") ||
+				herramienta.getAccion().equals("yellIfDown") ||
+				herramienta.getAccion().equals("yellIfProg1") ||
+				herramienta.getAccion().equals("yellIfProg2") ||
+				herramienta.getAccion().equals("yellIfProg3") ||
+				herramienta.getAccion().equals("yellIfProg4")) {
+			return 1;
+		} else if(herramienta.getAccion().equals("greenIfDer") ||
+				herramienta.getAccion().equals("greenIfIzq") ||
+				herramienta.getAccion().equals("greenIfDown") ||
+				herramienta.getAccion().equals("greenIfProg1") ||
+				herramienta.getAccion().equals("greenIfProg2") ||
+				herramienta.getAccion().equals("greenIfProg3") ||
+				herramienta.getAccion().equals("greenIfProg4")) {
+			return 2;
+		} else if(herramienta.getAccion().equals("blueIfDer") ||
+				herramienta.getAccion().equals("blueIfIzq") ||
+				herramienta.getAccion().equals("blueIfDown") ||
+				herramienta.getAccion().equals("blueIfProg1") ||
+				herramienta.getAccion().equals("blueIfProg2") ||
+				herramienta.getAccion().equals("blueIfProg3") ||
+				herramienta.getAccion().equals("blueIfProg4")) {
+			return 3;
+		} else if(herramienta.getAccion().equals("noneIfDer") ||
+				herramienta.getAccion().equals("noneIfIzq") ||
+				herramienta.getAccion().equals("noneIfDown") ||
+				herramienta.getAccion().equals("noneIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg4")) {
+			return 4;
+		} else if(herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("allIfProg4")) {
+			return 5;
+		} else {
+			return -1;
+		}
+	}
+	
+	public int WhichToolIf(Tool herramienta) {
+		if(herramienta.getAccion().equals("redIfDer") ||
+				herramienta.getAccion().equals("yellIfDer") ||
+				herramienta.getAccion().equals("greenIfDer") ||
+				herramienta.getAccion().equals("blueIfDer") ||
+				herramienta.getAccion().equals("allIfDer") ||
+				herramienta.getAccion().equals("noneIfDer")) {
+			return 0;
+		} else if(herramienta.getAccion().equals("redIfIzq") ||
+				herramienta.getAccion().equals("yellIfIzq") ||
+				herramienta.getAccion().equals("greenIfIzq") ||
+				herramienta.getAccion().equals("blueIfIzq") ||
+				herramienta.getAccion().equals("allIfIzq") ||
+				herramienta.getAccion().equals("noneIfIzq")) {
+			return 1;
+		} else if(herramienta.getAccion().equals("redIfDown") ||
+				herramienta.getAccion().equals("yellIfDown") ||
+				herramienta.getAccion().equals("greenIfDown") ||
+				herramienta.getAccion().equals("blueIfDown") ||
+				herramienta.getAccion().equals("allIfDown") ||
+				herramienta.getAccion().equals("noneIfDown")) {
+			return 2;
+		} else if(herramienta.getAccion().equals("redIfProg1") ||
+				herramienta.getAccion().equals("yellIfProg1") ||
+				herramienta.getAccion().equals("greenIfProg1") ||
+				herramienta.getAccion().equals("blueIfProg1") ||
+				herramienta.getAccion().equals("allIfProg1") ||
+				herramienta.getAccion().equals("noneIfProg1")) {
+			return 3;
+		} else if(herramienta.getAccion().equals("redIfProg2") ||
+				herramienta.getAccion().equals("yellIfProg2") ||
+				herramienta.getAccion().equals("greenIfProg2") ||
+				herramienta.getAccion().equals("blueIfProg2") ||
+				herramienta.getAccion().equals("allIfProg2") ||
+				herramienta.getAccion().equals("noneIfProg2")) {
+			return 4;
+		} else if(herramienta.getAccion().equals("redIfProg3") ||
+				herramienta.getAccion().equals("yellIfProg3") ||
+				herramienta.getAccion().equals("greenIfProg3") ||
+				herramienta.getAccion().equals("blueIfProg3") ||
+				herramienta.getAccion().equals("allIfProg3") ||
+				herramienta.getAccion().equals("noneIfProg3")) {
+			return 5;
+		} else if(herramienta.getAccion().equals("redIfProg4") ||
+				herramienta.getAccion().equals("yellIfProg4") ||
+				herramienta.getAccion().equals("greenIfProg4") ||
+				herramienta.getAccion().equals("blueIfProg4") ||
+				herramienta.getAccion().equals("allIfProg4") ||
+				herramienta.getAccion().equals("noneIfProg4")) {
+			return 6;
+		} else {
+			return -1;
+		}
+	}
+	
+	public boolean ifAccionChecker(Tool herramienta) {
+		if(this.ToolIfChecker(herramienta)==0) {
+			if(!this.cajas[posGarra].isEmpty()) {
+				if(this.cajas[posGarra].peek().getColor()==1) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else if(this.ToolIfChecker(herramienta)==1) {
+			if(!this.cajas[posGarra].isEmpty()) {
+				if(this.cajas[posGarra].peek().getColor()==2) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else if(this.ToolIfChecker(herramienta)==2) {
+			if(!this.cajas[posGarra].isEmpty()) {
+				if(this.cajas[posGarra].peek().getColor()==3) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else if(this.ToolIfChecker(herramienta)==3) {
+			if(!this.cajas[posGarra].isEmpty()) {
+				if(this.cajas[posGarra].peek().getColor()==4) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else if(this.ToolIfChecker(herramienta)==4) {
+			if(!this.cajas[posGarra].isEmpty()) {
+				return false;
+			} else {
+				return true;
+			}
+		} else if(this.ToolIfChecker(herramienta)==5) {
+			System.out.println("HOLA");
+			if(!this.cajas[posGarra].isEmpty()) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+	
 	public void accionCheck(Tool[] programa) {
 		for(int i = 0;i<programa.length;i++) {
 			try {
@@ -1522,7 +2549,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if(programa[i]==null) {
 				continue;
 			}
-			if(programa[i].getAccion()=="der") {
+			if(programa[i].getAccion()=="der" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==0)) {
 				if(posGarra<this.espacios-1) {
 					int n = 0;
 					while(n<=80) {
@@ -1534,7 +2561,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else {
 					this.gameOver = true;
 				}
-			} else if(programa[i].getAccion()=="izq") {
+			} else if(programa[i].getAccion()=="izq" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==1)) {
 				if(posGarra>0) {
 					int n = 0;
 					while(n<=80) {
@@ -1546,7 +2573,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else {
 					this.gameOver = true;
 				}
-			} else if(programa[i].getAccion()=="down") {
+			} else if(programa[i].getAccion()=="down" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==2)) {
 				if(!this.cajas[posGarra].isEmpty() && !hasCaja) {
 					hasCaja = true;
 					caja = this.cajas[posGarra].pop();
@@ -1562,21 +2589,21 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						}
 					}
 				}
-			} else if(programa[i].getAccion()=="prog1") {
+			} else if(programa[i].getAccion()=="prog1" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==3)) {
 				if(programa.equals(this.programa1)) {
 					i=-1;
 				} else {
 					i=programa.length;
 					this.accionCheck(this.programa1);
 				}
-			} else if(programa[i].getAccion()=="prog2") {
+			} else if(programa[i].getAccion()=="prog2" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==4)) {
 				if(programa.equals(this.programa2)) {
 					i=-1;
 				} else {
 					i=programa.length;
 					this.accionCheck(this.programa2);
 				}
-			} else if(programa[i].getAccion()=="prog3") {
+			} else if(programa[i].getAccion()=="prog3" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==5)) {
 				if(programa.equals(this.programa3)) {
 					i=-1;
 				} else {
@@ -1584,7 +2611,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.accionCheck(this.programa3);
 				}
 				
-			} else if(programa[i].getAccion()=="prog4") {
+			} else if(programa[i].getAccion()=="prog4" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i])==6)) {
 				if(programa.equals(this.programa4)) {
 					i=-1;
 				} else {
@@ -1596,7 +2623,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			
 			
 			if(win) {
-				System.out.println("HOLA");
+				System.out.println("HOLAs");
 				this.play=false;
 				break;
 			}

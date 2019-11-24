@@ -1,0 +1,6 @@
+redIfDer
+blueIfDer
+yellIfDer
+greenIfDer
+allIfDer
+noneIfDer
