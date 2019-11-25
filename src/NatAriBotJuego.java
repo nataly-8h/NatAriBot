@@ -2463,15 +2463,15 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		} else if (this.ToolIfChecker(herramienta) == 4) {
 			if (this.hasCaja) {
-				return true;
-			} else {
 				return false;
+			} else {
+				return true;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 5) {
 			if (this.hasCaja) {
-				return false;
-			} else {
 				return true;
+			} else {
+				return false;
 			}
 		} else {
 			return false;
