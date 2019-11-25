@@ -31,7 +31,6 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 
-
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
 	private Image img, derTrue, derFalse, downTrue, downFalse, izqTrue, izqFalse, borde, gameBox, progBox, pro1, pro2,
@@ -60,7 +59,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	private AVLTree avl;
 
 	private Thread th;
-
 
 	public NatAriBotJuego() {
 		super();
@@ -152,15 +150,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			for (int j = 0; j < this.cajas[i].size(); j++) {
 				if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
 					this.cajas[i].get(j).setX(254 + i * 90);
-				}else if(this.espacios == 5) {
+				} else if (this.espacios == 5) {
 					this.cajas[i].get(j).setX(164 + i * 90);
-				}else if(this.espacios == 6 || this.espacios == 7) {
+				} else if (this.espacios == 6 || this.espacios == 7) {
 					this.cajas[i].get(j).setX(74 + i * 90);
 				}
 
 				this.cajas[i].get(j).setY(333 - j * 50);
 
-				//System.out.println(this.cajas[i].get(j).getX() + " " + this.cajas[i].get(j).getY());
+				// System.out.println(this.cajas[i].get(j).getX() + " " +
+				// this.cajas[i].get(j).getY());
 
 			}
 		}
@@ -231,14 +230,18 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		for (int i = 0; i < this.espacios; i++) {
 			for (int j = 0; j < this.cajas[i].size(); j++) {
 				Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
-				if (this.cajas[i].get(j).getColor()==1) {
-					g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-				} else if (this.cajas[i].get(j).getColor()==2) {
-					g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-				} else if (this.cajas[i].get(j).getColor()==3) {
-					g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
-				} else if (this.cajas[i].get(j).getColor()==4) {
-					g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46, this);
+				if (this.cajas[i].get(j).getColor() == 1) {
+					g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+							this);
+				} else if (this.cajas[i].get(j).getColor() == 2) {
+					g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+							this);
+				} else if (this.cajas[i].get(j).getColor() == 3) {
+					g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+							this);
+				} else if (this.cajas[i].get(j).getColor() == 4) {
+					g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+							this);
 				}
 			}
 		}
@@ -1011,68 +1014,68 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			for (int j = 0; j < this.meta[i].size(); j++) {
 				Stack<Caja> metaCopia = (Stack<Caja>) this.meta[i].clone();
 				if (this.espacios == 2) {
-						if (this.meta[i].get(j).getColor()==1) {
-							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
-							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
-							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
-							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						}
+					if (this.meta[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					}
 				} else if (this.espacios == 3) {
-						if (this.meta[i].get(j).getColor()==1) {
-							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
-							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
-							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
-							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						}
+					if (this.meta[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					}
 				} else if (this.espacios == 4) {
-						if (this.meta[i].get(j).getColor()==1) {
-							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
-							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
-							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
-							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						}
+					if (this.meta[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
+					}
 				} else if (this.espacios == 5) {
 					while (!metaCopia.isEmpty()) {
-						if (this.meta[i].get(j).getColor()==1) {
+						if (this.meta[i].get(j).getColor() == 1) {
 							g.drawImage(this.cajaImage[0], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
+						} else if (this.meta[i].get(j).getColor() == 2) {
 							g.drawImage(this.cajaImage[1], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
+						} else if (this.meta[i].get(j).getColor() == 3) {
 							g.drawImage(this.cajaImage[2], 922 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
+						} else if (this.meta[i].get(j).getColor() == 4) {
 							g.drawImage(this.cajaImage[3], 922 + i * 64, 333 - j * 50, 46, 46, this);
 						}
 						metaCopia.pop();
 					}
 				} else if (this.espacios == 6) {
-						if (this.meta[i].get(j).getColor()==1) {
-							g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
-							g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
-							g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
-							g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						}
+					if (this.meta[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					}
 				} else if (this.espacios == 7) {
-						if (this.meta[i].get(j).getColor()==1) {
-							g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==2) {
-							g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==3) {
-							g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						} else if (this.meta[i].get(j).getColor()==4) {
-							g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
-						}
+					if (this.meta[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					} else if (this.meta[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], 742 + i * 64, 333 - j * 50, 46, 46, this);
+					}
 				}
 			}
 		}
@@ -1138,32 +1141,32 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		// ifs
 
 		for (int i = 0; i < 6; i++) {
-			if (i == 0 && this.toolbox[7]!=null) {
+			if (i == 0 && this.toolbox[7] != null) {
 				g.drawImage(this.ifRed, 751 + 45 * i, 623, this);
 				if (this.flagIfRed) {
 					g.drawImage(this.ifRed, this.coorToolx, this.coorTooly, this);
 				}
-			} else if (i == 1 && this.toolbox[8]!=null) {
+			} else if (i == 1 && this.toolbox[8] != null) {
 				g.drawImage(this.ifBlue, 751 + 45 * i, 623, this);
 				if (this.flagIfBlue) {
 					g.drawImage(this.ifBlue, this.coorToolx, this.coorTooly, this);
 				}
-			} else if (i == 2 && this.toolbox[9]!=null) {
+			} else if (i == 2 && this.toolbox[9] != null) {
 				g.drawImage(this.ifGreen, 751 + 45 * i, 623, this);
 				if (this.flagIfGreen) {
 					g.drawImage(this.ifGreen, this.coorToolx, this.coorTooly, this);
 				}
-			} else if (i == 3 && this.toolbox[10]!=null) {
+			} else if (i == 3 && this.toolbox[10] != null) {
 				g.drawImage(this.ifYell, 751 + 45 * i, 623, this);
 				if (this.flagIfYell) {
 					g.drawImage(this.ifYell, this.coorToolx, this.coorTooly, this);
 				}
-			} else if (i == 4 && this.toolbox[11]!=null) {
+			} else if (i == 4 && this.toolbox[11] != null) {
 				g.drawImage(this.ifNone, 751 + 45 * i, 623, this);
 				if (this.flagIfNone) {
 					g.drawImage(this.ifNone, this.coorToolx, this.coorTooly, this);
 				}
-			} else if (i == 5 && this.toolbox[12]!=null) {
+			} else if (i == 5 && this.toolbox[12] != null) {
 				g.drawImage(this.ifAll, 751 + 45 * i, 623, this);
 				if (this.flagIfAll) {
 					g.drawImage(this.ifAll, this.coorToolx, this.coorTooly, this);
@@ -1184,15 +1187,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 		g.fillOval(545, 683, 110, 110);
 
-		if(win) {
+		if (win) {
 			try {
 				Thread.sleep(1000);
-				g.drawImage(this.img,0,0,100,100,this);
+				g.drawImage(this.img, 0, 0, 100, 100, this);
 			} catch (InterruptedException e) {
 				System.out.println("ERROR");
 			}
 		}
-
 
 	}
 
@@ -1310,9 +1312,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				for (int j = 0; j < this.cajas[i].size(); j++) {
 					if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
 						this.cajas[i].get(j).setX(254 + i * 90);
-					}else if(this.espacios == 5) {
+					} else if (this.espacios == 5) {
 						this.cajas[i].get(j).setX(164 + i * 90);
-					}else if(this.espacios == 6 || this.espacios == 7) {
+					} else if (this.espacios == 6 || this.espacios == 7) {
 						this.cajas[i].get(j).setX(74 + i * 90);
 					}
 
@@ -1438,9 +1440,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				for (int j = 0; j < this.cajas[i].size(); j++) {
 					if (this.espacios == 2 || this.espacios == 3 || this.espacios == 4) {
 						this.cajas[i].get(j).setX(254 + i * 90);
-					}else if(this.espacios == 5) {
+					} else if (this.espacios == 5) {
 						this.cajas[i].get(j).setX(164 + i * 90);
-					}else if(this.espacios == 6 || this.espacios == 7) {
+					} else if (this.espacios == 6 || this.espacios == 7) {
 						this.cajas[i].get(j).setX(74 + i * 90);
 					}
 
@@ -1453,25 +1455,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void nextLevel() {
-		this.posGarra= 0;
-		this.hasCaja= false;
+		this.posGarra = 0;
+		this.hasCaja = false;
 		this.caja = null;
 		this.prevPosGarra = 0;
-		this.play=false;
+		this.play = false;
 		this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
 		this.nodePrevious = this.nodeCurrent;
-		this.nodeCurrent= this.nodeCurrent.getRight();
+		this.nodeCurrent = this.nodeCurrent.getRight();
 		this.paintLevel();
 		this.repaint();
 	}
 
 	public void changeLevel() {
-		this.posGarra= 0;
-		this.hasCaja= false;
+		this.posGarra = 0;
+		this.hasCaja = false;
 		this.caja = null;
 		this.prevPosGarra = 0;
 		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
-		this.nodeCurrent= this.nodeCurrent.getLeft();
+		this.nodeCurrent = this.nodeCurrent.getLeft();
 		this.paintLevel();
 		this.repaint();
 	}
@@ -1489,13 +1491,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			}
 			if (flag) {
-				if(this.play) {
+				if (this.play) {
 					this.tryAgain();
 				}
 				this.play = !this.play;
 				this.paintImmediately(0, 0, 1300, 1300);
 			}
-
 
 			// CLEAR
 		} else if (e.getX() > 1009 && e.getX() < 1074 && e.getY() > 620 && e.getY() < 665 && !this.play) {
@@ -1629,7 +1630,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		 */
 
 	}
-
 
 	public void ifChecker(Tool[] programa, int pos, Tool herramienta, Tool ifTool) {
 		// DERECHA IFS
@@ -2311,7 +2311,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void tryAgain() {
 		this.gameOver = false;
 		this.hasCaja = false;
-		this.posGarra= 0;
+		this.posGarra = 0;
 		this.prevPosGarra = 0;
 		this.caja = null;
 		this.win = false;
@@ -2474,13 +2474,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 	}
 
-	//ANIMACIONES WUUU
+	// ANIMACIONES WUUU
 	public void derecha() {
 		int n = 0;
 		while (n <= 90) {
 			n++;
-			if(hasCaja) {
-				this.caja.setX(this.caja.getX() +1);
+			if (hasCaja) {
+				this.caja.setX(this.caja.getX() + 1);
 			}
 			this.garra.setPosX(this.garra.getPosX() + 1);
 			this.paintImmediately(0, 0, 1300, 1300);
@@ -2491,8 +2491,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		int n = 0;
 		while (n <= 90) {
 			n++;
-			if(hasCaja) {
-				this.caja.setX(this.caja.getX() -1);
+			if (hasCaja) {
+				this.caja.setX(this.caja.getX() - 1);
 			}
 			this.garra.setPosX(this.garra.getPosX() - 1);
 			this.paintImmediately(0, 0, 1300, 1300);
@@ -2500,17 +2500,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void bajar() {
-		//System.out.println(this.cajas[posGarra].size());
+		// System.out.println(this.cajas[posGarra].size());
 		int n = 0;
 		int cantidad = 0;
-		if(cajas[posGarra].size()<=1 && !hasCaja) {
+		if (cajas[posGarra].size() <= 1 && !hasCaja) {
 			cantidad = 1;
-		}else if(!hasCaja){
+		} else if (!hasCaja) {
 			cantidad = cajas[posGarra].size();
-		}else {
+		} else {
 			cantidad = cajas[posGarra].size() + 1;
 		}
-		while (n <= 315 - (cantidad*50) && this.play) {
+		while (n <= 315 - (cantidad * 50) && this.play) {
 
 			if (hasCaja) {
 				caja.setY(this.garra.getPosY() + 18);
@@ -2523,7 +2523,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void subir() {
-		if(this.garra.isOpen()) {
+		if (this.garra.isOpen() && !this.cajas[prevPosGarra].isEmpty()) {
 			this.cajas[prevPosGarra].pop();
 			this.abrir();
 		}
@@ -2553,6 +2553,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
 	}
+
 	public void abrir() {
 		int a = 0;
 		while (a <= 7 && this.play) {
@@ -2563,7 +2564,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 	}
 
-	//ACTION CHECK :)
+	// ACTION CHECK :)
 	public void accionCheck(Tool[] programa) {
 		for (int i = 0; i < programa.length; i++) {
 			try {
@@ -2599,16 +2600,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				} else {
 					this.gameOver = true;
 				}
-			} else if (programa[i].getAccion() == "down" || (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
+			} else if (programa[i].getAccion() == "down"
+					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
 
-				//System.out.println(cajas[posGarra].size());
+				// System.out.println(cajas[posGarra].size());
 				this.bajar();
 				this.cerrar();
 
 				if (!this.cajas[posGarra].isEmpty() && !hasCaja) {
 					this.garra.setOpen(false);
 					hasCaja = true;
-					this.caja = this.cajas[posGarra].peek();
+					if (!this.cajas[posGarra].isEmpty()) {
+						this.caja = this.cajas[posGarra].peek();
+					}
 
 				} else if (this.cajas[posGarra].isEmpty() && !hasCaja) {
 					this.garra.setOpen(true);
@@ -2623,7 +2627,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 
 				this.subir();
-
 
 			} else if (programa[i].getAccion() == "prog1"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 3)) {
@@ -2660,21 +2663,20 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			}
 
-
-			if(this.equalsStacks()) {
+			if (this.equalsStacks()) {
 				win = true;
 			}
-			
-			if(this.win) {
+
+			if (this.win) {
 				try {
-					this.paintImmediately(0, 0, 1300,1300);
+					this.paintImmediately(0, 0, 1300, 1300);
 					Thread.sleep(500);
 					this.nextLevel();
 					System.out.println("HOLA");
 				} catch (InterruptedException e) {
 					System.out.println("ERROR");
 				}
-				this.play=false;
+				this.play = false;
 				this.win = false;
 				break;
 			}
@@ -2683,7 +2685,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	@Override
 	public void run() {
-		while(true) {
+		while (true) {
 			// entra si hay que ejecutar
 			if (this.play) {
 				this.hasCaja = false;
@@ -2694,22 +2696,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.accionCheck(this.programa1);
 					if (!win) {
 						this.gameOver = true;
-						this.play=false;
+						this.play = false;
 						this.tryAgain();
 					} else {
 						this.changeLevel();
 					}
-				} catch(InterruptedException ex) {
+				} catch (InterruptedException ex) {
 					System.out.println("Terrible");
 				}
 				this.play = false;
 				this.paintImmediately(0, 0, 1300, 1300);
 
-				//si no hay que ejecutar duerme 50 ms y vuelve a checar
+				// si no hay que ejecutar duerme 50 ms y vuelve a checar
 			} else {
 				try {
 					Thread.sleep(50);
-				} catch(InterruptedException ex) {
+				} catch (InterruptedException ex) {
 					System.out.println("Terrible");
 				}
 				while (this.play) {
@@ -2721,14 +2723,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 						this.accionCheck(this.programa1);
 						if (!win) {
 							this.gameOver = true;
-							this.play=false;
+							this.play = false;
 							// this.repaint();
 							// this.tryAgain();
 							this.tryAgain();
 						} else {
 							this.changeLevel();
 						}
-					} catch(InterruptedException e) {
+					} catch (InterruptedException e) {
 						System.out.println("ERROR");
 					}
 				}
