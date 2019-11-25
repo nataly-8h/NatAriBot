@@ -1186,7 +1186,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		if(win) {
 			try {
 				Thread.sleep(1000);
-				g.drawImage(this.img,0,0,1000,1000,this);
+				g.drawImage(this.img,0,0,100,100,this);
 			} catch (InterruptedException e) {
 				System.out.println("ERROR");
 			}
@@ -1452,6 +1452,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 	
 	public void nextLevel() {
+		System.out.println("HOLA");
+		this.posGarra= 0;
+		this.hasCaja= false;
+		this.play=false;
 		this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
 		this.nodeCurrent= this.nodeCurrent.getRight();
 		this.paintLevel();
@@ -1459,6 +1463,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void changeLevel() {
+		this.posGarra= 0;
+		this.hasCaja= false;
 		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
 		this.nodeCurrent= this.nodeCurrent.getLeft();
 		this.paintLevel();
@@ -2300,6 +2306,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void tryAgain() {
 		this.gameOver = false;
 		this.hasCaja = false;
+		this.posGarra= 0;
 		this.caja = null;
 		this.win = false;
 		this.paintLevelAgain();
@@ -2494,7 +2501,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}else {
 			cantidad = cajas[posGarra].size() + 1;
 		}
-		while (n <= 333 - (cantidad*50) ) {
+		while (n <= 333 - (cantidad*50) && this.play) {
 			
 			if (hasCaja) {
 				caja.setY(this.garra.getPosY() + 1);
@@ -2511,7 +2518,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		}
 
 		int n = this.garra.getPosY();
-		while (n >= 47 
+		while (n >= 47 && this.play
 				) {
 			if (n == 47) {
 				garra.setArriba(true);
@@ -2529,7 +2536,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public void cerrar() {
 		int a = this.garra.getDerX();
-		while (a <= this.garra.getPosX() - 1) {
+		while (a <= this.garra.getPosX() - 1 && this.play) {
 			a++;
 			this.garra.setDerX(this.garra.getDerX() + 1);
 			this.garra.setIzqX(this.garra.getIzqX() - 1);
@@ -2538,7 +2545,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 	public void abrir() {
 		int a = 0;
-		while (a <= 7) {
+		while (a <= 7 && this.play) {
 			a++;
 			this.garra.setDerX(this.garra.getDerX() - 1);
 			this.garra.setIzqX(this.garra.getIzqX() + 1);
@@ -2648,13 +2655,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if(this.win) {
 				try {
 					this.paintImmediately(0, 0, 1300,1300);
-					Thread.sleep(5000);
+					Thread.sleep(500);
+					this.nextLevel();
+					System.out.println("HOLA");
 				} catch (InterruptedException e) {
 					System.out.println("ERROR");
 				}
 				this.play=false;
 				this.win = false;
-				this.nextLevel();
 				break;
 			}
 		}
@@ -2669,13 +2677,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.caja = null;
 				this.win = false;
 				try {
-					Thread.sleep(400);
+					Thread.sleep(40);
 					this.accionCheck(this.programa1);
 					if (!win) {
 						this.gameOver = true;
-						// this.repaint();
-						// this.tryAgain();
+						this.play=false;
 						this.tryAgain();
+					} else {
+						this.changeLevel();
 					}
 				} catch(InterruptedException ex) {
 					System.out.println("Terrible");
@@ -2695,13 +2704,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.caja = null;
 					this.win = false;
 					try {
-						Thread.sleep(400);
+						Thread.sleep(40);
 						this.accionCheck(this.programa1);
 						if (!win) {
-							this.play=false;
 							this.gameOver = true;
-							//this.tryAgain();
-							//this.paintImmediately(0,0,1300,1300);
+							this.play=false;
+							// this.repaint();
+							// this.tryAgain();
+							this.tryAgain();
+						} else {
+							this.changeLevel();
 						}
 					} catch(InterruptedException e) {
 						System.out.println("ERROR");
