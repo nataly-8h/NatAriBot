@@ -2485,6 +2485,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		int n = 0;
 		while (n <= 90) {
 			n++;
+			if(hasCaja) {
+				this.caja.setX(this.caja.getX() -1);
+			}
 			this.garra.setPosX(this.garra.getPosX() - 1);
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
@@ -2506,6 +2509,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			if (hasCaja) {
 				caja.setY(this.garra.getPosY() + 1);
 			}
+			
 			n++;
 			this.garra.setPosY(this.garra.getPosY() + 1);
 			this.paintImmediately(0, 0, 1300, 1300);
@@ -2525,7 +2529,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 
 			if (hasCaja) {
-				caja.setY(this.garra.getPosY() + 1);
+				caja.setY(this.garra.getPosY() - 1);
 			}
 
 			n--;
@@ -2674,7 +2678,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			// entra si hay que ejecutar
 			if (this.play) {
 				this.hasCaja = false;
-				this.caja = null;
+				//this.caja = null;
 				this.win = false;
 				try {
 					Thread.sleep(40);
@@ -2701,7 +2705,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 				while (this.play) {
 					this.hasCaja = false;
-					this.caja = null;
+					//this.caja = null;
 					this.win = false;
 					try {
 						Thread.sleep(40);
