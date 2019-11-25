@@ -135,7 +135,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.cajaImage[2] = new ImageIcon("greenbox.png").getImage();
 		this.cajaImage[3] = new ImageIcon("bluebox.png").getImage();
 
-		this.img = new ImageIcon("pilarMen.jpg").getImage();
+		this.img = new ImageIcon("completado.png").getImage();
 
 		// Initialize Thread
 
@@ -1234,8 +1234,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 		if (win) {
 			try {
+				g.drawImage(this.img, 400, 250, this);
 				Thread.sleep(1000);
-				g.drawImage(this.img, 0, 0, 100, 100, this);
 			} catch (InterruptedException e) {
 				System.out.println("ERROR");
 			}
@@ -1500,6 +1500,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void nextLevel() {
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.posGarra = 0;
 		this.hasCaja = false;
 		this.caja = null;
