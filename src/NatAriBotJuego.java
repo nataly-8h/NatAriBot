@@ -2658,6 +2658,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 				} else {
 					this.gameOver = true;
+					this.play = false;
+					this.tryAgain();
 				}
 			} else if (programa[i].getAccion() == "izq"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 1)) {
@@ -2668,6 +2670,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 				} else {
 					this.gameOver = true;
+					this.play = false;
+					this.tryAgain();
 				}
 			} else if (programa[i].getAccion() == "down"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 2)) {
@@ -2690,6 +2694,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.garra.setOpen(true);
 					if (this.cajas[posGarra].size() == this.maxCajas) {
 						this.gameOver = true;
+						this.play = false;
+						this.tryAgain();
 					} else {
 						this.cajas[posGarra].add(caja);
 						this.hasCaja = false;
