@@ -1453,11 +1453,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void nextLevel() {
-		System.out.println("HOLA");
 		this.posGarra= 0;
 		this.hasCaja= false;
+		this.caja = null;
+		this.prevPosGarra = 0;
 		this.play=false;
 		this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
+		this.nodePrevious = this.nodeCurrent;
 		this.nodeCurrent= this.nodeCurrent.getRight();
 		this.paintLevel();
 		this.repaint();
@@ -1466,6 +1468,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void changeLevel() {
 		this.posGarra= 0;
 		this.hasCaja= false;
+		this.caja = null;
+		this.prevPosGarra = 0;
 		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
 		this.nodeCurrent= this.nodeCurrent.getLeft();
 		this.paintLevel();
@@ -2308,6 +2312,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.gameOver = false;
 		this.hasCaja = false;
 		this.posGarra= 0;
+		this.prevPosGarra = 0;
 		this.caja = null;
 		this.win = false;
 		this.paintLevelAgain();
@@ -2616,9 +2621,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					} else {
 						this.cajas[posGarra].add(caja);
 						this.hasCaja = false;
-						if(this.equalsStacks()) {
-							win = true;
-						}
 					}
 				}
 
@@ -2661,7 +2663,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 
 
-
+			if(this.equalsStacks()) {
+				win = true;
+			}
+			
 			if(this.win) {
 				try {
 					this.paintImmediately(0, 0, 1300,1300);
