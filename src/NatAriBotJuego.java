@@ -228,21 +228,25 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		// cajitas
 
 		for (int i = 0; i < this.espacios; i++) {
-			for (int j = 0; j < this.cajas[i].size(); j++) {
-				Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
-				if (this.cajas[i].get(j).getColor() == 1) {
-					g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
-							this);
-				} else if (this.cajas[i].get(j).getColor() == 2) {
-					g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
-							this);
-				} else if (this.cajas[i].get(j).getColor() == 3) {
-					g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
-							this);
-				} else if (this.cajas[i].get(j).getColor() == 4) {
-					g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
-							this);
+			if(!this.cajas[i].isEmpty()) {
+				for (int j = 0; j < this.cajas[i].size(); j++) {
+					Stack<Caja> cajaCopia = (Stack<Caja>) this.cajas[i].clone();
+					if (this.cajas[i].get(j).getColor() == 1) {
+						g.drawImage(this.cajaImage[0], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+								this);
+					} else if (this.cajas[i].get(j).getColor() == 2) {
+						g.drawImage(this.cajaImage[1], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+								this);
+					} else if (this.cajas[i].get(j).getColor() == 3) {
+						g.drawImage(this.cajaImage[2], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+								this);
+					} else if (this.cajas[i].get(j).getColor() == 4) {
+						g.drawImage(this.cajaImage[3], this.cajas[i].get(j).getX(), this.cajas[i].get(j).getY(), 46, 46,
+								this);
+					}
 				}
+			} else {
+				continue;
 			}
 		}
 
@@ -2566,7 +2570,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	// ACTION CHECK :)
 	public void accionCheck(Tool[] programa) {
-		for (int i = 0; i < programa.length; i++) {
+		for (int i = 0; i < programa.length && this.play; i++) {
 			this.paintImmediately(0, 0, 1300, 1300);
 			this.numAcciones++;
 			if (this.numAcciones > this.maxAcciones) {
