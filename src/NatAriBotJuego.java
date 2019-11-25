@@ -42,13 +42,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Garra garra;
 
-	private Tool[] toolbox, programa1, programa2, programa3, programa4;
+	private Tool[] toolbox, programa1, programa2, programa3, programa4, actual;
 
 	private BinaryNode nodeCurrent, nodePrevious;
 
 	private Stack<Caja>[] cajas, meta;
 
-	private int espacios, maxCajas, coorToolx, coorTooly, posGarra, prevPosGarra, maxAcciones, numAcciones;
+	private int espacios, actualpos, maxCajas, coorToolx, coorTooly, posGarra, prevPosGarra, maxAcciones, numAcciones;
 
 	private String nivel;
 
@@ -69,6 +69,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.setFocusable(true);
 		this.addMouseListener(this);
 		this.addMouseMotionListener(this);
+		this.actualpos = -1;
 		this.maxAcciones = 1000;
 		this.numAcciones = 0;
 		this.avl = new AVLTree();
@@ -477,8 +478,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					g.drawImage(this.pro4, 156 + 68 * i, 454, this);
 					g.drawImage(this.ifAll, 156 + 68 * i, 454, this);
 				}
+				
 			} else {
 				continue;
+			}
+			if(this.actual!=null) {
+			if(this.actual.equals(this.programa1) && this.actualpos==i) {
+				g.fillRect(156 + 68 * i, 454, 10, 10);
+			}
 			}
 		}
 
@@ -656,6 +663,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			} else {
 				continue;
 			}
+			if(this.actual!=null) {
+			if(this.actual.equals(this.programa2) && this.actualpos==i) {
+				g.fillRect(156 + 68 * i, 510, 10, 10);
+			}
+		}
 		}
 
 		for (int i = 0; i < this.programa3.length; i++) {
@@ -831,6 +843,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			} else {
 				continue;
+			}
+			if(this.actual!=null) {
+			if(this.actual.equals(this.programa3) && this.actualpos==i) {
+				g.fillRect(156 + 68 * i, 566, 10, 10);
+			}
 			}
 		}
 
@@ -1008,6 +1025,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 			} else {
 				continue;
+			}
+			if(this.actual!=null) {
+			if(this.actual.equals(this.programa4) && this.actualpos==i) {
+				g.fillRect(156 + 68 * i, 622, 10, 10);
+			}
 			}
 
 		}
@@ -2611,6 +2633,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	// ACTION CHECK :)
 	public void accionCheck(Tool[] programa) {
 		for (int i = 0; i < programa.length && this.play; i++) {
+			this.actualpos = i;
+			this.actual = programa;
 			this.paintImmediately(0, 0, 1300, 1300);
 			this.numAcciones++;
 			if (this.numAcciones > this.maxAcciones) {
