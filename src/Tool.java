@@ -1,3 +1,10 @@
+/* EQUIPO: ARI VALENZUELA (A01635584)
+ * 	NATALY HERNANDEZ (A01631314)
+ * NOMBRE DEL JUEGO: NATARIBOT
+ * NOMBRE DE LA CLASE: Tool.java
+ * FECHA: 25/11/19
+ * COMENTARIOS Y OBSERVACIONES: Esta es la clase donde se manejan las herramientas.
+ */
 
 public class Tool {
 	private String accion;

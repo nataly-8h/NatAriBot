@@ -1,3 +1,11 @@
+/* EQUIPO: ARI VALENZUELA (A01635584)
+ * 	NATALY HERNANDEZ (A01631314)
+ * NOMBRE DEL JUEGO: NATARIBOT
+ * NOMBRE DE LA CLASE: NatAriBotFrame.java
+ * FECHA: 25/11/19
+ * COMENTARIOS Y OBSERVACIONES: Esta es la clase donde se crea el frame que contiene el panel del juego.
+ */
+
 import javax.swing.JFrame;
 
 public class NatAriBotFrame extends JFrame {
