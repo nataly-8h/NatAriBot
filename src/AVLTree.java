@@ -1,3 +1,12 @@
+/* EQUIPO: ARI VALENZUELA (A01635584)
+ * 	NATALY HERNANDEZ (A01631314)
+ * NOMBRE DEL JUEGO: NATARIBOT
+ * NOMBRE DE LA CLASE: AVLTree.java
+ * FECHA: 25/11/19
+ * COMENTARIOS Y OBSERVACIONES: Esta es la clase donde se maneja el AVL
+ * REFERENCIAS: Data Structures & Algorithms Course, se obtuvo el código de un curso de programación
+ */
+
 import java.util.LinkedList;
 import java.util.Queue;
 
@@ -14,17 +23,13 @@ public class AVLTree {
 	}
 
 
-	// Insert values in AVL Tree
 	void insert(int value) {
 		root = insert(root, value);
-	}// end of method
+	}
 
 
-	// Helper Method
 	BinaryNode insert(BinaryNode currentNode, int value) {
-		// THIS ELSE_IF BLOCK IS BST CONDITION
 		if (currentNode == null) {
-			//System.out.println("Successfully inserted " + value + " in AVL Tree");
 			return createNewNode(value);
 		} else if (value <= currentNode.getValue()) {
 			currentNode.setLeft(insert(currentNode.getLeft(), value));
@@ -32,7 +37,6 @@ public class AVLTree {
 			currentNode.setRight(insert(currentNode.getRight(), value));
 		}
 
-		// THIS IS WHERE WE WILL DO AVL SPECIFIC WORK
 		int balance = checkBalance(currentNode.getLeft(), currentNode.getRight());
 		if (balance > 1) {
 			if (checkBalance(currentNode.getLeft().getLeft(), currentNode.getLeft().getRight()) > 0) {
@@ -61,10 +65,9 @@ public class AVLTree {
 		currentNode.setHeight(calculateHeight(currentNode));
 		return currentNode;
 
-	}// end of method
+	}
 
 
-	// Helper Method
 	private BinaryNode leftRotate(BinaryNode currentNode) {
 		BinaryNode newRoot = currentNode.getRight();
 		currentNode.setRight(currentNode.getRight().getLeft());
@@ -72,10 +75,9 @@ public class AVLTree {
 		currentNode.setHeight(calculateHeight(currentNode));
 		newRoot.setHeight(calculateHeight(newRoot));
 		return newRoot;
-	}// end of method
+	}
 
 
-	// Helper Method
 	private BinaryNode rightRotate(BinaryNode currentNode) {
 		BinaryNode newRoot = currentNode.getLeft();
 		currentNode.setLeft(newRoot.getRight());
@@ -83,10 +85,9 @@ public class AVLTree {
 		currentNode.setHeight(calculateHeight(currentNode));
 		newRoot.setHeight(calculateHeight(newRoot));
 		return newRoot;
-	}// end of method
+	}
 
 
-	// Helper Method
 	private int checkBalance(BinaryNode rootLeft, BinaryNode rootRight) {
 		if((rootLeft == null) && (rootRight == null)) { //if current node is a leaf node then no need to check balance of its children
 			return 0;
@@ -101,10 +102,9 @@ public class AVLTree {
 			return rootLeft.getHeight() - rootRight.getHeight(); // +1 is not required, as both right and left child
 																	// exits and 1 gets nullified
 		}
-	}// end of method
+	}
 
 
-	// Calculate height of Node
 	private int calculateHeight(BinaryNode currentNode) {
 		if (currentNode == null) {
 			return 0;
@@ -112,19 +112,17 @@ public class AVLTree {
 		return 1 + Math.max((currentNode.getLeft() != null ? currentNode.getLeft().getHeight() : -1),
 				(currentNode.getRight() != null ? currentNode.getRight().getHeight() : -1));
 
-	}// end of method
+	}
 
 
-	// creates a new blank new node
 	public BinaryNode createNewNode(int value) {
 		BinaryNode node = new BinaryNode();
 		node.setValue(value);
 		node.setHeight(0);// Since this is a leaf node, its height is 0
 		return node;
-	}// end of method
+	}
 
 
-	// Level order traversal of BST
 	void levelOrderTraversal() {
 		Queue<BinaryNode> queue = new LinkedList<BinaryNode>();
 		queue.add(root);
@@ -141,19 +139,16 @@ public class AVLTree {
 			if (presentNode.getRight() != null)
 				queue.add(presentNode.getRight());
 		}
-	}// end of method
+	}
 
 
-	// Deleting a node from BST
 	public void deleteNodeOfBST(int value) {
 		System.out.println("Deleting " + value + " from AVL Tree ...");
 		root = deleteNodeOfBST(root, value);
 	}
 
 
-	// Helper Method for delete
 	public BinaryNode deleteNodeOfBST(BinaryNode currentNode, int value) {
-		// THIS ELSE_IF BLOCK IS BST CONDITION
 		if (currentNode == null)
 			return null;
 		if (value < currentNode.getValue()) {
@@ -178,7 +173,6 @@ public class AVLTree {
 			return currentNode;// if it is a leaf node,then no need to do balancing for this node, do only for its ancestors
 		}
 
-		// THIS IS WHERE WE WILL DO AVL SPECIFIC WORK
 		int balance = checkBalance(currentNode.getLeft(), currentNode.getRight());
 		if (balance > 1) {
 			if (checkBalance(currentNode.getLeft().getLeft(), currentNode.getLeft().getRight()) > 0) {
@@ -205,17 +199,16 @@ public class AVLTree {
 		currentNode.setHeight(calculateHeight(currentNode));
 		return currentNode;
 
-	}// end of method
+	}
 
 
-	// Get minimum element in binary search tree
 	public static BinaryNode minimumElement(BinaryNode root) {
 		if (root.getLeft() == null)
 			return root;
 		else {
 			return minimumElement(root.getLeft());
 		}
-	}// end of method
+	}
 
 
 	void printTreeGraphically() {
@@ -251,7 +244,7 @@ public class AVLTree {
 				}
 				previousLevelWasAllNull = true;
 			}
-		}//end of loop
-	}//end of method
+		}
+	}
 
-}// end of class
+}

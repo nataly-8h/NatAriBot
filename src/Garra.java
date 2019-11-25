@@ -1,3 +1,10 @@
+/* EQUIPO: ARI VALENZUELA (A01635584)
+ * 	NATALY HERNANDEZ (A01631314)
+ * NOMBRE DEL JUEGO: NATARIBOT
+ * NOMBRE DE LA CLASE: Garra.java
+ * FECHA: 25/11/19
+ * COMENTARIOS Y OBSERVACIONES: Esta es la clase que maneja toda la lógica de la garra
+ */
 
 public class Garra {
 	private int posX, posY, largo, derX, derY, izqX, izqY, barraX;
