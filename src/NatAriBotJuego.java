@@ -34,11 +34,11 @@ import javax.swing.SwingWorker;
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
 	private Image img, derTrue, derFalse, downTrue, downFalse, izqTrue, izqFalse, borde, gameBox, progBox, pro1, pro2,
-			pro3, pro4, ifRed, ifYell, ifGreen, ifBlue, ifAll, ifNone, barraGarra, garraDer, garraIzq;
+			pro3, pro4, ifRed, ifYell, ifGreen, ifBlue, ifAll, ifNone, barraGarra, garraDer, garraIzq, clear, skip;
 
 	private Image[] cajaImage = new Image[4];
 
-	private Caja caja;
+	private Caja caja, tempCaja;
 
 	private Garra garra;
 
@@ -125,6 +125,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.barraGarra = new ImageIcon("barragarra.png").getImage();
 		this.garraDer = new ImageIcon("garraDer.png").getImage();
 		this.garraIzq = new ImageIcon("garraIzq.png").getImage();
+		
+		this.clear = new ImageIcon("clear.png").getImage();
+		this.skip = new ImageIcon("skip.png").getImage();
 
 		this.cajaImage[0] = new ImageIcon("redbox.png").getImage();
 		this.cajaImage[1] = new ImageIcon("yellbox.png").getImage();
@@ -167,6 +170,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.th = new Thread(this);
 		this.th.start();
 	}
+	//temp caja
+
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -247,6 +252,19 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			} else {
 				continue;
+			}
+		}
+		
+		//temp Caja
+		if(this.hasCaja) {
+			if(this.tempCaja.getColor() == 1) {
+				g.drawImage(this.cajaImage[0], this.caja.getX(), this.caja.getY(), this);
+			}else if(this.tempCaja.getColor() == 2) {
+				g.drawImage(this.cajaImage[1], this.caja.getX(), this.caja.getY(), this);
+			}else if(this.tempCaja.getColor() == 3) {
+				g.drawImage(this.cajaImage[2], this.caja.getX(), this.caja.getY(), this);
+			}else  {
+				g.drawImage(this.cajaImage[3], this.caja.getX(), this.caja.getY(), this);
 			}
 		}
 
@@ -1178,11 +1196,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 
-		g.setColor(Color.RED);
-		g.fillRect(1012, 623, 65, 42);
-		g.setColor(Color.BLUE);
-		g.fillRect(1099, 623, 65, 42);
-
+		
+		g.drawImage(clear,1012, 623, this);
+	//	g.fillRect(1012, 623, 65, 42);
+	
+		g.drawImage(skip, 1099, 623, this);
+		
 		// CIRCULO DE PLAY
 		if (this.play) {
 			g.setColor(Color.RED);
@@ -2612,6 +2631,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					hasCaja = true;
 					if (!this.cajas[posGarra].isEmpty()) {
 						this.caja = this.cajas[posGarra].pop();
+						this.tempCaja = this.caja;
 					}
 
 				} else if (this.cajas[posGarra].isEmpty() && !hasCaja) {
