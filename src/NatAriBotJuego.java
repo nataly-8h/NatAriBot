@@ -2527,10 +2527,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void subir() {
-		if (this.garra.isOpen() && !this.cajas[prevPosGarra].isEmpty() && this.hasCaja) {
-			this.cajas[prevPosGarra].pop();
-			this.abrir();
-		}
+//		if (this.garra.isOpen() && !this.cajas[prevPosGarra].isEmpty() && this.hasCaja) {
+//			this.cajas[prevPosGarra].pop();
+//			this.prevPosGarra = 0;
+//			this.abrir();
+//		}
 
 		int n = this.garra.getPosY();
 		while (n >= 47 && this.play) {
@@ -2610,7 +2611,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 					this.garra.setOpen(false);
 					hasCaja = true;
 					if (!this.cajas[posGarra].isEmpty()) {
-						this.caja = this.cajas[posGarra].peek();
+						this.caja = this.cajas[posGarra].pop();
 					}
 
 				} else if (this.cajas[posGarra].isEmpty() && !hasCaja) {
