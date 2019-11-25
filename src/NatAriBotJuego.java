@@ -34,7 +34,7 @@ import javax.swing.SwingWorker;
 public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, MouseListener, MouseMotionListener {
 
 	private Image img, derTrue, derFalse, downTrue, downFalse, izqTrue, izqFalse, borde, gameBox, progBox, pro1, pro2,
-			pro3, pro4, ifRed, ifYell, ifGreen, ifBlue, ifAll, ifNone, barraGarra, garraDer, garraIzq, clear, skip;
+			pro3, pro4, ifRed, ifYell, ifGreen, ifBlue, ifAll, ifNone, barraGarra, garraDer, garraIzq, clear, skip, rapido, rapidotrue;
 
 	private Image[] cajaImage = new Image[4];
 
@@ -48,12 +48,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	private Stack<Caja>[] cajas, meta;
 
-	private int espacios, actualpos, maxCajas, coorToolx, coorTooly, posGarra, prevPosGarra, maxAcciones, numAcciones;
+	private int espacios, actualpos, maxCajas, coorToolx, coorTooly, posGarra, velocidad, maxAcciones, numAcciones;
 
 	private String nivel;
 
 	private boolean play, gameOver, flagDer, flagIzq, flagDown, flagProg1, flagProg2, flagProg3, flagProg4, flagIfRed,
-			flagIfYell, flagIfGreen, flagIfBlue, flagIfAll, flagIfNone, hasCaja, win;
+			flagIfYell, flagIfGreen, flagIfBlue, flagIfAll, flagIfNone, hasCaja, win, fast;
 
 	private Hashtable<Integer, String> niveles;
 	private AVLTree avl;
@@ -73,12 +73,12 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.maxAcciones = 1000;
 		this.numAcciones = 0;
 		this.avl = new AVLTree();
-		this.prevPosGarra = 0;
 		this.posGarra = 0;
 		this.niveles = new Hashtable<Integer, String>();
 		this.toolbox = new Tool[13];
 		this.play = false;
 		this.maxCajas = 6;
+		this.velocidad = 1;
 		try {
 			int count = 1;
 			String linea;
@@ -129,6 +129,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		
 		this.clear = new ImageIcon("clear.png").getImage();
 		this.skip = new ImageIcon("skip.png").getImage();
+		this.rapido = new ImageIcon("fast.png").getImage();
+		this.rapidotrue = new ImageIcon("fastTrue.png").getImage();
 
 		this.cajaImage[0] = new ImageIcon("redbox.png").getImage();
 		this.cajaImage[1] = new ImageIcon("yellbox.png").getImage();
@@ -1129,6 +1131,13 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		g.fillRect(734, 434, 449, 249);
 
 		// herramientas
+		//fasto
+		if(!this.fast) {
+			g.drawImage(this.rapido, 1099, 451, this);
+		}else {
+			g.drawImage(this.rapidotrue, 1099, 451, this);
+		}
+		
 		g.setColor(Color.WHITE);
 		g.fillRect(751, 451, 65, 42);
 
@@ -1503,8 +1512,9 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.posGarra = 0;
 		this.hasCaja = false;
 		this.caja = null;
-		this.prevPosGarra = 0;
 		this.play = false;
+		this.fast = false;
+		this.velocidad = 1;
 		if(this.nodeCurrent.getRight()!=null) {
 			this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
 			this.nodePrevious = this.nodeCurrent;
@@ -1524,7 +1534,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.posGarra = 0;
 		this.hasCaja = false;
 		this.caja = null;
-		this.prevPosGarra = 0;
+		this.velocidad = 1;
+		this.fast = false;
 		if(this.nodeCurrent.getLeft()!=null) {
 			this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
 			this.nodePrevious = this.nodeCurrent;
@@ -1570,6 +1581,14 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			this.programa2 = new Tool[this.programa2.length];
 			this.programa3 = new Tool[this.programa3.length];
 			this.programa4 = new Tool[this.programa4.length];
+		}else if(e.getX() > 1099 && e.getX() < 1164 && e.getY() > 451 && e.getY() < 486 && this.play) {
+			if(this.fast) {
+				this.velocidad = 1;
+				this.fast= false;
+			}else {
+				this.velocidad = 3;
+				this.fast= true;
+			}
 		}
 
 		// SKIP
@@ -2378,9 +2397,10 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.gameOver = false;
 		this.hasCaja = false;
 		this.posGarra = 0;
-		this.prevPosGarra = 0;
 		this.caja = null;
 		this.win = false;
+		this.fast = false;
+		this.velocidad = 1;
 		this.paintLevelAgain();
 		this.repaint();
 	}
@@ -2543,11 +2563,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void derecha() {
 		int n = 0;
 		while (n <= 90) {
-			n++;
+			n+=velocidad;
 			if (hasCaja) {
-				this.caja.setX(this.caja.getX() + 1);
+				this.caja.setX(this.caja.getX() + velocidad);
 			}
-			this.garra.setPosX(this.garra.getPosX() + 1);
+			this.garra.setPosX(this.garra.getPosX() + velocidad);
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
 	}
@@ -2555,11 +2575,11 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	public void izquierda() {
 		int n = 0;
 		while (n <= 90) {
-			n++;
+			n+=velocidad;
 			if (hasCaja) {
-				this.caja.setX(this.caja.getX() - 1);
+				this.caja.setX(this.caja.getX() - velocidad);
 			}
-			this.garra.setPosX(this.garra.getPosX() - 1);
+			this.garra.setPosX(this.garra.getPosX() - velocidad);
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
 	}
@@ -2581,8 +2601,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				caja.setY(this.garra.getPosY() + 18);
 			}
 
-			n++;
-			this.garra.setPosY(this.garra.getPosY() + 1);
+			n+=velocidad;
+			this.garra.setPosY(this.garra.getPosY() + velocidad);
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
 	}
@@ -2604,8 +2624,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				caja.setY(this.garra.getPosY() + 18);
 			}
 
-			n--;
-			this.garra.setPosY(this.garra.getPosY() - 1);
+			n-=velocidad;
+			this.garra.setPosY(this.garra.getPosY() - velocidad);
 			this.paintImmediately(0, 0, 1300, 1300);
 		}
 	}
@@ -2645,9 +2665,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 			if (programa[i].getAccion() == "der"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 0)) {
-				if (posGarra < this.espacios - 1) {
-					this.prevPosGarra = this.posGarra;
-					this.posGarra++;
+				if (posGarra < (this.espacios - 1)) {
+					this.posGarra ++;
 					this.derecha();
 
 				} else {
@@ -2656,7 +2675,6 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			} else if (programa[i].getAccion() == "izq"
 					|| (this.ifAccionChecker(programa[i]) && this.WhichToolIf(programa[i]) == 1)) {
 				if (posGarra > 0) {
-					this.prevPosGarra = this.posGarra;
 					this.posGarra--;
 					this.izquierda();
 
