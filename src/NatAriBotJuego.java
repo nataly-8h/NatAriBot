@@ -2527,7 +2527,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	}
 
 	public void subir() {
-		if (this.garra.isOpen() && !this.cajas[prevPosGarra].isEmpty()) {
+		if (this.garra.isOpen() && !this.cajas[prevPosGarra].isEmpty() && this.hasCaja) {
 			this.cajas[prevPosGarra].pop();
 			this.abrir();
 		}
