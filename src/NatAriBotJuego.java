@@ -1464,9 +1464,17 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.caja = null;
 		this.prevPosGarra = 0;
 		this.play = false;
-		this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
-		this.nodePrevious = this.nodeCurrent;
-		this.nodeCurrent = this.nodeCurrent.getRight();
+		if(this.nodeCurrent.getRight()!=null) {
+			this.nivel = this.niveles.get(this.nodeCurrent.getRight().getValue());
+			this.nodePrevious = this.nodeCurrent;
+			this.nodeCurrent = this.nodeCurrent.getRight();
+		} else if(this.nodePrevious.getLeft()!=null) {
+			this.nivel = this.niveles.get(this.nodePrevious.getLeft().getValue());
+			this.nodeCurrent = this.nodePrevious.getLeft();
+			this.nodePrevious = this.nodeCurrent;
+		} else {
+			System.out.println("NO MORE LEVELS");
+		}
 		this.paintLevel();
 		this.repaint();
 	}
@@ -1476,9 +1484,21 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.hasCaja = false;
 		this.caja = null;
 		this.prevPosGarra = 0;
-		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
-		this.nodePrevious = this.nodeCurrent;
-		this.nodeCurrent= this.nodeCurrent.getLeft();
+		if(this.nodeCurrent.getLeft()!=null) {
+			this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
+			this.nodePrevious = this.nodeCurrent;
+			this.nodeCurrent= this.nodeCurrent.getLeft();
+		} else if(this.nodeCurrent.getLeft()==null) {
+			if(this.nodePrevious.getRight()!=null) {
+				this.nivel = this.niveles.get(this.nodePrevious.getRight().getValue());
+				this.nodeCurrent= this.nodePrevious.getRight();
+				this.nodePrevious = this.nodeCurrent;
+			} else {
+				System.out.println("NO MORE LEVELS");
+			}
+		} else {
+			System.out.println("NO MORE LEVELS");
+		}
 		this.paintLevel();
 		this.repaint();
 	}
