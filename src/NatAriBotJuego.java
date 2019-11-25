@@ -1833,6 +1833,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 			}
 		}
 		
+		else if (e.getX() > 631 && e.getX() < 646 && e.getY() > 454 && e.getY() < 496 && !this.play && 7<this.programa1.length) {
+			if(this.programa1[7]!=null) {
+				this.toolFlagger(this.programa1[7],this.programa1,7);
+				if(this.programa1[7]!=null) {
+				this.ifProgFlagger(this.programa1[7], this.programa1, 7);
+				}
+			}
+		} else if(e.getX() > 646 && e.getX() < 696 && e.getY() > 454 && e.getY() < 496 && !this.play && 7<this.programa1.length) {
+			if(this.programa1[7]!=null) {
+				this.toolFlagger(this.programa1[7],this.programa1,7);
+				if(this.programa1[7]!=null) {
+				this.progIfFlagger(this.programa1[7], this.programa1, 7);
+				}
+			}
+		}
+		
 		//SEGUNDO PROGRAMA
 		else if (e.getX() > 155 && e.getX() < 170 && e.getY() > 510 && e.getY() < 552 && !this.play && 0<this.programa2.length) {
 			if(this.programa2[0]!=null) {
@@ -1942,6 +1958,21 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.toolFlagger(this.programa2[6],this.programa2,6);
 				if(this.programa1[6]!=null) {
 				this.progIfFlagger(this.programa2[6], this.programa2, 6);
+				}
+			}
+		}
+		else if (e.getX() > 631 && e.getX() < 646 && e.getY() > 510 && e.getY() < 552 && !this.play && 7<this.programa2.length) {
+			if(this.programa2[7]!=null) {
+				this.toolFlagger(this.programa2[7],this.programa2,7);
+				if(this.programa2[7]!=null) {
+				this.ifProgFlagger(this.programa2[7], this.programa2, 7);
+				}
+			}
+		} else if(e.getX() > 646 && e.getX() < 696 && e.getY() > 510 && e.getY() < 552 && !this.play && 7<this.programa2.length) {
+			if(this.programa2[7]!=null) {
+				this.toolFlagger(this.programa2[7],this.programa2,7);
+				if(this.programa2[7]!=null) {
+				this.progIfFlagger(this.programa2[7], this.programa2, 7);
 				}
 			}
 		}
@@ -2058,6 +2089,21 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				}
 			}
 		}
+		else if (e.getX() > 631 && e.getX() < 646 && e.getY() > 566 && e.getY() < 608 && !this.play && 7<this.programa3.length) {
+			if(this.programa3[7]!=null) {
+				this.toolFlagger(this.programa3[7],this.programa3,7);
+				if(this.programa3[7]!=null) {
+				this.ifProgFlagger(this.programa3[7], this.programa3, 7);
+				}
+			}
+		} else if(e.getX() > 646 && e.getX() < 696 && e.getY() > 566 && e.getY() < 608 && !this.play && 7<this.programa3.length) {
+			if(this.programa3[7]!=null) {
+				this.toolFlagger(this.programa3[7],this.programa3,7);
+				if(this.programa3[7]!=null) {
+				this.progIfFlagger(this.programa3[7], this.programa3, 7);
+				}
+			}
+		}
 		
 		//PROGRAMA 4
 		
@@ -2169,6 +2215,22 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				this.toolFlagger(this.programa4[6],this.programa4,6);
 				if(this.programa4[6]!=null) {
 				this.progIfFlagger(this.programa4[6], this.programa4, 6);
+				}
+			}
+		}
+		
+		else if (e.getX() > 631 && e.getX() < 646 && e.getY() > 622 && e.getY() < 664 && !this.play && 7<this.programa4.length) {
+			if(this.programa4[7]!=null) {
+				this.toolFlagger(this.programa4[7],this.programa4,7);
+				if(this.programa4[7]!=null) {
+				this.ifProgFlagger(this.programa4[7], this.programa4, 7);
+				}
+			}
+		} else if(e.getX() > 646 && e.getX() < 696 && e.getY() > 622 && e.getY() < 664 && !this.play && 7<this.programa4.length) {
+			if(this.programa4[7]!=null) {
+				this.toolFlagger(this.programa4[7],this.programa4,7);
+				if(this.programa4[7]!=null) {
+				this.progIfFlagger(this.programa4[7], this.programa4, 7);
 				}
 			}
 		}
