@@ -1473,7 +1473,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 		this.caja = null;
 		this.prevPosGarra = 0;
 		this.nivel = this.niveles.get(this.nodeCurrent.getLeft().getValue());
-		this.nodeCurrent = this.nodeCurrent.getLeft();
+		this.nodePrevious = this.nodeCurrent;
+		this.nodeCurrent= this.nodeCurrent.getLeft();
 		this.paintLevel();
 		this.repaint();
 	}
@@ -2417,8 +2418,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 
 	public boolean ifAccionChecker(Tool herramienta) {
 		if (this.ToolIfChecker(herramienta) == 0) {
-			if (!this.cajas[posGarra].isEmpty()) {
-				if (this.cajas[posGarra].peek().getColor() == 1) {
+			if (this.hasCaja) {
+				if(this.caja.getColor()==1) {
 					return true;
 				} else {
 					return false;
@@ -2427,8 +2428,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				return false;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 1) {
-			if (!this.cajas[posGarra].isEmpty()) {
-				if (this.cajas[posGarra].peek().getColor() == 2) {
+			if (this.hasCaja) {
+				if(this.caja.getColor()==2) {
 					return true;
 				} else {
 					return false;
@@ -2437,8 +2438,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				return false;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 2) {
-			if (!this.cajas[posGarra].isEmpty()) {
-				if (this.cajas[posGarra].peek().getColor() == 3) {
+			if (this.hasCaja) {
+				if(this.caja.getColor()==3) {
 					return true;
 				} else {
 					return false;
@@ -2447,8 +2448,8 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				return false;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 3) {
-			if (!this.cajas[posGarra].isEmpty()) {
-				if (this.cajas[posGarra].peek().getColor() == 4) {
+			if (this.hasCaja) {
+				if(this.caja.getColor()==4) {
 					return true;
 				} else {
 					return false;
@@ -2457,17 +2458,16 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				return false;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 4) {
-			if (!this.cajas[posGarra].isEmpty()) {
-				return false;
-			} else {
+			if (this.hasCaja) {
 				return true;
+			} else {
+				return false;
 			}
 		} else if (this.ToolIfChecker(herramienta) == 5) {
-			System.out.println("HOLA");
-			if (!this.cajas[posGarra].isEmpty()) {
-				return true;
-			} else {
+			if (this.hasCaja) {
 				return false;
+			} else {
+				return true;
 			}
 		} else {
 			return false;
@@ -2567,12 +2567,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 	// ACTION CHECK :)
 	public void accionCheck(Tool[] programa) {
 		for (int i = 0; i < programa.length; i++) {
-			try {
-				Thread.sleep(1000);
-				this.paintImmediately(0, 0, 1300, 1300);
-			} catch (InterruptedException e) {
-				System.out.println("TERRIBLE");
-			}
+			this.paintImmediately(0, 0, 1300, 1300);
 			this.numAcciones++;
 			if (this.numAcciones > this.maxAcciones) {
 				break;
@@ -2641,7 +2636,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				if (programa.equals(this.programa2)) {
 					i = -1;
 				} else {
-					i = programa.length;
+					//i = programa.length;
 					this.accionCheck(this.programa2);
 				}
 			} else if (programa[i].getAccion() == "prog3"
@@ -2649,7 +2644,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				if (programa.equals(this.programa3)) {
 					i = -1;
 				} else {
-					i = programa.length;
+					//i = programa.length;
 					this.accionCheck(this.programa3);
 				}
 
@@ -2658,7 +2653,7 @@ public class NatAriBotJuego extends JPanel implements Runnable, KeyListener, Mou
 				if (programa.equals(this.programa4)) {
 					i = -1;
 				} else {
-					i = programa.length;
+					//i = programa.length;
 					this.accionCheck(this.programa4);
 				}
 			}
